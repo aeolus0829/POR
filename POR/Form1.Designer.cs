@@ -30,9 +30,9 @@
         {
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.lblAccount = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUserNameValue = new System.Windows.Forms.Label();
+            this.lblDisplayName = new System.Windows.Forms.Label();
+            this.lblDisplayNameValue = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -50,39 +50,39 @@
             this.lblUserName.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblUserName.Location = new System.Drawing.Point(12, 9);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(57, 20);
+            this.lblUserName.Size = new System.Drawing.Size(41, 20);
             this.lblUserName.TabIndex = 1;
-            this.lblUserName.Text = "使用者";
+            this.lblUserName.Text = "帳號";
             // 
-            // lblAccount
+            // lblUserNameValue
             // 
-            this.lblAccount.AutoSize = true;
-            this.lblAccount.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblAccount.Location = new System.Drawing.Point(75, 9);
-            this.lblAccount.Name = "lblAccount";
-            this.lblAccount.Size = new System.Drawing.Size(54, 20);
-            this.lblAccount.TabIndex = 2;
-            this.lblAccount.Text = "00575";
+            this.lblUserNameValue.AutoSize = true;
+            this.lblUserNameValue.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUserNameValue.Location = new System.Drawing.Point(59, 9);
+            this.lblUserNameValue.Name = "lblUserNameValue";
+            this.lblUserNameValue.Size = new System.Drawing.Size(54, 20);
+            this.lblUserNameValue.TabIndex = 2;
+            this.lblUserNameValue.Text = "00575";
             // 
-            // label1
+            // lblDisplayName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(28, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "姓名";
+            this.lblDisplayName.AutoSize = true;
+            this.lblDisplayName.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblDisplayName.Location = new System.Drawing.Point(119, 9);
+            this.lblDisplayName.Name = "lblDisplayName";
+            this.lblDisplayName.Size = new System.Drawing.Size(41, 20);
+            this.lblDisplayName.TabIndex = 3;
+            this.lblDisplayName.Text = "姓名";
             // 
-            // label2
+            // lblDisplayNameValue
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(75, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "一二三";
+            this.lblDisplayNameValue.AutoSize = true;
+            this.lblDisplayNameValue.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblDisplayNameValue.Location = new System.Drawing.Point(163, 9);
+            this.lblDisplayNameValue.Name = "lblDisplayNameValue";
+            this.lblDisplayNameValue.Size = new System.Drawing.Size(57, 20);
+            this.lblDisplayNameValue.TabIndex = 4;
+            this.lblDisplayNameValue.Text = "一二三";
             // 
             // comboBox1
             // 
@@ -111,9 +111,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 627);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblAccount);
+            this.Controls.Add(this.lblDisplayNameValue);
+            this.Controls.Add(this.lblDisplayName);
+            this.Controls.Add(this.lblUserNameValue);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.statusStrip1);
             this.Name = "Form1";
@@ -128,9 +128,9 @@
 
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblAccount;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUserNameValue;
+        private System.Windows.Forms.Label lblDisplayName;
+        private System.Windows.Forms.Label lblDisplayNameValue;
         private System.Windows.Forms.ComboBox comboBox1;
     }
 }
