@@ -118,6 +118,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Name = "Form1";
             this.Text = "收料程式 POR";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

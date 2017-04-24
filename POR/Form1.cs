@@ -13,8 +13,15 @@ namespace POR
 {
     public partial class Form1 : Form
     {
-        string winFormVersion, formName;
+        string winFormVersion, formName, windowsAccount;
         bool TESTING, isActive;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (TESTING) this.Text += winFormVersion + " 測試版 " + " / SAP資料環境: " ;
+            else this.Text += winFormVersion;
+            lblAccount.Text = Environment.UserName;
+        }
 
         public Form1()
         {
