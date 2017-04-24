@@ -22,13 +22,6 @@ namespace POR
             if (TESTING) this.Text += winFormVersion + " 測試版 " + " / SAP資料環境: " ;
             else this.Text += winFormVersion;
 
-            //取得使用者資訊
-            Auth auth = new Auth();
-            domainUserName = auth.GetDomainUserName();
-            currentUserID = auth.GetUserID(domainUserName);
-            var groupList = auth.GetGroupLists(currentUserID);
-            isInGroup = auth.SearchInGroups(groupList);
-
             lblUserNameValue.Text = domainUserName;
             lblDisplayNameValue.Text = currentUserID;
         }
@@ -44,8 +37,16 @@ namespace POR
 
             isActive = chkForm.isFormActive(formName);
 
-            if (isActive || isInGroup) InitializeComponent();
-            else MessageBox.Show("目前程式停用中，請連絡資訊組");
+            //取得使用者資訊
+            Auth auth = new Auth();
+            domainUserName = auth.GetDomainUserName();
+            currentUserID = auth.GetUserID(domainUserName);
+            var groupList = auth.GetGroupLists(currentUserID);
+            isInGroup = auth.SearchInGroups(groupList);
+
+
+            if (isActive && isInGroup) InitializeComponent();
+            else MessageBox.Show("目前程式停用中，可能是特定時間或缺乏使用權限，請連絡資訊組");
 
         }
     }

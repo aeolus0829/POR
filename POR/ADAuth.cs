@@ -6,6 +6,10 @@ using System;
 /// <summary>
 /// 回傳目前使用者的各種AD資訊
 /// 
+/// 限制
+/// 執行時需需加入 windows ad
+/// 針對 windows form 設計
+/// 
 /// 使用順序：
 /// GetDomainUserName->GetUserID->GetGroupLists->SearchInGroups
 /// 
