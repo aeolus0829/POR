@@ -20,7 +20,8 @@ namespace POR
         {
             if (TESTING) this.Text += winFormVersion + " 測試版 " + " / SAP資料環境: " ;
             else this.Text += winFormVersion;
-            lblAccount.Text = Environment.UserName;
+            windowsAccount = Environment.UserName;
+            lblAccount.Text = windowsAccount;
         }
 
         public Form1()
