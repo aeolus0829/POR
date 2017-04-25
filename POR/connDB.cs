@@ -38,6 +38,7 @@ namespace connDB
             rfcPara.Add(RfcConfigParameters.Password, "Ubn3dx");
             rfcPara.Add(RfcConfigParameters.SystemNumber, "00");
             rfcPara.Add(RfcConfigParameters.Language, "ZF");
+
             return rfcPara;
         }
 

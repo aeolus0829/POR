@@ -100,9 +100,9 @@
             "123",
             "161",
             "162"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 71);
+            this.comboBox1.Location = new System.Drawing.Point(608, 12);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(53, 24);
+            this.comboBox1.Size = new System.Drawing.Size(93, 24);
             this.comboBox1.TabIndex = 5;
             // 
             // Form1
