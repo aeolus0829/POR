@@ -42,8 +42,41 @@ namespace connDB
             return rfcPara;
         }
 
+        public DataTable GetDataTableFromRFCTable(IRfcTable myrfcTable)
+        {
+            DataTable loTable = new DataTable();
+
+            int liElement = 0;
+
+            for (liElement = 0; liElement <= myrfcTable.ElementCount - 1; liElement++)
+            {
+
+                RfcElementMetadata metadata = myrfcTable.GetElementMetadata(liElement);
+
+                loTable.Columns.Add(metadata.Name);
+
+            }
+
+            foreach (IRfcStructure Row in myrfcTable)
+            {
+                DataRow ldr = loTable.NewRow();
+
+                for (liElement = 0; liElement <= myrfcTable.ElementCount - 1; liElement++)
+                {
+                    RfcElementMetadata metadata = myrfcTable.GetElementMetadata(liElement);
+
+                    ldr[metadata.Name] = Row.GetString(metadata.Name);
+                }
+
+                loTable.Rows.Add(ldr);
+            }
+
+            return loTable;
+        }
 
     }
+
+
     class mssqlConnClass
     {
         public string toPackingDB(string DBenv)

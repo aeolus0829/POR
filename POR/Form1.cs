@@ -30,6 +30,7 @@ namespace POR
             get;
             set;
         }
+
         private string zmsg;
         private bool zflag;
 
@@ -76,9 +77,10 @@ namespace POR
                 iFunc.SetValue("ZRFCTYPE", "G");
                 iFunc.Invoke(rfcDest);
 
-                var POHEADER = iFunc.GetStructure("POHEADER");
-                var POITEM = iFunc.GetTable("POITEM");
-                var POACCOUNT = iFunc.GetTable("POACCOUNT");
+                var rfcPOHEADER = iFunc.GetStructure("POHEADER");
+                var rfcPOITEM = iFunc.GetTable("POITEM");
+                var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
+                POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                 zmsg = iFunc.GetString("ZMSG");
             }
             catch (Exception ex)
@@ -88,7 +90,7 @@ namespace POR
 
                 zflag = true;
                 lblMsg.Text = zmsg;
-                dgvPO.DataSource = POHEADER;
+                dgvPO.DataSource = POITEM;
 
 
         }
