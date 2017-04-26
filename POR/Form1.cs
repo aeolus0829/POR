@@ -13,33 +13,11 @@ namespace POR
         string formVersion, formName, domainUserName, currentUserID;
         bool isTesting, isActive, isInGroup;
 
-        public DataTable POACCOUNT
-        {
-            get;
-            set;
-        }
-
-        public DataTable POHEADER
-        {
-            get;
-            set;
-        }
-
         private void btnPickPO_Click(object sender, EventArgs e)
         {
             Form2 secondForm = new Form2();
             secondForm.Show();
         }
-
-        public DataTable POITEM
-        {
-            get;
-            set;
-        }
-
-        private string zmsg;
-        private bool zflag;
-
 
         public Form1()
         {
@@ -70,37 +48,6 @@ namespace POR
 
             lblUserNameValue.Text = domainUserName;
             lblDisplayNameValue.Text = currentUserID;
-
-            try
-            {
-                sapConnClass sc = new sapConnClass();
-                var rfcPara = sc.setParaToConn("620");
-                var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
-                var rfcRepo = rfcDest.Repository;
-                IRfcFunction iFunc = null;
-                iFunc = rfcRepo.CreateFunction("ZRFC006");
-                iFunc.SetValue("PURCHASEORDER", "4500022337");
-                iFunc.SetValue("ZRFCTYPE", "G");
-                iFunc.Invoke(rfcDest);
-
-                var rfcPOHEADER = iFunc.GetStructure("POHEADER");
-                var rfcPOITEM = iFunc.GetTable("POITEM");
-                var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
-                
-                POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
-                POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
-                POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
-                zmsg = iFunc.GetString("ZMSG");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "error");
-            }
-
-            zflag = true;
-            lblMsg.Text = zmsg;
-            dgvPO.DataSource = POHEADER;
-
 
         }
     }

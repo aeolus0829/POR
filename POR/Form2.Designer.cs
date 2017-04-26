@@ -93,6 +93,7 @@
             this.btnPoSubmit.TabIndex = 2;
             this.btnPoSubmit.Text = "送出";
             this.btnPoSubmit.UseVisualStyleBackColor = true;
+            this.btnPoSubmit.Click += new System.EventHandler(this.btnPoSubmit_Click);
             // 
             // Form2
             // 
@@ -106,7 +107,7 @@
             this.Controls.Add(this.dgvPoItem);
             this.Controls.Add(this.dgvPoHeader);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "選取採購單";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoAccount)).EndInit();
