@@ -30,13 +30,11 @@
         {
             this.dgvPoHeader = new System.Windows.Forms.DataGridView();
             this.dgvPoItem = new System.Windows.Forms.DataGridView();
-            this.dgvPoAccount = new System.Windows.Forms.DataGridView();
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
             this.btnPoSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPoAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPoHeader
@@ -56,15 +54,6 @@
             this.dgvPoItem.RowTemplate.Height = 24;
             this.dgvPoItem.Size = new System.Drawing.Size(685, 150);
             this.dgvPoItem.TabIndex = 1;
-            // 
-            // dgvPoAccount
-            // 
-            this.dgvPoAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPoAccount.Location = new System.Drawing.Point(12, 516);
-            this.dgvPoAccount.Name = "dgvPoAccount";
-            this.dgvPoAccount.RowTemplate.Height = 24;
-            this.dgvPoAccount.Size = new System.Drawing.Size(685, 150);
-            this.dgvPoAccount.TabIndex = 2;
             // 
             // lblInputPO
             // 
@@ -103,14 +92,12 @@
             this.Controls.Add(this.btnPoSubmit);
             this.Controls.Add(this.txtPONum);
             this.Controls.Add(this.lblInputPO);
-            this.Controls.Add(this.dgvPoAccount);
             this.Controls.Add(this.dgvPoItem);
             this.Controls.Add(this.dgvPoHeader);
             this.Name = "Form2";
             this.Text = "選取採購單";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPoAccount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,7 +107,6 @@
 
         private System.Windows.Forms.DataGridView dgvPoHeader;
         private System.Windows.Forms.DataGridView dgvPoItem;
-        private System.Windows.Forms.DataGridView dgvPoAccount;
         private System.Windows.Forms.Label lblInputPO;
         private System.Windows.Forms.TextBox txtPONum;
         private System.Windows.Forms.Button btnPoSubmit;
