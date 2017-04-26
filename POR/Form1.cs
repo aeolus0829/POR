@@ -25,6 +25,12 @@ namespace POR
             set;
         }
 
+        private void btnPickPO_Click(object sender, EventArgs e)
+        {
+            Form2 secondForm = new Form2();
+            secondForm.Show();
+        }
+
         public DataTable POITEM
         {
             get;
@@ -70,9 +76,9 @@ namespace POR
                 sapConnClass sc = new sapConnClass();
                 var rfcPara = sc.setParaToConn("620");
                 var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
-                var rfcRp = rfcDest.Repository;
+                var rfcRepo = rfcDest.Repository;
                 IRfcFunction iFunc = null;
-                iFunc = rfcRp.CreateFunction("ZRFC006");
+                iFunc = rfcRepo.CreateFunction("ZRFC006");
                 iFunc.SetValue("PURCHASEORDER", "4500022337");
                 iFunc.SetValue("ZRFCTYPE", "G");
                 iFunc.Invoke(rfcDest);
@@ -83,6 +89,7 @@ namespace POR
                 
                 POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                 POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
+                POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
                 zmsg = iFunc.GetString("ZMSG");
             }
             catch (Exception ex)
@@ -90,9 +97,9 @@ namespace POR
                 MessageBox.Show(ex.ToString(), "error");
             }
 
-                zflag = true;
-                lblMsg.Text = zmsg;
-                dgvPO.DataSource = POHEADER;
+            zflag = true;
+            lblMsg.Text = zmsg;
+            dgvPO.DataSource = POHEADER;
 
 
         }

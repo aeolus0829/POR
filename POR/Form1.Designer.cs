@@ -33,9 +33,9 @@
             this.lblUserNameValue = new System.Windows.Forms.Label();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.lblDisplayNameValue = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgvPO = new System.Windows.Forms.DataGridView();
             this.lblMsg = new System.Windows.Forms.Label();
+            this.btnPickPO = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,31 +87,10 @@
             this.lblDisplayNameValue.TabIndex = 4;
             this.lblDisplayNameValue.Text = "一二三";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "101",
-            "102",
-            "103",
-            "104",
-            "105",
-            "106",
-            "122",
-            "123",
-            "161",
-            "162"});
-            this.comboBox1.Location = new System.Drawing.Point(608, 9);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(93, 24);
-            this.comboBox1.TabIndex = 5;
-            // 
             // dgvPO
             // 
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPO.Location = new System.Drawing.Point(16, 33);
+            this.dgvPO.Location = new System.Drawing.Point(16, 260);
             this.dgvPO.Name = "dgvPO";
             this.dgvPO.RowTemplate.Height = 24;
             this.dgvPO.Size = new System.Drawing.Size(685, 201);
@@ -127,14 +106,25 @@
             this.lblMsg.TabIndex = 7;
             this.lblMsg.Text = "一二三";
             // 
+            // btnPickPO
+            // 
+            this.btnPickPO.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnPickPO.Location = new System.Drawing.Point(16, 46);
+            this.btnPickPO.Name = "btnPickPO";
+            this.btnPickPO.Size = new System.Drawing.Size(104, 23);
+            this.btnPickPO.TabIndex = 8;
+            this.btnPickPO.Text = " 選取採購單";
+            this.btnPickPO.UseVisualStyleBackColor = true;
+            this.btnPickPO.Click += new System.EventHandler(this.btnPickPO_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 627);
+            this.Controls.Add(this.btnPickPO);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.dgvPO);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblDisplayNameValue);
             this.Controls.Add(this.lblDisplayName);
             this.Controls.Add(this.lblUserNameValue);
@@ -156,9 +146,9 @@
         private System.Windows.Forms.Label lblUserNameValue;
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.Label lblDisplayNameValue;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dgvPO;
         private System.Windows.Forms.Label lblMsg;
+        private System.Windows.Forms.Button btnPickPO;
     }
 }
 
