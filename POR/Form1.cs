@@ -14,6 +14,7 @@ namespace POR
         {
             Form2 secondForm = new Form2();
             secondForm.Show();
+            toolStripStatusLabel1.Text = "測試123456, 物料文件號碼 543293827";
         }
 
         public Form1()

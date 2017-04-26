@@ -36,11 +36,16 @@
             this.dgvPO = new System.Windows.Forms.DataGridView();
             this.lblMsg = new System.Windows.Forms.Label();
             this.btnPickPO = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Font = new System.Drawing.Font("Microsoft JhengHei", 14F);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 605);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(713, 22);
@@ -117,6 +122,11 @@
             this.btnPickPO.UseVisualStyleBackColor = true;
             this.btnPickPO.Click += new System.EventHandler(this.btnPickPO_Click);
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -133,6 +143,8 @@
             this.Name = "Form1";
             this.Text = "收料程式 POR";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,6 +161,7 @@
         private System.Windows.Forms.DataGridView dgvPO;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Button btnPickPO;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

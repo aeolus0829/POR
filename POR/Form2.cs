@@ -29,6 +29,7 @@ namespace POR
             {
                 try
                 {
+                    Cursor.Current = Cursors.WaitCursor;
                     sapConnClass sc = new sapConnClass();
                     var rfcPara = sc.setParaToConn("620");
                     var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
@@ -47,6 +48,8 @@ namespace POR
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
                     var zmsg = iFunc.GetString("ZMSG");
+
+                    Cursor.Current = Cursors.Default;
                 }
                 catch (Exception ex)
                 {
@@ -58,6 +61,12 @@ namespace POR
             }
             else MessageBox.Show("未輸入採購單號", "error");
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dgvPoHeader.DataSource = null;
+            dgvPoItem.DataSource = null;
         }
     }
 }

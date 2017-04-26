@@ -33,23 +33,29 @@
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
             this.btnPoSubmit = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnSelected = new System.Windows.Forms.Button();
+            this.btnComplete = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnRestart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPoHeader
             // 
             this.dgvPoHeader.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPoHeader.Location = new System.Drawing.Point(12, 204);
+            this.dgvPoHeader.Location = new System.Drawing.Point(12, 48);
             this.dgvPoHeader.Name = "dgvPoHeader";
             this.dgvPoHeader.RowTemplate.Height = 24;
-            this.dgvPoHeader.Size = new System.Drawing.Size(685, 150);
+            this.dgvPoHeader.Size = new System.Drawing.Size(685, 72);
             this.dgvPoHeader.TabIndex = 0;
             // 
             // dgvPoItem
             // 
             this.dgvPoItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPoItem.Location = new System.Drawing.Point(12, 360);
+            this.dgvPoItem.Location = new System.Drawing.Point(12, 126);
             this.dgvPoItem.Name = "dgvPoItem";
             this.dgvPoItem.RowTemplate.Height = 24;
             this.dgvPoItem.Size = new System.Drawing.Size(685, 150);
@@ -84,11 +90,66 @@
             this.btnPoSubmit.UseVisualStyleBackColor = true;
             this.btnPoSubmit.Click += new System.EventHandler(this.btnPoSubmit_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 315);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(685, 160);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // btnSelected
+            // 
+            this.btnSelected.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnSelected.Location = new System.Drawing.Point(330, 282);
+            this.btnSelected.Name = "btnSelected";
+            this.btnSelected.Size = new System.Drawing.Size(37, 27);
+            this.btnSelected.TabIndex = 5;
+            this.btnSelected.Text = "︾";
+            this.btnSelected.UseVisualStyleBackColor = true;
+            // 
+            // btnComplete
+            // 
+            this.btnComplete.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnComplete.Location = new System.Drawing.Point(307, 481);
+            this.btnComplete.Name = "btnComplete";
+            this.btnComplete.Size = new System.Drawing.Size(86, 30);
+            this.btnComplete.TabIndex = 6;
+            this.btnComplete.Text = "選取完畢";
+            this.btnComplete.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnClear.Location = new System.Drawing.Point(321, 16);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(52, 26);
+            this.btnClear.TabIndex = 7;
+            this.btnClear.Text = "清除";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnRestart
+            // 
+            this.btnRestart.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnRestart.Location = new System.Drawing.Point(611, 481);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(86, 30);
+            this.btnRestart.TabIndex = 8;
+            this.btnRestart.Text = "重新開始";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 678);
+            this.ClientSize = new System.Drawing.Size(709, 523);
+            this.Controls.Add(this.btnRestart);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnComplete);
+            this.Controls.Add(this.btnSelected);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnPoSubmit);
             this.Controls.Add(this.txtPONum);
             this.Controls.Add(this.lblInputPO);
@@ -98,6 +159,7 @@
             this.Text = "選取採購單";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +172,10 @@
         private System.Windows.Forms.Label lblInputPO;
         private System.Windows.Forms.TextBox txtPONum;
         private System.Windows.Forms.Button btnPoSubmit;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnSelected;
+        private System.Windows.Forms.Button btnComplete;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnRestart;
     }
 }
