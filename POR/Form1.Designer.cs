@@ -34,6 +34,9 @@
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.lblDisplayNameValue = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dgvPO = new System.Windows.Forms.DataGridView();
+            this.lblMsg = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -100,16 +103,37 @@
             "123",
             "161",
             "162"});
-            this.comboBox1.Location = new System.Drawing.Point(608, 12);
+            this.comboBox1.Location = new System.Drawing.Point(608, 9);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(93, 24);
             this.comboBox1.TabIndex = 5;
+            // 
+            // dgvPO
+            // 
+            this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPO.Location = new System.Drawing.Point(16, 33);
+            this.dgvPO.Name = "dgvPO";
+            this.dgvPO.RowTemplate.Height = 24;
+            this.dgvPO.Size = new System.Drawing.Size(685, 201);
+            this.dgvPO.TabIndex = 6;
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.AutoSize = true;
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMsg.Location = new System.Drawing.Point(12, 237);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(57, 20);
+            this.lblMsg.TabIndex = 7;
+            this.lblMsg.Text = "一二三";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 627);
+            this.Controls.Add(this.lblMsg);
+            this.Controls.Add(this.dgvPO);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblDisplayNameValue);
             this.Controls.Add(this.lblDisplayName);
@@ -119,6 +143,7 @@
             this.Name = "Form1";
             this.Text = "收料程式 POR";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,6 +157,8 @@
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.Label lblDisplayNameValue;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvPO;
+        private System.Windows.Forms.Label lblMsg;
     }
 }
 

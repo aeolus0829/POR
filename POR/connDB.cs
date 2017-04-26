@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace connDB
 {
-    class sapConnClass
+    public class sapConnClass
     {
         public RfcConfigParameters setParaToConn(string sapClient)
         {
@@ -41,6 +41,7 @@ namespace connDB
 
             return rfcPara;
         }
+
 
     }
     class mssqlConnClass

@@ -1,0 +1,343 @@
+**** Log file opened by process 5456 at 2017-04-25 14:03:14 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:03:14.053 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 14:03:14.298 [Thread 9]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 12232 at 2017-04-25 14:03:30 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:03:30.667 [Thread 11]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 14:03:30.959 [Thread 11]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 11928 at 2017-04-25 14:07:10 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:07:10.032 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 14:07:10.253 [Thread 10]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 7628 at 2017-04-25 14:13:54 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:13:54.386 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 14:13:54.645 [Thread 9]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 13884 at 2017-04-25 14:27:12 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:27:12.033 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 14:27:12.229 [Thread 10]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 12560 at 2017-04-25 14:32:46 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:32:46.946 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 14:32:47.165 [Thread 9]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination.Compare(RfcConfigParameters changedParameters, Boolean mergeChangedParameters)
+   於 SAP.Middleware.Connector.RfcDestination.Update(RfcConfigParameters updatedParameters, Boolean mergeUpdatedParameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.ConfigurationExchange(IDestinationConfiguration newCfg)
+   於 SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+**** Log file opened by process 12660 at 2017-04-25 14:57:19 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 14:57:19.753 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination DEV_620 -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 6984 at 2017-04-25 15:06:20 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 15:06:20.196 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination DEV_620 -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 8812 at 2017-04-25 16:15:54 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 16:15:54.492 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination DEV_620 -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 6508 at 2017-04-25 17:09:26 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 17:09:26.831 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 17:09:27.179 [Thread 9]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 11376 at 2017-04-25 17:14:34 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 17:14:34.133 [Thread 9]
+System.NotImplementedException: 方法或作業尚未實作。
+   於 connDB.SAPDestinationConfig.ChangeEventsSupported() 於 N:\資訊\Code\winform\POR\POR\connDB.cs: 行 15
+   於 SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+**** Log file opened by process 11648 at 2017-04-25 17:15:16 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-25 17:15:16.989 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidParameterException: Inconsistency in destination name: does not match DEV
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-25 17:15:17.019 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   於 SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+**** Log file opened by process 7364 at 2017-04-26 10:04:52 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-26 10:04:52.603 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidParameterException: Inconsistency in destination name: does not match DEV
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-26 10:04:52.666 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: destination configuration already initialized
+   於 SAP.Middleware.Connector.RfcDestinationManager.RegisterDestinationConfiguration(IDestinationConfiguration config)
+**** Log file opened by process 13028 at 2017-04-26 10:05:13 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-26 10:05:13.349 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-26 10:05:13.548 [Thread 10]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 6492 at 2017-04-26 10:09:44 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-26 10:09:44.707 [Thread 9]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-26 10:09:44.965 [Thread 9]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 12772 at 2017-04-26 10:12:59 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-26 10:12:59.784 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot get destination  -- no destination configuration registered
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+>> Error entry 2017-04-26 10:12:59.992 [Thread 10]
+SAP.Middleware.Connector.RfcConfigurationException: system number must not be null or empty
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopyTo(RfcConfigParameters target)
+   於 SAP.Middleware.Connector.RfcConfigParameters.NormalizedCopy()
+   於 SAP.Middleware.Connector.RfcDestination..ctor(String destName, RfcConfigParameters parameters)
+   於 SAP.Middleware.Connector.RfcDestinationManager.GetDestination(String destinationName)
+**** Log file opened by process 10904 at 2017-04-26 10:51:32 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-26 10:51:32.737 [Thread 10]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER POITEM of FUNCTION ZRFC006 (GETTER): cannot convert TABLE [STRUCTURE ZMMT005_I] into IRfcStructure ---> System.InvalidCastException: 無法將類型 'SAP.Middleware.Connector.RfcTable' 的物件轉換為類型 'SAP.Middleware.Connector.IRfcStructure'。
+   於 SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+**** Log file opened by process 1988 at 2017-04-26 10:52:06 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-04-26 10:52:06.434 [Thread 10]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER POACCOUNT of FUNCTION ZRFC006 (GETTER): cannot convert TABLE [STRUCTURE ZMMT005_A] into IRfcStructure ---> System.InvalidCastException: 無法將類型 'SAP.Middleware.Connector.RfcTable' 的物件轉換為類型 'SAP.Middleware.Connector.IRfcStructure'。
+   於 SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)

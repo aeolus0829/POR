@@ -2,8 +2,9 @@
 using System.Windows.Forms;
 using connDB;
 using ADAuth;
-using SAPCon;
 using System.Data;
+using SAP.Middleware.Connector;
+using SAPLogonCtrl;
 
 namespace POR
 {
@@ -29,6 +30,8 @@ namespace POR
             get;
             set;
         }
+        private string zmsg;
+        private bool zflag;
 
 
         public Form1()
@@ -61,26 +64,31 @@ namespace POR
             lblUserNameValue.Text = domainUserName;
             lblDisplayNameValue.Text = currentUserID;
 
-            sapConnClass sapEnv = new sapConnClass();
-            SAP.Middleware.Connector.RfcConfigParameters rfcConfigPara = sapEnv.setParaToConn("620");
+            try
+            {
+                sapConnClass sc = new sapConnClass();
+                var rfcPara = sc.setParaToConn("620");
+                var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
+                var rfcRp = rfcDest.Repository;
+                IRfcFunction iFunc = null;
+                iFunc = rfcRp.CreateFunction("ZRFC006");
+                iFunc.SetValue("PURCHASEORDER", "4500022337");
+                iFunc.SetValue("ZRFCTYPE", "G");
+                iFunc.Invoke(rfcDest);
 
-            Logon sapLogon = new Logon();
+                var POHEADER = iFunc.GetStructure("POHEADER");
+                var POITEM = iFunc.GetTable("POITEM");
+                var POACCOUNT = iFunc.GetTable("POACCOUNT");
+                zmsg = iFunc.GetString("ZMSG");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "error");
+            }
 
-            sapLogon.Conncet();
-
-            Function sapFunc = new Function();
-
-            sapLogon.SetFunction("ZRFC006");
-
-            sapLogon.Field_SetValue("PURCHASEORDER", "4500022337");
-
-            sapLogon.Field_SetValue("ZRFCTYPE", "G");
-
-            sapLogon.StartFunction();
-
-            this.POHEADER = sapLogon.getStruct("POHEADER");
-            this.POITEM = sapLogon.Return_Message("POITEM");
-            this.POACCOUNT = sapLogon.Return_Message("POACCOUNT");
+                zflag = true;
+                lblMsg.Text = zmsg;
+                dgvPO.DataSource = POHEADER;
 
 
         }
