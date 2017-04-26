@@ -55,7 +55,6 @@ namespace POR
 
                 dgvPoHeader.DataSource = POHEADER;
                 dgvPoItem.DataSource = POITEM;
-                dgvPoAccount.DataSource = POACCOUNT;
             }
             else MessageBox.Show("未輸入採購單號", "error");
 

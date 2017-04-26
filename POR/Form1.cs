@@ -2,9 +2,6 @@
 using System.Windows.Forms;
 using connDB;
 using ADAuth;
-using System.Data;
-using SAP.Middleware.Connector;
-using SAPLogonCtrl;
 
 namespace POR
 {
