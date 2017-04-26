@@ -42,28 +42,28 @@ namespace connDB
             return rfcPara;
         }
 
-        public DataTable GetDataTableFromRFCTable(IRfcTable myrfcTable)
+        public DataTable GetDataTableFromRFCTable(IRfcTable rfcTable)
         {
             DataTable loTable = new DataTable();
 
             int liElement = 0;
 
-            for (liElement = 0; liElement <= myrfcTable.ElementCount - 1; liElement++)
+            for (liElement = 0; liElement <= rfcTable.ElementCount - 1; liElement++)
             {
 
-                RfcElementMetadata metadata = myrfcTable.GetElementMetadata(liElement);
+                RfcElementMetadata metadata = rfcTable.GetElementMetadata(liElement);
 
                 loTable.Columns.Add(metadata.Name);
 
             }
 
-            foreach (IRfcStructure Row in myrfcTable)
+            foreach (IRfcStructure Row in rfcTable)
             {
                 DataRow ldr = loTable.NewRow();
 
-                for (liElement = 0; liElement <= myrfcTable.ElementCount - 1; liElement++)
+                for (liElement = 0; liElement <= rfcTable.ElementCount - 1; liElement++)
                 {
-                    RfcElementMetadata metadata = myrfcTable.GetElementMetadata(liElement);
+                    RfcElementMetadata metadata = rfcTable.GetElementMetadata(liElement);
 
                     ldr[metadata.Name] = Row.GetString(metadata.Name);
                 }
@@ -74,6 +74,23 @@ namespace connDB
             return loTable;
         }
 
+        public DataTable GetDataTableFromRFCStructure(IRfcStructure rfcPOHEADER)
+        {            
+            DataTable dt = new DataTable();
+
+            for (int i = 0; i <= rfcPOHEADER.ElementCount - 1; i++) dt.Columns.Add(rfcPOHEADER.GetElementMetadata(i).Name);
+
+            DataRow row = dt.NewRow();
+
+            for (int j = 0; j <= rfcPOHEADER.ElementCount - 1; j++) row[j] = rfcPOHEADER.GetValue(j);
+
+            dt.Rows.Add(row);
+
+            return dt;          
+
+
+
+        }
     }
 
 

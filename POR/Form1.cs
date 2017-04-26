@@ -80,7 +80,9 @@ namespace POR
                 var rfcPOHEADER = iFunc.GetStructure("POHEADER");
                 var rfcPOITEM = iFunc.GetTable("POITEM");
                 var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
+                
                 POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
+                POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                 zmsg = iFunc.GetString("ZMSG");
             }
             catch (Exception ex)
@@ -90,7 +92,7 @@ namespace POR
 
                 zflag = true;
                 lblMsg.Text = zmsg;
-                dgvPO.DataSource = POITEM;
+                dgvPO.DataSource = POHEADER;
 
 
         }
