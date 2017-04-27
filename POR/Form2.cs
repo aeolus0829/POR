@@ -77,22 +77,28 @@ namespace POR
 
         private void btnSelected_Click(object sender, EventArgs e)
         {
+            //暫存資料用
             DataTable dtTemp = new DataTable();
+            //產生欄位及名稱
             foreach (DataGridViewColumn dgvCol in dgvPoItem.Columns) dtTemp.Columns.Add(dgvCol.Name, typeof(string));
 
             Int32 selectedRowCount = dgvPoItem.Rows.GetRowCount(DataGridViewElementStates.Selected);
 
-            if (selectedRowCount > 0)
+            if (selectedRowCount > 0) //有在 PO item 選取資料
             {
-                if (dgvStack.Rows.Count == 0)
+                if (dgvStack.Rows.Count == 0) // 第一次存放選取資料前，需先產生欄位及名稱
                 {
                     foreach (DataGridViewColumn dgvCol in dgvPoItem.Columns) dtStack.Columns.Add(dgvCol.Name, typeof(string));
                 }
+
+                //定義選取資料行
                 for (int i = 0; i < dgvPoItem.SelectedRows.Count; i++)
                 {
                     dtTemp.Rows.Add();
+                    //定義選取資料列
                     for (int j = 0; j < dgvPoItem.Columns.Count; j++)
                     {
+                        //將選取資料按照位置放入暫存區
                         dtTemp.Rows[i][j] = dgvPoItem.SelectedRows[i].Cells[j].Value;
                     }
                 }
