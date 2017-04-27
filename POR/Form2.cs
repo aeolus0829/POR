@@ -1,13 +1,7 @@
 ﻿using connDB;
 using SAP.Middleware.Connector;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace POR
@@ -22,6 +16,8 @@ namespace POR
         public DataTable POACCOUNT { get; set; }
         public DataTable POHEADER { get; set; }
         public DataTable POITEM { get; set; }
+        public string zflag { get; private set; }
+        public string zmsg { get; private set; }
 
         private void btnPoSubmit_Click(object sender, EventArgs e)
         {
@@ -47,7 +43,8 @@ namespace POR
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
-                    var zmsg = iFunc.GetString("ZMSG");
+                    zflag = iFunc.GetString("ZFLAG");
+                    zmsg = iFunc.GetString("ZMSG");
 
                     Cursor.Current = Cursors.Default;
                 }
@@ -55,9 +52,13 @@ namespace POR
                 {
                     MessageBox.Show(ex.ToString(), "error");
                 }
+                if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
+                else
+                {
+                    dgvPoHeader.DataSource = POHEADER;
+                    dgvPoItem.DataSource = POITEM;
+                }
 
-                dgvPoHeader.DataSource = POHEADER;
-                dgvPoItem.DataSource = POITEM;
             }
             else MessageBox.Show("未輸入採購單號", "error");
 
@@ -65,6 +66,7 @@ namespace POR
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            txtPONum.Text = null;
             dgvPoHeader.DataSource = null;
             dgvPoItem.DataSource = null;
         }
