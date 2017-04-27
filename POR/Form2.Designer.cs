@@ -39,14 +39,14 @@
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
             this.btnPoSubmit = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvStack = new System.Windows.Forms.DataGridView();
             this.btnSelected = new System.Windows.Forms.Button();
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStack)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPoHeader
@@ -108,20 +108,20 @@
             this.btnPoSubmit.UseVisualStyleBackColor = true;
             this.btnPoSubmit.Click += new System.EventHandler(this.btnPoSubmit_Click);
             // 
-            // dataGridView1
+            // dgvStack
             // 
             dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 315);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
+            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStack.Location = new System.Drawing.Point(12, 315);
+            this.dgvStack.Name = "dgvStack";
+            this.dgvStack.ReadOnly = true;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(685, 160);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.TabStop = false;
+            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvStack.RowTemplate.Height = 24;
+            this.dgvStack.Size = new System.Drawing.Size(685, 160);
+            this.dgvStack.TabIndex = 4;
+            this.dgvStack.TabStop = false;
             // 
             // btnSelected
             // 
@@ -133,6 +133,7 @@
             this.btnSelected.TabStop = false;
             this.btnSelected.Text = "︾";
             this.btnSelected.UseVisualStyleBackColor = true;
+            this.btnSelected.Click += new System.EventHandler(this.btnSelected_Click);
             // 
             // btnComplete
             // 
@@ -177,7 +178,7 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.btnSelected);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvStack);
             this.Controls.Add(this.btnPoSubmit);
             this.Controls.Add(this.txtPONum);
             this.Controls.Add(this.lblInputPO);
@@ -187,7 +188,7 @@
             this.Text = "選取採購單";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +201,7 @@
         private System.Windows.Forms.Label lblInputPO;
         private System.Windows.Forms.TextBox txtPONum;
         private System.Windows.Forms.Button btnPoSubmit;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvStack;
         private System.Windows.Forms.Button btnSelected;
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.Button btnClear;

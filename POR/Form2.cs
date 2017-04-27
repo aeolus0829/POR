@@ -11,11 +11,15 @@ namespace POR
         public Form2()
         {
             InitializeComponent();
+
+            dtStack = new DataTable();
         }
         public string connClient { get; set; }
         public DataTable POACCOUNT { get; set; }
         public DataTable POHEADER { get; set; }
         public DataTable POITEM { get; set; }
+
+        public DataTable dtStack { get; set; }
         public string zflag { get; private set; }
         public string zmsg { get; private set; }
 
@@ -69,6 +73,40 @@ namespace POR
             txtPONum.Text = null;
             dgvPoHeader.DataSource = null;
             dgvPoItem.DataSource = null;
+        }
+
+        private void btnSelected_Click(object sender, EventArgs e)
+        {
+            DataTable dtTemp = new DataTable();
+            foreach (DataGridViewColumn dgvCol in dgvPoItem.Columns) dtTemp.Columns.Add(dgvCol.Name, typeof(string));
+
+            Int32 selectedRowCount = dgvPoItem.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
+            if (selectedRowCount > 0)
+            {
+                if (dgvStack.Rows.Count == 0)
+                {
+                    foreach (DataGridViewColumn dgvCol in dgvPoItem.Columns) dtStack.Columns.Add(dgvCol.Name, typeof(string));
+                }
+                for (int i = 0; i < dgvPoItem.SelectedRows.Count; i++)
+                {
+                    dtTemp.Rows.Add();
+                    for (int j = 0; j < dgvPoItem.Columns.Count; j++)
+                    {
+                        dtTemp.Rows[i][j] = dgvPoItem.SelectedRows[i].Cells[j].Value;
+                    }
+                }
+
+                dtStack.Merge(dtTemp);
+
+                if (dtStack.Rows.Count>0)
+                {
+                    dgvStack.DataSource = null;
+                    dgvStack.DataSource = dtStack;
+                } else dgvStack.DataSource = dtStack;
+
+
+            }
         }
     }
 }
