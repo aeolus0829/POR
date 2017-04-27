@@ -12,7 +12,7 @@ namespace POR
         {
             InitializeComponent();
         }
-
+        public string connClient { get; set; }
         public DataTable POACCOUNT { get; set; }
         public DataTable POHEADER { get; set; }
         public DataTable POITEM { get; set; }
@@ -27,7 +27,7 @@ namespace POR
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     sapConnClass sc = new sapConnClass();
-                    var rfcPara = sc.setParaToConn("620");
+                    var rfcPara = sc.setParaToConn(connClient);
                     var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
                     var rfcRepo = rfcDest.Repository;
                     IRfcFunction iFunc = null;

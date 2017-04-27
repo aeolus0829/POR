@@ -74,15 +74,15 @@ namespace connDB
             return loTable;
         }
 
-        public DataTable GetDataTableFromRFCStructure(IRfcStructure rfcPOHEADER)
+        public DataTable GetDataTableFromRFCStructure(IRfcStructure rfcStructure)
         {            
             DataTable dt = new DataTable();
 
-            for (int i = 0; i <= rfcPOHEADER.ElementCount - 1; i++) dt.Columns.Add(rfcPOHEADER.GetElementMetadata(i).Name);
+            for (int i = 0; i <= rfcStructure.ElementCount - 1; i++) dt.Columns.Add(rfcStructure.GetElementMetadata(i).Name);
 
             DataRow row = dt.NewRow();
 
-            for (int j = 0; j <= rfcPOHEADER.ElementCount - 1; j++) row[j] = rfcPOHEADER.GetValue(j);
+            for (int j = 0; j <= rfcStructure.ElementCount - 1; j++) row[j] = rfcStructure.GetValue(j);
 
             dt.Rows.Add(row);
 

@@ -10,10 +10,10 @@ namespace POR
         string formVersion, formName, domainUserName, currentUserID;
         bool isTesting, isActive, isInGroup;
 
+        Form2 poForm = new Form2();
         private void btnPickPO_Click(object sender, EventArgs e)
         {
-            Form2 secondForm = new Form2();
-            secondForm.Show();
+            poForm.Show();
             toolStripStatusLabel1.Text = "測試123456, 物料文件號碼 543293827";
         }
 
@@ -23,6 +23,7 @@ namespace POR
             formName = "POR";
             isTesting = true;
             formVersion = "0.10";
+            poForm.connClient = "620";            
 
             //檢查程式的啟用狀態
             chkFormStatusClass chkForm = new chkFormStatusClass();
@@ -41,7 +42,7 @@ namespace POR
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (isTesting) this.Text += formVersion + " 測試版 " + " / SAP資料環境: ";
+            if (isTesting) this.Text += formVersion + " 測試版 " + " / SAP資料環境: " + poForm.connClient;
             else this.Text += formVersion;
 
             lblUserNameValue.Text = domainUserName;
