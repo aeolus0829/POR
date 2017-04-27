@@ -105,7 +105,9 @@ namespace POR
                     dgvStack.DataSource = dtStack;
                 } else dgvStack.DataSource = dtStack;
 
+                dgvPoItem.ClearSelection();
 
+                dgvStack.FirstDisplayedScrollingRowIndex = dgvStack.RowCount - 1;
             }
         }
     }
