@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPoItem = new System.Windows.Forms.DataGridView();
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
@@ -41,20 +41,25 @@
             this.btnComplete = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
+            this.lblPoDocType = new System.Windows.Forms.Label();
+            this.lblPoNum = new System.Windows.Forms.Label();
+            this.lblVendorName = new System.Windows.Forms.Label();
+            this.lblPoDate = new System.Windows.Forms.Label();
+            this.lblPoGrp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStack)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPoItem
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPoItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPoItem.Location = new System.Drawing.Point(12, 126);
             this.dgvPoItem.Name = "dgvPoItem";
             this.dgvPoItem.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPoItem.RowTemplate.Height = 24;
             this.dgvPoItem.Size = new System.Drawing.Size(685, 150);
             this.dgvPoItem.TabIndex = 1;
@@ -91,14 +96,14 @@
             // 
             // dgvStack
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStack.Location = new System.Drawing.Point(12, 315);
             this.dgvStack.Name = "dgvStack";
             this.dgvStack.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStack.RowTemplate.Height = 24;
             this.dgvStack.Size = new System.Drawing.Size(685, 160);
             this.dgvStack.TabIndex = 4;
@@ -150,11 +155,66 @@
             this.btnRestart.Text = "重新開始";
             this.btnRestart.UseVisualStyleBackColor = true;
             // 
+            // lblPoDocType
+            // 
+            this.lblPoDocType.AutoSize = true;
+            this.lblPoDocType.Font = new System.Drawing.Font("PMingLiU", 14F);
+            this.lblPoDocType.Location = new System.Drawing.Point(12, 83);
+            this.lblPoDocType.Name = "lblPoDocType";
+            this.lblPoDocType.Size = new System.Drawing.Size(104, 19);
+            this.lblPoDocType.TabIndex = 9;
+            this.lblPoDocType.Text = "採單類型：";
+            // 
+            // lblPoNum
+            // 
+            this.lblPoNum.AutoSize = true;
+            this.lblPoNum.Font = new System.Drawing.Font("PMingLiU", 14F);
+            this.lblPoNum.Location = new System.Drawing.Point(12, 55);
+            this.lblPoNum.Name = "lblPoNum";
+            this.lblPoNum.Size = new System.Drawing.Size(104, 19);
+            this.lblPoNum.TabIndex = 10;
+            this.lblPoNum.Text = "採單號碼：";
+            // 
+            // lblVendorName
+            // 
+            this.lblVendorName.AutoSize = true;
+            this.lblVendorName.Font = new System.Drawing.Font("PMingLiU", 14F);
+            this.lblVendorName.Location = new System.Drawing.Point(263, 55);
+            this.lblVendorName.Name = "lblVendorName";
+            this.lblVendorName.Size = new System.Drawing.Size(66, 19);
+            this.lblVendorName.TabIndex = 11;
+            this.lblVendorName.Text = "廠商：";
+            // 
+            // lblPoDate
+            // 
+            this.lblPoDate.AutoSize = true;
+            this.lblPoDate.Font = new System.Drawing.Font("PMingLiU", 14F);
+            this.lblPoDate.Location = new System.Drawing.Point(263, 83);
+            this.lblPoDate.Name = "lblPoDate";
+            this.lblPoDate.Size = new System.Drawing.Size(104, 19);
+            this.lblPoDate.TabIndex = 12;
+            this.lblPoDate.Text = "文件日期：";
+            // 
+            // lblPoGrp
+            // 
+            this.lblPoGrp.AutoSize = true;
+            this.lblPoGrp.Font = new System.Drawing.Font("PMingLiU", 14F);
+            this.lblPoGrp.Location = new System.Drawing.Point(480, 55);
+            this.lblPoGrp.Name = "lblPoGrp";
+            this.lblPoGrp.Size = new System.Drawing.Size(104, 19);
+            this.lblPoGrp.TabIndex = 13;
+            this.lblPoGrp.Text = "採購群組：";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 523);
+            this.Controls.Add(this.lblPoGrp);
+            this.Controls.Add(this.lblPoDate);
+            this.Controls.Add(this.lblVendorName);
+            this.Controls.Add(this.lblPoNum);
+            this.Controls.Add(this.lblPoDocType);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnComplete);
@@ -183,5 +243,10 @@
         private System.Windows.Forms.Button btnComplete;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Label lblPoDocType;
+        private System.Windows.Forms.Label lblPoNum;
+        private System.Windows.Forms.Label lblVendorName;
+        private System.Windows.Forms.Label lblPoDate;
+        private System.Windows.Forms.Label lblPoGrp;
     }
 }

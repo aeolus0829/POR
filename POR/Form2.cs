@@ -112,6 +112,7 @@ namespace POR
                 {
                     dgvPoItem.DataSource = twPoItem;
 
+                    autosizeCol(dgvPoHeader);
                     autosizeCol(dgvPoItem);
                 }
 
