@@ -110,10 +110,8 @@ namespace POR
                 if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
                 else
                 {
-                    dgvPoHeader.DataSource = twPoHeader;
                     dgvPoItem.DataSource = twPoItem;
 
-                    autosizeCol(dgvPoHeader);
                     autosizeCol(dgvPoItem);
                 }
 
@@ -135,7 +133,6 @@ namespace POR
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtPONum.Text = null;
-            dgvPoHeader.DataSource = null;
             dgvPoItem.DataSource = null;
         }
 
