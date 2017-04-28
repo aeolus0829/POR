@@ -91,6 +91,37 @@ namespace connDB
 
 
         }
+
+        public DataTable chgColName(DataTable engDt, string[,] strArray)
+        {
+            DataTable twDt = new DataTable();
+
+            twDt.Merge(engDt);
+
+            string twColName, engColName;
+            int dtColCount = engDt.Columns.Count;
+            int arrayCount = strArray.GetLength(0);
+
+            if (dtColCount==arrayCount)
+            {
+                for (int i=1;i<=dtColCount;i++)
+                {
+                    DataRow row = twDt.NewRow();
+
+                    if (i == 1)
+                    {
+                        for (int headerCount = 0; headerCount < dtColCount; headerCount++)
+                        {
+                            engColName = strArray[headerCount, 0];
+                            twColName = strArray[headerCount, 1];
+                            twDt.Columns[engColName].ColumnName = twColName;
+                        }
+                    }
+
+                }
+            }
+            return twDt;
+        }
     }
 
 

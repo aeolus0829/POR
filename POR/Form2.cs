@@ -24,6 +24,8 @@ namespace POR
         public DataTable dtStack { get; set; }
         public string zflag { get; private set; }
         public string zmsg { get; private set; }
+        public DataTable twPoHeader { get; private set; }
+        public DataTable twPoItem { get; private set; }
 
         string[,] poHeaderColArray = {
             {"COMP_CODE" , "公司代碼"},
@@ -38,22 +40,32 @@ namespace POR
         };
 
         string[,] poItemColArray = {
-            {"PO_NUMBER", "採購文件號碼"},
-            {"PO_ITEM", "採購文件的項目號碼"},
-            {"SHORT_TEXT", "短文"},
-            {"MATERIAL", "物料號碼"},
-            {"PLANT", "工廠"},
-            {"STGE_LOC#", "儲存地點"},
-            {"MATL_GROUP", "物料群組"},
-            {"QUANTITY#", "數量"},
-            {"PO_UNIT", "採購單計量單位"},
-            {"NET_PRICE", "BAPIs 的幣別金額﹝含九個"},
-            {"TAX_CODE#", "營業稅代碼"},
-            {"OVER_DLV_TOL", "允收比例"},
-            {"ACCTASSCAT", "ACCT"},
-            {"FREE_ITEM", "免費項目"},
-            {"RET_ITEM", "退貨項目"},
-            {"PREQ_NAME", "申請人名稱"}
+            {"PO_NUMBER","採購單號" },
+            {"MOVE_TYPE","異動類型" },
+            {"PO_ITEM", "採單項次" },
+            {"SHORT_TEXT","短文" },
+            {"MATERIAL","物料號碼" },
+            {"PLANT","工廠" },
+            {"STGE_LOC","儲存地點" },
+            {"MATL_GROUP","物料群組" },
+            {"QUANTITY","採單數量" },
+            {"PO_UNIT","單位" },
+            {"ORDERPR_UN", "單位〈採購〉" },
+            {"NET_PRICE", "金額" },
+            {"PRICE_UNIT", "價格單位" },
+            {"TAX_CODE","稅碼" },
+            {"OVER_DLV_TOL", "超量允差" },
+            {"ACCTASSCAT","科目類別" },
+            {"FREE_ITEM","免費" },
+            {"RET_ITEM","退貨" },
+            {"PREQ_NAME","申請人" },
+            {"ENTRY_QNT","輸入數量" },
+            {"ENTRY_UOM","輸入單位" },
+            {"BATCH","批次號碼" },
+            {"MOVE_REAS","異動原因" },
+            {"ITEM_TEXT","項目內文" },
+            {"ORD_MATERIAL","工單料號" },
+            {"FRGKE","採單核發" }
         };
 
 
@@ -81,6 +93,11 @@ namespace POR
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
+
+                    twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
+                    twPoItem = sc.chgColName(POITEM, poItemColArray);
+                    
+
                     zflag = iFunc.GetString("ZFLAG");
                     zmsg = iFunc.GetString("ZMSG");
 
@@ -93,8 +110,8 @@ namespace POR
                 if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
                 else
                 {
-                    dgvPoHeader.DataSource = POHEADER;
-                    dgvPoItem.DataSource = POITEM;
+                    dgvPoHeader.DataSource = twPoHeader;
+                    dgvPoItem.DataSource = twPoItem;
 
                     autosizeCol(dgvPoHeader);
                     autosizeCol(dgvPoItem);
