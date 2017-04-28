@@ -13,6 +13,8 @@ namespace POR
             InitializeComponent();
 
             dtStack = new DataTable();
+
+            
         }
         public string connClient { get; set; }
         public DataTable POACCOUNT { get; set; }
@@ -22,6 +24,38 @@ namespace POR
         public DataTable dtStack { get; set; }
         public string zflag { get; private set; }
         public string zmsg { get; private set; }
+
+        string[,] poHeaderColArray = {
+            {"COMP_CODE" , "公司代碼"},
+            {"DOC_TYPE" , "採購文件類型"},
+            {"VENDOR" , "供應商代號"},
+            {"PURCH_ORG" , "採購組織"},
+            {"PUR_GROUP" , "採購群組"},
+            {"CURRENCY", "幣別碼"},
+            {"EXCH_RATE" , "匯率"},
+            {"DOC_DATE" , "採購文件日期"},
+            {"CREAT_DATE" , "記錄建立日期"}
+        };
+
+        string[,] poItemColArray = {
+            {"PO_NUMBER", "採購文件號碼"},
+            {"PO_ITEM", "採購文件的項目號碼"},
+            {"SHORT_TEXT", "短文"},
+            {"MATERIAL", "物料號碼"},
+            {"PLANT", "工廠"},
+            {"STGE_LOC#", "儲存地點"},
+            {"MATL_GROUP", "物料群組"},
+            {"QUANTITY#", "數量"},
+            {"PO_UNIT", "採購單計量單位"},
+            {"NET_PRICE", "BAPIs 的幣別金額﹝含九個"},
+            {"TAX_CODE#", "營業稅代碼"},
+            {"OVER_DLV_TOL", "允收比例"},
+            {"ACCTASSCAT", "ACCT"},
+            {"FREE_ITEM", "免費項目"},
+            {"RET_ITEM", "退貨項目"},
+            {"PREQ_NAME", "申請人名稱"}
+        };
+
 
         private void btnPoSubmit_Click(object sender, EventArgs e)
         {
