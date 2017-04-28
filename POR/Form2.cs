@@ -61,11 +61,24 @@ namespace POR
                 {
                     dgvPoHeader.DataSource = POHEADER;
                     dgvPoItem.DataSource = POITEM;
+
+                    autosizeCol(dgvPoHeader);
+                    autosizeCol(dgvPoItem);
                 }
 
             }
             else MessageBox.Show("未輸入採購單號", "error");
 
+        }
+
+        private void autosizeCol(DataGridView dgv)
+        {
+            int colw = 0;
+            for (int i = 0;i<= dgv.ColumnCount - 1; i++)
+            {
+                colw = dgv.Columns[i].Width;
+                dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
