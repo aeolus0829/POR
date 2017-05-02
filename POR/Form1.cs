@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using connDB;
 using ADAuth;
+using System.Data;
 
 namespace POR
 {
@@ -10,10 +11,22 @@ namespace POR
         string formVersion, formName, domainUserName, currentUserID;
         bool isTesting, isActive, isInGroup;
 
+        public event EventHandler btnReadDtClicked;
+
+        public void btnReadDt_Click(object sender, EventArgs e)
+        {
+            if (btnReadDtClicked != null) btnReadDtClicked(sender, e);
+            dgvPO.DataSource = dtStack;
+        }
+
         Form2 poForm = new Form2();
+
+        public static DataTable dtStack { get; internal set; }
+
         private void btnPickPO_Click(object sender, EventArgs e)
         {
             poForm.Show();
+            this.Hide();
             toolStripStatusLabel1.Text = "測試123456, 物料文件號碼 543293827";
         }
 

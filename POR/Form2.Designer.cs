@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPoItem = new System.Windows.Forms.DataGridView();
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
@@ -52,16 +52,16 @@
             // 
             // dgvPoItem
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPoItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPoItem.Location = new System.Drawing.Point(12, 105);
+            this.dgvPoItem.Location = new System.Drawing.Point(12, 68);
             this.dgvPoItem.Name = "dgvPoItem";
             this.dgvPoItem.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPoItem.RowTemplate.Height = 24;
-            this.dgvPoItem.Size = new System.Drawing.Size(831, 262);
+            this.dgvPoItem.Size = new System.Drawing.Size(831, 292);
             this.dgvPoItem.TabIndex = 1;
             this.dgvPoItem.TabStop = false;
             // 
@@ -69,7 +69,7 @@
             // 
             this.lblInputPO.AutoSize = true;
             this.lblInputPO.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblInputPO.Location = new System.Drawing.Point(12, 16);
+            this.lblInputPO.Location = new System.Drawing.Point(12, 18);
             this.lblInputPO.Name = "lblInputPO";
             this.lblInputPO.Size = new System.Drawing.Size(104, 16);
             this.lblInputPO.TabIndex = 3;
@@ -78,7 +78,7 @@
             // txtPONum
             // 
             this.txtPONum.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.txtPONum.Location = new System.Drawing.Point(122, 13);
+            this.txtPONum.Location = new System.Drawing.Point(122, 15);
             this.txtPONum.Name = "txtPONum";
             this.txtPONum.Size = new System.Drawing.Size(134, 27);
             this.txtPONum.TabIndex = 1;
@@ -86,7 +86,7 @@
             // btnPoSubmit
             // 
             this.btnPoSubmit.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnPoSubmit.Location = new System.Drawing.Point(263, 16);
+            this.btnPoSubmit.Location = new System.Drawing.Point(262, 14);
             this.btnPoSubmit.Name = "btnPoSubmit";
             this.btnPoSubmit.Size = new System.Drawing.Size(52, 26);
             this.btnPoSubmit.TabIndex = 2;
@@ -96,23 +96,23 @@
             // 
             // dgvStack
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStack.Location = new System.Drawing.Point(12, 406);
+            this.dgvStack.Location = new System.Drawing.Point(12, 399);
             this.dgvStack.Name = "dgvStack";
             this.dgvStack.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStack.RowTemplate.Height = 24;
-            this.dgvStack.Size = new System.Drawing.Size(831, 234);
+            this.dgvStack.Size = new System.Drawing.Size(831, 241);
             this.dgvStack.TabIndex = 4;
             this.dgvStack.TabStop = false;
             // 
             // btnSelected
             // 
             this.btnSelected.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnSelected.Location = new System.Drawing.Point(12, 373);
+            this.btnSelected.Location = new System.Drawing.Point(12, 366);
             this.btnSelected.Name = "btnSelected";
             this.btnSelected.Size = new System.Drawing.Size(37, 27);
             this.btnSelected.TabIndex = 5;
@@ -131,11 +131,12 @@
             this.btnComplete.TabStop = false;
             this.btnComplete.Text = "選取完畢";
             this.btnComplete.UseVisualStyleBackColor = true;
+            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnClear.Location = new System.Drawing.Point(321, 16);
+            this.btnClear.Location = new System.Drawing.Point(320, 13);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(52, 26);
             this.btnClear.TabIndex = 7;
@@ -158,50 +159,50 @@
             // lblPoDocType
             // 
             this.lblPoDocType.AutoSize = true;
-            this.lblPoDocType.Font = new System.Drawing.Font("PMingLiU", 14F);
-            this.lblPoDocType.Location = new System.Drawing.Point(12, 83);
+            this.lblPoDocType.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.lblPoDocType.Location = new System.Drawing.Point(615, 15);
             this.lblPoDocType.Name = "lblPoDocType";
-            this.lblPoDocType.Size = new System.Drawing.Size(104, 19);
+            this.lblPoDocType.Size = new System.Drawing.Size(88, 16);
             this.lblPoDocType.TabIndex = 9;
             this.lblPoDocType.Text = "採單類型：";
             // 
             // lblPoNum
             // 
             this.lblPoNum.AutoSize = true;
-            this.lblPoNum.Font = new System.Drawing.Font("PMingLiU", 14F);
-            this.lblPoNum.Location = new System.Drawing.Point(12, 55);
+            this.lblPoNum.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.lblPoNum.Location = new System.Drawing.Point(378, 17);
             this.lblPoNum.Name = "lblPoNum";
-            this.lblPoNum.Size = new System.Drawing.Size(104, 19);
+            this.lblPoNum.Size = new System.Drawing.Size(88, 16);
             this.lblPoNum.TabIndex = 10;
             this.lblPoNum.Text = "採單號碼：";
             // 
             // lblVendorName
             // 
             this.lblVendorName.AutoSize = true;
-            this.lblVendorName.Font = new System.Drawing.Font("PMingLiU", 14F);
-            this.lblVendorName.Location = new System.Drawing.Point(259, 83);
+            this.lblVendorName.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.lblVendorName.Location = new System.Drawing.Point(12, 46);
             this.lblVendorName.Name = "lblVendorName";
-            this.lblVendorName.Size = new System.Drawing.Size(66, 19);
+            this.lblVendorName.Size = new System.Drawing.Size(56, 16);
             this.lblVendorName.TabIndex = 11;
             this.lblVendorName.Text = "廠商：";
             // 
             // lblPoDate
             // 
             this.lblPoDate.AutoSize = true;
-            this.lblPoDate.Font = new System.Drawing.Font("PMingLiU", 14F);
-            this.lblPoDate.Location = new System.Drawing.Point(259, 55);
+            this.lblPoDate.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.lblPoDate.Location = new System.Drawing.Point(378, 46);
             this.lblPoDate.Name = "lblPoDate";
-            this.lblPoDate.Size = new System.Drawing.Size(104, 19);
+            this.lblPoDate.Size = new System.Drawing.Size(88, 16);
             this.lblPoDate.TabIndex = 12;
             this.lblPoDate.Text = "採單日期：";
             // 
             // lblPoGrp
             // 
             this.lblPoGrp.AutoSize = true;
-            this.lblPoGrp.Font = new System.Drawing.Font("PMingLiU", 14F);
-            this.lblPoGrp.Location = new System.Drawing.Point(480, 55);
+            this.lblPoGrp.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.lblPoGrp.Location = new System.Drawing.Point(615, 46);
             this.lblPoGrp.Name = "lblPoGrp";
-            this.lblPoGrp.Size = new System.Drawing.Size(104, 19);
+            this.lblPoGrp.Size = new System.Drawing.Size(88, 16);
             this.lblPoGrp.TabIndex = 13;
             this.lblPoGrp.Text = "採購群組：";
             // 

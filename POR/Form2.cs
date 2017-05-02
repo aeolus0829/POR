@@ -1,4 +1,5 @@
 ﻿using connDB;
+using POR;
 using SAP.Middleware.Connector;
 using System;
 using System.Data;
@@ -112,7 +113,6 @@ namespace POR
                 {
                     dgvPoItem.DataSource = twPoItem;
 
-                    autosizeCol(dgvPoHeader);
                     autosizeCol(dgvPoItem);
                 }
 
@@ -177,6 +177,22 @@ namespace POR
 
                 dgvStack.FirstDisplayedScrollingRowIndex = dgvStack.RowCount - 1;
             }
+        }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+            
+
+            Form1.dtStack = dtStack;
+
+            this.Close();
+
+            Application.OpenForms[0].Show();
+
+            
+            
+
+
         }
     }
 }

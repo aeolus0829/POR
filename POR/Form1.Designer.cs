@@ -37,6 +37,7 @@
             this.lblMsg = new System.Windows.Forms.Label();
             this.btnPickPO = new System.Windows.Forms.Button();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnReadDt = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
@@ -127,11 +128,24 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnReadDt
+            // 
+            this.btnReadDt.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnReadDt.Location = new System.Drawing.Point(126, 46);
+            this.btnReadDt.Name = "btnReadDt";
+            this.btnReadDt.Size = new System.Drawing.Size(104, 23);
+            this.btnReadDt.TabIndex = 9;
+            this.btnReadDt.Text = "讀取採購單";
+            this.btnReadDt.UseVisualStyleBackColor = true;
+            this.btnReadDt.Visible = false;
+            this.btnReadDt.Click += new System.EventHandler(this.btnReadDt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 627);
+            this.Controls.Add(this.btnReadDt);
             this.Controls.Add(this.btnPickPO);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.dgvPO);
@@ -162,6 +176,7 @@
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Button btnPickPO;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button btnReadDt;
     }
 }
 
