@@ -10,13 +10,22 @@ namespace POR
     {
         string formVersion, formName, domainUserName, currentUserID;
         bool isTesting, isActive, isInGroup;
-
+    
         Form2 poForm = new Form2();
 
         public void btnReadDt_Click(object sender, EventArgs e)
         {
             dgvPO.DataSource = dtStack;
             autosizeCol(dgvPO);
+        }
+
+        private void btnHelpMvt_Click(object sender, EventArgs e)
+        {            
+            MessageBox.Show("101 直收" + Environment.NewLine + "102 取消直收" + Environment.NewLine +
+                "103 暫收" + Environment.NewLine + "104 取消暫收" + Environment.NewLine +
+                "105 驗收" + Environment.NewLine + "106 取消驗收" + Environment.NewLine +
+                "122 退貨" + Environment.NewLine + "123 取消退貨" + Environment.NewLine 
+                ,"說明");
         }
 
         private void autosizeCol(DataGridView dgv)
