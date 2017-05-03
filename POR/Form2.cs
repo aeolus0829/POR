@@ -97,6 +97,8 @@ namespace POR
 
                     twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
                     twPoItem = sc.chgColName(POITEM, poItemColArray);
+
+                    bindPoHeader(twPoHeader);
                     
 
                     zflag = iFunc.GetString("ZFLAG");
@@ -121,13 +123,24 @@ namespace POR
 
         }
 
-        private void autosizeCol(DataGridView dgv)
+        private void bindPoHeader(DataTable twPoHeader)
         {
-            int colw = 0;
+            foreach (DataRow row in twPoHeader.Rows)
+            {
+                lblPoDocTypeVal.Text = row[1].ToString();
+                lblVendorNameVal.Text = row[2].ToString();
+                lblPoGrpVal.Text = row[5].ToString();
+                lblPoDateVal.Text = row[8].ToString();
+                lblPoNumVal.Text = txtPONum.Text;
+            }
+
+        }
+
+        public void autosizeCol(DataGridView dgv)
+        {
             for (int i = 0;i<= dgv.ColumnCount - 1; i++)
             {
-                colw = dgv.Columns[i].Width;
-                dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+                dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
         }
 
@@ -135,6 +148,7 @@ namespace POR
         {
             txtPONum.Text = null;
             dgvPoItem.DataSource = null;
+            lblPoDateVal.Text = lblPoDocTypeVal.Text = lblPoGrpVal.Text = lblPoNumVal.Text = lblVendorNameVal.Text = null;
         }
 
         private void btnSelected_Click(object sender, EventArgs e)
@@ -180,9 +194,11 @@ namespace POR
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
-        {                       
-
+        {
             Form1.dtStack = dtStack;
+            btnClear.PerformClick();
+            dgvPoItem.DataSource = dgvStack.DataSource = null;
+
             this.Close();
 
             Application.OpenForms[0].Show();

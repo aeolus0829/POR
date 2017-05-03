@@ -16,6 +16,15 @@ namespace POR
         public void btnReadDt_Click(object sender, EventArgs e)
         {
             dgvPO.DataSource = dtStack;
+            autosizeCol(dgvPO);
+        }
+
+        private void autosizeCol(DataGridView dgv)
+        {
+            for (int i = 0; i <= dgv.ColumnCount - 1; i++)
+            {
+                dgv.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
         }
 
         public static DataTable dtStack { get; internal set; }
