@@ -69,6 +69,24 @@ namespace POR
             {"FRGKE","採單核發" }
         };
 
+        string[,] POItemColOrder =
+        {
+            {"MOVE_TYPE"},
+            {"PO_NUMBER"},
+            {"PO_ITEM"},
+            {"MATERIAL"},
+            {"ORD_MATERIAL"},
+            {"SHORT_TEXT"},
+            {"PLANT"},
+            {"STGE_LOC"},
+            {"QUANTITY"},
+            {"OVER_DLV_TOL"},
+            {"ENTRY_QNT"},
+            {"BATCH"},
+            {"FREE_ITEM"},
+            {"RET_ITEM"}
+        };
+
 
         private void btnPoSubmit_Click(object sender, EventArgs e)
         {
@@ -94,6 +112,8 @@ namespace POR
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
+
+                    setColOrder(POITEM, POItemColOrder);
 
                     twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
                     twPoItem = sc.chgColName(POITEM, poItemColArray);
@@ -121,6 +141,16 @@ namespace POR
             }
             else MessageBox.Show("未輸入採購單號", "error");
 
+        }
+
+        private void setColOrder(DataTable table, string[,] columnNames)
+        {
+            int columnIndex = 0;
+            foreach (var columnName in columnNames)
+            {
+                table.Columns[columnName].SetOrdinal(columnIndex);
+                columnIndex++;
+            }
         }
 
         private void bindPoHeader(DataTable twPoHeader)
