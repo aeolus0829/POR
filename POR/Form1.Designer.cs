@@ -41,11 +41,11 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnReadDt = new System.Windows.Forms.Button();
             this.btnToSap = new System.Windows.Forms.Button();
-            this.txtMvt = new System.Windows.Forms.TextBox();
             this.lblMbt = new System.Windows.Forms.Label();
             this.btnHelpMvt = new System.Windows.Forms.Button();
             this.lblMdMemo = new System.Windows.Forms.Label();
             this.txtMdMemo = new System.Windows.Forms.TextBox();
+            this.txtMvt = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
@@ -55,9 +55,9 @@
             this.statusStrip1.Font = new System.Drawing.Font("Microsoft JhengHei", 14F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 524);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 482);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(926, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(918, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -120,7 +120,7 @@
             this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPO.RowTemplate.Height = 24;
             this.dgvPO.Size = new System.Drawing.Size(897, 358);
-            this.dgvPO.TabIndex = 4;
+            this.dgvPO.TabIndex = 5;
             // 
             // btnPickPO
             // 
@@ -128,7 +128,7 @@
             this.btnPickPO.Location = new System.Drawing.Point(712, 37);
             this.btnPickPO.Name = "btnPickPO";
             this.btnPickPO.Size = new System.Drawing.Size(104, 26);
-            this.btnPickPO.TabIndex = 2;
+            this.btnPickPO.TabIndex = 3;
             this.btnPickPO.Text = " 選取採購單";
             this.btnPickPO.UseVisualStyleBackColor = true;
             this.btnPickPO.Click += new System.EventHandler(this.btnPickPO_Click);
@@ -144,7 +144,7 @@
             this.btnReadDt.Location = new System.Drawing.Point(822, 37);
             this.btnReadDt.Name = "btnReadDt";
             this.btnReadDt.Size = new System.Drawing.Size(87, 26);
-            this.btnReadDt.TabIndex = 3;
+            this.btnReadDt.TabIndex = 4;
             this.btnReadDt.Text = "取得資料";
             this.btnReadDt.UseVisualStyleBackColor = true;
             this.btnReadDt.Click += new System.EventHandler(this.btnReadDt_Click);
@@ -155,18 +155,9 @@
             this.btnToSap.Location = new System.Drawing.Point(822, 435);
             this.btnToSap.Name = "btnToSap";
             this.btnToSap.Size = new System.Drawing.Size(87, 27);
-            this.btnToSap.TabIndex = 5;
+            this.btnToSap.TabIndex = 6;
             this.btnToSap.Text = "送到 SAP";
             this.btnToSap.UseVisualStyleBackColor = true;
-            // 
-            // txtMvt
-            // 
-            this.txtMvt.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.txtMvt.Location = new System.Drawing.Point(107, 10);
-            this.txtMvt.MaxLength = 3;
-            this.txtMvt.Name = "txtMvt";
-            this.txtMvt.Size = new System.Drawing.Size(33, 27);
-            this.txtMvt.TabIndex = 1;
             // 
             // lblMbt
             // 
@@ -181,7 +172,7 @@
             // btnHelpMvt
             // 
             this.btnHelpMvt.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnHelpMvt.Location = new System.Drawing.Point(146, 11);
+            this.btnHelpMvt.Location = new System.Drawing.Point(300, 8);
             this.btnHelpMvt.Name = "btnHelpMvt";
             this.btnHelpMvt.Size = new System.Drawing.Size(104, 26);
             this.btnHelpMvt.TabIndex = 13;
@@ -207,13 +198,31 @@
             this.txtMdMemo.MaxLength = 30;
             this.txtMdMemo.Name = "txtMdMemo";
             this.txtMdMemo.Size = new System.Drawing.Size(298, 27);
-            this.txtMdMemo.TabIndex = 15;
+            this.txtMdMemo.TabIndex = 2;
+            // 
+            // txtMvt
+            // 
+            this.txtMvt.AutoCompleteCustomSource.AddRange(new string[] {
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "106",
+            "122",
+            "123"});
+            this.txtMvt.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.txtMvt.Location = new System.Drawing.Point(107, 10);
+            this.txtMvt.MaxLength = 3;
+            this.txtMvt.Name = "txtMvt";
+            this.txtMvt.Size = new System.Drawing.Size(33, 27);
+            this.txtMvt.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 546);
+            this.ClientSize = new System.Drawing.Size(918, 504);
             this.Controls.Add(this.txtMdMemo);
             this.Controls.Add(this.lblMdMemo);
             this.Controls.Add(this.btnHelpMvt);
@@ -251,11 +260,11 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Button btnReadDt;
         private System.Windows.Forms.Button btnToSap;
-        private System.Windows.Forms.TextBox txtMvt;
         private System.Windows.Forms.Label lblMbt;
         private System.Windows.Forms.Button btnHelpMvt;
         private System.Windows.Forms.Label lblMdMemo;
         private System.Windows.Forms.TextBox txtMdMemo;
+        private System.Windows.Forms.TextBox txtMvt;
     }
 }
 
