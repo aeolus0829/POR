@@ -137,7 +137,6 @@
             this.btnReadDt.TabIndex = 9;
             this.btnReadDt.Text = "讀取採購單";
             this.btnReadDt.UseVisualStyleBackColor = true;
-            this.btnReadDt.Visible = false;
             this.btnReadDt.Click += new System.EventHandler(this.btnReadDt_Click);
             // 
             // Form1

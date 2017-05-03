@@ -180,19 +180,12 @@ namespace POR
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
-        {
-            
+        {                       
 
             Form1.dtStack = dtStack;
-
             this.Close();
 
             Application.OpenForms[0].Show();
-
-            
-            
-
-
         }
     }
 }

@@ -11,15 +11,12 @@ namespace POR
         string formVersion, formName, domainUserName, currentUserID;
         bool isTesting, isActive, isInGroup;
 
-        public event EventHandler btnReadDtClicked;
+        Form2 poForm = new Form2();
 
         public void btnReadDt_Click(object sender, EventArgs e)
         {
-            if (btnReadDtClicked != null) btnReadDtClicked(sender, e);
             dgvPO.DataSource = dtStack;
         }
-
-        Form2 poForm = new Form2();
 
         public static DataTable dtStack { get; internal set; }
 
@@ -51,6 +48,7 @@ namespace POR
 
             if (isActive && isInGroup) InitializeComponent();
             else MessageBox.Show("目前程式停用中，可能是特定時間或缺乏使用權限，請連絡資訊組");
+
 
         }
         private void Form1_Load(object sender, EventArgs e)
