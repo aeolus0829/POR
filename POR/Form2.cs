@@ -245,18 +245,35 @@ namespace POR
         private void bindPoHeader(DataTable poHeader)
         {
             DataTable tempDt = new DataTable();
+            string poDocType, vendorID, vendorName, poGrpID, poGrpName, poDate;
 
             tempDt = arrangeDataTable(poHeader, poHeaderColArray);
 
             foreach (DataRow row in tempDt.Rows)
             {
-                lblPoDocTypeVal.Text = row[1].ToString();
-                lblVendorNameVal.Text = row[2].ToString();
-                lblPoGrpVal.Text = row[4].ToString();
-                lblPoDateVal.Text = row[8].ToString();
-                lblPoNumVal.Text = txtPONum.Text;
+                poDocType = row[1].ToString();
+                vendorID = row[2].ToString();
+                poGrpID = row[4].ToString();
+                poDate = row[8].ToString();
+                vendorName = getVendor(vendorID);
+                poGrpName = getPoGrp(poGrpID);
+
+                lblPoDocTypeVal.Text = poDocType;
+                lblVendorNameVal.Text = vendorName;
+                lblPoGrpVal.Text = poGrpName;
+                lblPoDateVal.Text = poDate;
             }
 
+        }
+
+        private string getPoGrp(string poGrpID)
+        {
+            throw new NotImplementedException();
+        }
+
+        private string getVendor(string vendorID)
+        {
+            throw new NotImplementedException();
         }
 
         public void autosizeCol(DataGridView dgv)
