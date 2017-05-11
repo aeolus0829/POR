@@ -27,46 +27,59 @@ namespace POR
         public string zmsg { get; private set; }
         public DataTable twPoHeader { get; private set; }
         public DataTable twPoItem { get; private set; }
+        public static string MvT { get; internal set; }
+
+        /* 陣列格式：
+           {欄位名稱, 欄位說明, 欄位資料類別}
+           資料類別： 
+          	0		格式不變
+            1		前置0
+            2		日期
+            3		後置0
+            4		單位轉換			ST -> PC
+            5       數值                小數點2位
+            6       整數
+            */
 
         string[,] poHeaderColArray = {
-            {"COMP_CODE" , "公司代碼"},
-            {"DOC_TYPE" , "採購文件類型"},
-            {"VENDOR" , "供應商代號"},
-            {"PURCH_ORG" , "採購組織"},
-            {"PUR_GROUP" , "採購群組"},
-            {"CURRENCY", "幣別碼"},
-            {"EXCH_RATE" , "匯率"},
-            {"DOC_DATE" , "採購文件日期"},
-            {"CREAT_DATE" , "記錄建立日期"}
+            {"COMP_CODE" , "公司代碼", "0"},
+            {"DOC_TYPE" , "採購文件類型", "0"},
+            {"VENDOR" , "供應商代號", "1"},
+            {"PURCH_ORG" , "採購組織", "0"},
+            {"PUR_GROUP" , "採購群組", "0"},
+            {"CURRENCY", "幣別碼", "0"},
+            {"EXCH_RATE" , "匯率", "5"},
+            {"DOC_DATE" , "採購文件日期", "2"},
+            {"CREAT_DATE" , "記錄建立日期", "2"}
         };
 
         string[,] poItemColArray = {
-            {"PO_NUMBER","採購單號" },
-            {"MOVE_TYPE","異動類型" },
-            {"PO_ITEM", "採單項次" },
-            {"SHORT_TEXT","短文" },
-            {"MATERIAL","物料號碼" },
-            {"PLANT","工廠" },
-            {"STGE_LOC","儲存地點" },
-            {"MATL_GROUP","物料群組" },
-            {"QUANTITY","採單數量" },
-            {"PO_UNIT","單位" },
-            {"ORDERPR_UN", "單位〈採購〉" },
-            {"NET_PRICE", "金額" },
-            {"PRICE_UNIT", "價格單位" },
-            {"TAX_CODE","稅碼" },
-            {"OVER_DLV_TOL", "超量允差" },
-            {"ACCTASSCAT","科目類別" },
-            {"FREE_ITEM","免費" },
-            {"RET_ITEM","退貨" },
-            {"PREQ_NAME","申請人" },
-            {"ENTRY_QNT","輸入數量" },
-            {"ENTRY_UOM","輸入單位" },
-            {"BATCH","批次號碼" },
-            {"MOVE_REAS","異動原因" },
-            {"ITEM_TEXT","項目內文" },
-            {"ORD_MATERIAL","工單料號" },
-            {"FRGKE","採單核發" }
+            {"PO_NUMBER","採購單號", "1" },
+            {"MOVE_TYPE","異動類型", "0" },
+            {"PO_ITEM", "採單項次", "1" },
+            {"SHORT_TEXT","短文", "0" },
+            {"MATERIAL","物料號碼", "1" },
+            {"PLANT","工廠", "0" },
+            {"STGE_LOC","儲存地點", "1" },
+            {"MATL_GROUP","物料群組", "1" },
+            {"QUANTITY","採單數量", "6" },
+            {"PO_UNIT","單位", "4" },
+            {"ORDERPR_UN", "單位〈採購〉", "4" },
+            {"NET_PRICE", "金額", "6" },
+            {"PRICE_UNIT", "價格單位", "6" },
+            {"TAX_CODE","稅碼", "0" },
+            {"OVER_DLV_TOL", "超量允差", "0" },
+            {"ACCTASSCAT","科目類別", "0" },
+            {"FREE_ITEM","免費", "0" },
+            {"RET_ITEM","退貨", "0" },
+            {"PREQ_NAME","申請人", "0" },
+            {"ENTRY_QNT","輸入數量", "6" },
+            {"ENTRY_UOM","輸入單位", "0" },
+            {"BATCH","批次號碼", "1" },
+            {"MOVE_REAS","異動原因", "0" },
+            {"ITEM_TEXT","項目內文", "0" },
+            {"ORD_MATERIAL","工單料號", "1" },
+            {"FRGKE","採單核發", "0" }
         };
 
         string[,] POItemColOrder =
@@ -110,15 +123,18 @@ namespace POR
                     var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
 
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
+                    DataTable tempDt = new DataTable();
+                    tempDt = arrangeDataTable(POITEM, poItemColArray);
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
 
-                    setColOrder(POITEM, POItemColOrder);
+                    setColOrder(tempDt, POItemColOrder);
+                    
 
-                    twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
-                    twPoItem = sc.chgColName(POITEM, poItemColArray);
+                    //twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
+                    twPoItem = sc.chgColName(tempDt, poItemColArray);
 
-                    bindPoHeader(twPoHeader);
+                    bindPoHeader(POHEADER);
                     
 
                     zflag = iFunc.GetString("ZFLAG");
@@ -143,6 +159,79 @@ namespace POR
 
         }
 
+        private DataTable arrangeDataTable(DataTable tempDt, string[,] ColArray)
+        {
+            string colName, colDesc, colType;
+            int totHeaderCol = ColArray.Length / 3; // 資料類別共三種
+            DataTable finalDt = new DataTable();
+
+            for (int mainLoopCounter = 0; mainLoopCounter <= tempDt.Rows.Count; mainLoopCounter++)
+            {
+                if (mainLoopCounter == 0) //這一列是表頭欄位
+                {
+                    for (int colCount = 0; colCount < totHeaderCol; colCount++)
+                    {
+                        colName = ColArray[colCount, 0]; //取第x筆的 colName 做為 data table 的表頭
+                        finalDt.Columns.Add(colName);
+                        colName = "";
+                    }
+                }
+                else
+                {                  
+                    foreach (DataRow tempRow in tempDt.Rows)
+                    {
+                        DataRow finalRow = finalDt.NewRow();
+
+                        for (int colCount = 0; colCount < totHeaderCol; colCount++)
+                        {
+                            colName = ColArray[colCount, 0];
+                            colDesc = ColArray[colCount, 1];
+                            colType = ColArray[colCount, 2];
+
+                            switch (colType)
+                            {
+                                case "0":
+                                    finalRow[colName] = tempRow[colCount].ToString();
+                                    break;
+                                case "1":
+                                    finalRow[colName] = tempRow[colCount].ToString().TrimStart('0');
+                                    break;
+                                case "2":
+                                    finalRow[colName] = tempRow[colCount].ToString().TrimStart('0');
+                                    //當日期空白，預設會帶1899-12-30，如果是1899-12-30則不顯示。
+                                    if (Convert.ToDateTime(tempRow[colCount]).ToString("yyyy-MM-dd") != "1899-12-30")
+                                        finalRow[colName] = Convert.ToDateTime(tempRow[colCount]).ToString("yyyy-MM-dd");
+                                    break;
+                                case "3":
+                                    finalRow[colName] = tempRow[colCount].ToString().TrimEnd('0');
+                                    break;
+                                case "4":
+                                    if (tempRow[colCount].ToString()=="ST") finalRow[colName] ="PC";
+                                    break;
+                                case "5":
+                                    finalRow[colName] = tempRow[colCount].ToString();
+                                    break;
+                                case "6":
+                                    finalRow[colName] = tempRow[colCount].ToString().TrimEnd('0').TrimEnd('.');
+                                    break;
+                                case "7":
+                                    //時間空白不顯示
+                                    if (Convert.ToDateTime(tempRow[colCount]).ToString("HH:mm:ss") != "00:00:00")
+                                        finalRow[colName] = Convert.ToDateTime(tempRow[colCount]).ToString("HH:mm:ss");
+                                    break;
+                                default:
+                                    finalRow[colName] = tempRow[colCount].ToString();
+                                    break;
+                            }
+                            if (colName == "MOVE_TYPE") finalRow[colName] = MvT.ToString();
+                        }
+                        finalDt.Rows.Add(finalRow);
+                    }                    
+                }
+            }
+            return finalDt;
+        }
+
         private void setColOrder(DataTable table, string[,] columnNames)
         {
             int columnIndex = 0;
@@ -153,13 +242,17 @@ namespace POR
             }
         }
 
-        private void bindPoHeader(DataTable twPoHeader)
+        private void bindPoHeader(DataTable poHeader)
         {
-            foreach (DataRow row in twPoHeader.Rows)
+            DataTable tempDt = new DataTable();
+
+            tempDt = arrangeDataTable(poHeader, poHeaderColArray);
+
+            foreach (DataRow row in tempDt.Rows)
             {
                 lblPoDocTypeVal.Text = row[1].ToString();
                 lblVendorNameVal.Text = row[2].ToString();
-                lblPoGrpVal.Text = row[5].ToString();
+                lblPoGrpVal.Text = row[4].ToString();
                 lblPoDateVal.Text = row[8].ToString();
                 lblPoNumVal.Text = txtPONum.Text;
             }

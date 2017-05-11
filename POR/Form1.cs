@@ -67,14 +67,14 @@ namespace POR
             if (isActive && isInGroup) InitializeComponent();
             else MessageBox.Show("目前程式停用中，可能是特定時間或缺乏使用權限，請連絡資訊組");
 
-
+            Form2.MvT = txtMvt.Text;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             if (isTesting) this.Text += formVersion + " 測試版 " + " / SAP資料環境: " + poForm.connClient;
             else this.Text += formVersion;
 
-            lblUserNameValue.Text = domainUserName;
+            lblUserAccountValue.Text = domainUserName;
             lblDisplayNameValue.Text = currentUserID;
 
         }

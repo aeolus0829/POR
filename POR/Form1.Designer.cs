@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.lblUserNameValue = new System.Windows.Forms.Label();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUserAccount = new System.Windows.Forms.Label();
+            this.lblUserAccountValue = new System.Windows.Forms.Label();
             this.lblDisplayName = new System.Windows.Forms.Label();
             this.lblDisplayNameValue = new System.Windows.Forms.Label();
             this.dgvPO = new System.Windows.Forms.DataGridView();
             this.btnPickPO = new System.Windows.Forms.Button();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnReadDt = new System.Windows.Forms.Button();
             this.btnToSap = new System.Windows.Forms.Button();
             this.lblMbt = new System.Windows.Forms.Label();
@@ -61,25 +61,30 @@
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblUserName
+            // toolStripStatusLabel1
             // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUserName.Location = new System.Drawing.Point(668, 10);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(57, 20);
-            this.lblUserName.TabIndex = 1;
-            this.lblUserName.Text = "帳號：";
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
-            // lblUserNameValue
+            // lblUserAccount
             // 
-            this.lblUserNameValue.AutoSize = true;
-            this.lblUserNameValue.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUserNameValue.Location = new System.Drawing.Point(731, 10);
-            this.lblUserNameValue.Name = "lblUserNameValue";
-            this.lblUserNameValue.Size = new System.Drawing.Size(54, 20);
-            this.lblUserNameValue.TabIndex = 2;
-            this.lblUserNameValue.Text = "00575";
+            this.lblUserAccount.AutoSize = true;
+            this.lblUserAccount.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUserAccount.Location = new System.Drawing.Point(668, 10);
+            this.lblUserAccount.Name = "lblUserAccount";
+            this.lblUserAccount.Size = new System.Drawing.Size(57, 20);
+            this.lblUserAccount.TabIndex = 1;
+            this.lblUserAccount.Text = "帳號：";
+            // 
+            // lblUserAccountValue
+            // 
+            this.lblUserAccountValue.AutoSize = true;
+            this.lblUserAccountValue.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblUserAccountValue.Location = new System.Drawing.Point(731, 10);
+            this.lblUserAccountValue.Name = "lblUserAccountValue";
+            this.lblUserAccountValue.Size = new System.Drawing.Size(54, 20);
+            this.lblUserAccountValue.TabIndex = 2;
+            this.lblUserAccountValue.Text = "00575";
             // 
             // lblDisplayName
             // 
@@ -103,21 +108,21 @@
             // 
             // dgvPO
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPO.Location = new System.Drawing.Point(12, 71);
             this.dgvPO.Name = "dgvPO";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPO.RowTemplate.Height = 24;
             this.dgvPO.Size = new System.Drawing.Size(897, 358);
             this.dgvPO.TabIndex = 5;
@@ -132,11 +137,6 @@
             this.btnPickPO.Text = " 選取採購單";
             this.btnPickPO.UseVisualStyleBackColor = true;
             this.btnPickPO.Click += new System.EventHandler(this.btnPickPO_Click);
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // btnReadDt
             // 
@@ -217,6 +217,7 @@
             this.txtMvt.Name = "txtMvt";
             this.txtMvt.Size = new System.Drawing.Size(33, 27);
             this.txtMvt.TabIndex = 1;
+            this.txtMvt.Text = "103";
             // 
             // Form1
             // 
@@ -234,8 +235,8 @@
             this.Controls.Add(this.dgvPO);
             this.Controls.Add(this.lblDisplayNameValue);
             this.Controls.Add(this.lblDisplayName);
-            this.Controls.Add(this.lblUserNameValue);
-            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.lblUserAccountValue);
+            this.Controls.Add(this.lblUserAccount);
             this.Controls.Add(this.statusStrip1);
             this.Name = "Form1";
             this.Text = "收料程式 POR ";
@@ -251,8 +252,8 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblUserNameValue;
+        private System.Windows.Forms.Label lblUserAccount;
+        private System.Windows.Forms.Label lblUserAccountValue;
         private System.Windows.Forms.Label lblDisplayName;
         private System.Windows.Forms.Label lblDisplayNameValue;
         private System.Windows.Forms.DataGridView dgvPO;
