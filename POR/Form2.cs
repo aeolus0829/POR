@@ -3,6 +3,7 @@ using POR;
 using SAP.Middleware.Connector;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace POR
@@ -28,6 +29,7 @@ namespace POR
         public DataTable twPoHeader { get; private set; }
         public DataTable twPoItem { get; private set; }
         public static string MvT { get; internal set; }
+        public string sapInitDB { get; private set; }
 
         /* 陣列格式：
            {欄位名稱, 欄位說明, 欄位資料類別}
@@ -44,7 +46,7 @@ namespace POR
         string[,] poHeaderColArray = {
             {"COMP_CODE" , "公司代碼", "0"},
             {"DOC_TYPE" , "採購文件類型", "0"},
-            {"VENDOR" , "供應商代號", "1"},
+            {"VENDOR" , "供應商代號", "0"},
             {"PURCH_ORG" , "採購組織", "0"},
             {"PUR_GROUP" , "採購群組", "0"},
             {"CURRENCY", "幣別碼", "0"},
@@ -268,12 +270,62 @@ namespace POR
 
         private string getPoGrp(string poGrpID)
         {
-            throw new NotImplementedException();
+            sapInitDB = detectDBName(connClient);
+            string sql = "select EKNAM from " + sapInitDB + ".T024 where EKGRP = @sqlPara";
+            string poGrpName = execSingleQuery(sql, poGrpID);
+            return poGrpName;
+        }
+
+        private string detectDBName(string connClient)
+        {
+            switch (connClient)
+            {
+                case "800":
+                    sapInitDB = "prd";
+                    break;
+                case "620":
+                    sapInitDB = "dev";
+                    break;
+                case "300":
+                    sapInitDB = "dev";
+                    break;
+            }
+            return sapInitDB;
         }
 
         private string getVendor(string vendorID)
         {
-            throw new NotImplementedException();
+            sapInitDB = detectDBName(connClient);
+            string sql = "select NAME1 from " + sapInitDB + ".LFA1 where LIFNR = @sqlPara";
+            string vendorName = execSingleQuery(sql, vendorID);
+            return vendorName;
+        }
+
+        private string execSingleQuery(string sql, string sqlPara)
+        {
+            mssqlConnClass msc = new mssqlConnClass();
+            string connString = msc.toSAPDB(connClient);
+            string result = null;
+            var sqlConn = new SqlConnection(connString);
+            try
+            {
+                sqlConn.Open();
+                var paraKey = new SqlParameter("@sqlPara", SqlDbType.Char, 14);
+                paraKey.Value = sqlPara;
+                SqlCommand sCmd = new SqlCommand(sql,sqlConn);
+                sCmd.Parameters.Add(paraKey);
+                var value = sCmd.ExecuteScalar();
+                if (value != null) result = value.ToString();                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "error when execSingleQuery()");
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+            return result;
         }
 
         public void autosizeCol(DataGridView dgv)
@@ -302,10 +354,10 @@ namespace POR
 
             if (selectedRowCount > 0) //有在 PO item 選取資料
             {
-                if (dgvStack.Rows.Count == 0) // 第一次存放選取資料前，需先產生欄位及名稱
+                if (dgvStack.Rows.Count == 0) // 第一次存放選取的資料前，需先產生欄位及名稱
                 {
                     foreach (DataGridViewColumn dgvCol in dgvPoItem.Columns) dtStack.Columns.Add(dgvCol.Name, typeof(string));
-                }
+                } 
 
                 //定義選取資料行
                 for (int i = 0; i < dgvPoItem.SelectedRows.Count; i++)

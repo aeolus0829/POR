@@ -127,24 +127,33 @@ namespace connDB
 
     class mssqlConnClass
     {
+        public string sapDB { get; set; }
+
         public string toSAPDB(string DBenv)
         {
             string sapDBConn;
-            DBenv = DBenv.ToUpper();
             string source, catalog, auth;
             auth = "Uid=archer; Pwd=ko123vr4; ";
             switch (DBenv)
             {
-                case "PRD":
+                case "800":
                     source = "Data Source=192.168.0.16;";
+                    sapDB = "prd";
                     catalog = "Initial Catalog=PRD;";
                     break;
-                case "DEV":
+                case "620":
                     source = "Data Source=192.168.0.15;";
+                    sapDB = "dev";
+                    catalog = "Initial Catalog=DEV;";
+                    break;
+                case "300":
+                    source = "Data Source=192.168.0.15;";
+                    sapDB = "dev";
                     catalog = "Initial Catalog=DEV;";
                     break;
                 default:
                     source = "Data Source=192.168.0.15;";
+                    sapDB = "dev";
                     catalog = "Initial Catalog=DEV;";
                     break;
             }
