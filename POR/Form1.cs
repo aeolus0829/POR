@@ -76,7 +76,7 @@ namespace POR
                     {
                         col = poItemColArray[i, 0].ToString();
                         val = row[i].ToString();
-                        if (col == "QUANTITY") val = "1";
+                        if (col == "ENTRY_QNT") val = "1";
                         itab.Append();
                         if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
                     }
