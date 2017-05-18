@@ -92,35 +92,43 @@ namespace connDB
 
         }
 
-        public DataTable chgColName(DataTable engDt, string[,] strArray)
+        public DataTable chgColName(DataTable orgDt, string[,] strArray, string lang)
         {
-            DataTable twDt = new DataTable();
+            DataTable tempDt = new DataTable();
 
-            twDt.Merge(engDt);
+            tempDt.Merge(orgDt);
 
-            string twColName, engColName;
-            int dtColCount = engDt.Columns.Count;
+            string twColName, enColName;
+            int dtColCount = orgDt.Columns.Count;
             int arrayCount = strArray.GetLength(0);
 
             if (dtColCount==arrayCount)
             {
                 for (int i=1;i<=dtColCount;i++)
                 {
-                    DataRow row = twDt.NewRow();
+                    DataRow row = tempDt.NewRow();
 
                     if (i == 1)
                     {
                         for (int headerCount = 0; headerCount < dtColCount; headerCount++)
                         {
-                            engColName = strArray[headerCount, 0];
+                            enColName = strArray[headerCount, 0];
                             twColName = strArray[headerCount, 1];
-                            twDt.Columns[engColName].ColumnName = twColName;
+                            switch (lang)
+                            {
+                                case "tw":
+                                    tempDt.Columns[enColName].ColumnName = twColName;
+                                    break;
+                                case "en":
+                                    tempDt.Columns[twColName].ColumnName = enColName;
+                                    break;
+                            }                            
                         }
                     }
 
                 }
             }
-            return twDt;
+            return tempDt;
         }
     }
 

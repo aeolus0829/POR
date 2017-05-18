@@ -341,3 +341,117 @@ SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER POACCOUNT of FUNC
    於 SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
    --- 內部例外狀況堆疊追蹤的結尾 ---
    於 SAP.Middleware.Connector.RfcDataContainer`1.GetStructure(Int32 index, Boolean create)
+**** Log file opened by process 4772 at 2017-05-17 11:40:50 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-05-17 11:40:50.680 [Thread 9]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER POITEM of FUNCTION ZRFC006 (SETTER): cannot convert DataGridView into TABLE [STRUCTURE ZMMT005_I] ---> System.InvalidCastException: 無法將類型 'System.Windows.Forms.DataGridView' 的物件轉換為類型 'SAP.Middleware.Connector.IRfcTable'。
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, Object value)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, Object value)
+**** Log file opened by process 3144 at 2017-05-17 11:46:56 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-05-17 11:46:56.450 [Thread 8]
+SAP.Middleware.Connector.RfcTypeConversionException: PARAMETER POITEM of FUNCTION ZRFC006 (SETTER): cannot convert DataTable into TABLE [STRUCTURE ZMMT005_I] ---> System.InvalidCastException: 無法將類型 'System.Data.DataTable' 的物件轉換為類型 'SAP.Middleware.Connector.IRfcTable'。
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, Object value)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, Object value)
+**** Log file opened by process 11020 at 2017-05-17 15:00:10 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-05-17 15:00:10.036 [Thread 10]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot convert null or empty string into a BCD
+   於 SAP.Middleware.Connector.RfcScalarMetadataBcd.ConvertString(String value, Object& currentValue)
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)
+**** Log file opened by process 5588 at 2017-05-17 16:35:57 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-05-17 16:35:57.874 [Thread 8]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot convert null or empty string into a BCD
+   於 SAP.Middleware.Connector.RfcScalarMetadataBcd.ConvertString(String value, Object& currentValue)
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)
+**** Log file opened by process 5272 at 2017-05-17 16:38:29 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-05-17 16:38:29.618 [Thread 10]
+SAP.Middleware.Connector.RfcTypeConversionException: FIELD QUANTITY of STRUCTURE ZMMT005_I (SETTER): cannot convert String into BCD[7:3] ---> SAP.Middleware.Connector.RfcTypeConversionException: Cannot convert   into a BCD because of invalid character ' ' in integer part
+   於 SAP.Middleware.Connector.RfcScalarMetadataBcd.ConvertString(String value, Object& currentValue)
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)
+**** Log file opened by process 9104 at 2017-05-17 16:44:28 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-05-17 16:44:28.632 [Thread 8]
+SAP.Middleware.Connector.RfcInvalidStateException: Cannot convert null or empty string into a BCD
+   於 SAP.Middleware.Connector.RfcScalarMetadataBcd.ConvertString(String value, Object& currentValue)
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)
+**** Log file opened by process 4280 at 2017-05-17 16:46:42 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Info entry 2017-05-17 16:46:42.930 [Thread 9]
+Invalid LZ-compressed data block received, ignored.

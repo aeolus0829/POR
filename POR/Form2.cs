@@ -15,8 +15,6 @@ namespace POR
             InitializeComponent();
 
             dtStack = new DataTable();
-
-            
         }
         public string connClient { get; set; }
         public DataTable POACCOUNT { get; set; }
@@ -55,7 +53,7 @@ namespace POR
             {"CREAT_DATE" , "記錄建立日期", "2"}
         };
 
-        string[,] poItemColArray = {
+        public string[,] poItemColArray = {
             {"PO_NUMBER","採購單號", "1" },
             {"MOVE_TYPE","異動類型", "0" },
             {"PO_ITEM", "採單項次", "1" },
@@ -134,7 +132,7 @@ namespace POR
                     
 
                     //twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
-                    twPoItem = sc.chgColName(tempDt, poItemColArray);
+                    twPoItem = sc.chgColName(tempDt, poItemColArray, "tw");
 
                     bindPoHeader(POHEADER);
                     
@@ -242,6 +240,17 @@ namespace POR
                 table.Columns[columnName].SetOrdinal(columnIndex);
                 columnIndex++;
             }
+        }
+
+        public void setPoColOrder(DataTable table, string[,] columnNames)
+        {            
+            var colCount = columnNames.Length / 3;
+            for (int i = 0; i < colCount; i++)
+            {
+                var columnName = columnNames[i, 0].ToString();
+                table.Columns[columnName].SetOrdinal(i);                
+            }
+
         }
 
         private void bindPoHeader(DataTable poHeader)

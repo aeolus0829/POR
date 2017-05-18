@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using connDB;
 using ADAuth;
 using System.Data;
+using SAP.Middleware.Connector;
 
 namespace POR
 {
@@ -28,6 +29,65 @@ namespace POR
                 ,"說明");
         }
 
+        private void btnToSap_Click(object sender, EventArgs e)
+        {
+            sapConnClass sc = new sapConnClass();
+            var rfcPara = sc.setParaToConn(connClient);
+            var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
+            var rfcRepo = rfcDest.Repository;
+            IRfcFunction iFunc = null;
+            iFunc = rfcRepo.CreateFunction("ZRFC006");
+            IRfcTable itab = iFunc.GetTable("POITEM"); //POITEM
+            var dt = (DataTable)dgvPO.DataSource;
+            IRfcTable fItab = fillItab(itab, dt);
+
+            for (int i = 0; i < fItab.RowCount; i++)
+            {
+                var po = fItab[0].GetString(0);
+                iFunc.SetValue("PURCHASEORDER", po);
+                iFunc.SetValue("POITEM", fItab);
+                iFunc.SetValue("ZRFCTYPE", "M");
+                iFunc.Invoke(rfcDest);
+                var zflag = iFunc.GetString("ZFLAG");
+                var zmsg = iFunc.GetString("ZMSG");
+                toolStripStatusLabel1.Text = zflag + " : " + zmsg;
+
+                MessageBox.Show(zmsg, zflag);
+            }
+        }
+
+        private IRfcTable fillItab(IRfcTable itab, DataTable dt)
+        {
+            sapConnClass sc = new sapConnClass();
+            var poItemColArray = poForm.poItemColArray;
+            var colCount = poItemColArray.Length / 3;
+            var rowCount = dt.Rows.Count;
+            var dtCol = dt.Columns.GetEnumerator();
+            var tempDt = sc.chgColName(dt, poForm.poItemColArray, "en");
+            poForm.setPoColOrder(tempDt,poForm.poItemColArray);
+            
+            string col, val;
+
+            foreach (DataRow row in tempDt.Rows)
+            {
+                //for (int r=0; r < rowCount; r++)
+                int r = 0;
+                do
+                {
+                    for (int i = 0; i < colCount; i++)
+                    {
+                        col = poItemColArray[i, 0].ToString();
+                        val = row[i].ToString();
+                        if (col == "QUANTITY") val = "1";
+                        itab.Append();
+                        if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
+                    }
+                    r++;
+                } while (r < rowCount);
+            }
+            return itab;
+        }
+
         private void autosizeCol(DataGridView dgv)
         {
             for (int i = 0; i <= dgv.ColumnCount - 1; i++)
@@ -37,12 +97,12 @@ namespace POR
         }
 
         public static DataTable dtStack { get; internal set; }
+        public string connClient { get; private set; }
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
             poForm.Show();
             this.Hide();
-            toolStripStatusLabel1.Text = "測試123456, 物料文件號碼 543293827";
         }
 
         public Form1()
@@ -51,7 +111,8 @@ namespace POR
             formName = "POR";
             isTesting = true;
             formVersion = "0.10";
-            poForm.connClient = "620";            
+            connClient = "620";
+            poForm.connClient = connClient;
 
             //檢查程式的啟用狀態
             chkFormStatusClass chkForm = new chkFormStatusClass();
