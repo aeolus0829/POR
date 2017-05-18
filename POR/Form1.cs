@@ -41,19 +41,17 @@ namespace POR
             var dt = (DataTable)dgvPO.DataSource;
             IRfcTable fItab = fillItab(itab, dt);
 
-            for (int i = 0; i < fItab.RowCount; i++)
-            {
-                var po = fItab[0].GetString(0);
-                iFunc.SetValue("PURCHASEORDER", po);
-                iFunc.SetValue("POITEM", fItab);
-                iFunc.SetValue("ZRFCTYPE", "M");
-                iFunc.Invoke(rfcDest);
-                var zflag = iFunc.GetString("ZFLAG");
-                var zmsg = iFunc.GetString("ZMSG");
-                toolStripStatusLabel1.Text = zflag + " : " + zmsg;
+            var po = fItab[0].GetString(0);
+            iFunc.SetValue("PURCHASEORDER", po);
+            iFunc.SetValue("POITEM", fItab);
+            iFunc.SetValue("ZRFCTYPE", "M");
+            iFunc.Invoke(rfcDest);
+            var zflag = iFunc.GetString("ZFLAG");
+            var zmsg = iFunc.GetString("ZMSG");
+            toolStripStatusLabel1.Text = zflag + " : " + zmsg;
 
-                MessageBox.Show(zmsg, zflag);
-            }
+            MessageBox.Show(zmsg, zflag);
+
         }
 
         private IRfcTable fillItab(IRfcTable itab, DataTable dt)

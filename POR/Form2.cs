@@ -124,7 +124,8 @@ namespace POR
 
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                     DataTable tempDt = new DataTable();
-                    tempDt = arrangeDataTable(POITEM, poItemColArray);
+                    tempDt = changeDataFormat(POITEM, poItemColArray);
+                    //tempDt = POITEM;
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
 
@@ -159,13 +160,14 @@ namespace POR
 
         }
 
-        private DataTable arrangeDataTable(DataTable tempDt, string[,] ColArray)
+        private DataTable changeDataFormat(DataTable tempDt, string[,] ColArray)
         {
             string colName, colDesc, colType;
             int totHeaderCol = ColArray.Length / 3; // 資料類別共三種
             DataTable finalDt = new DataTable();
 
-            for (int mainLoopCounter = 0; mainLoopCounter <= tempDt.Rows.Count; mainLoopCounter++)
+            int mainLoopCounter = 0;
+            do
             {
                 if (mainLoopCounter == 0) //這一列是表頭欄位
                 {
@@ -177,7 +179,7 @@ namespace POR
                     }
                 }
                 else
-                {                  
+                {
                     foreach (DataRow tempRow in tempDt.Rows)
                     {
                         DataRow finalRow = finalDt.NewRow();
@@ -206,7 +208,7 @@ namespace POR
                                     finalRow[colName] = tempRow[colCount].ToString().TrimEnd('0');
                                     break;
                                 case "4":
-                                    if (tempRow[colCount].ToString()=="ST") finalRow[colName] ="PC";
+                                    if (tempRow[colCount].ToString() == "ST") finalRow[colName] = "PC";
                                     break;
                                 case "5":
                                     finalRow[colName] = tempRow[colCount].ToString();
@@ -226,9 +228,10 @@ namespace POR
                             if (colName == "MOVE_TYPE") finalRow[colName] = MvT.ToString();
                         }
                         finalDt.Rows.Add(finalRow);
-                    }                    
+                    }
                 }
-            }
+                mainLoopCounter++;
+            } while (mainLoopCounter < tempDt.Rows.Count);
             return finalDt;
         }
 
@@ -258,7 +261,7 @@ namespace POR
             DataTable tempDt = new DataTable();
             string poDocType, vendorID, vendorName, poGrpID, poGrpName, poDate;
 
-            tempDt = arrangeDataTable(poHeader, poHeaderColArray);
+            tempDt = changeDataFormat(poHeader, poHeaderColArray);
 
             foreach (DataRow row in tempDt.Rows)
             {
