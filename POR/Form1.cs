@@ -37,7 +37,7 @@ namespace POR
             var rfcRepo = rfcDest.Repository;
             IRfcFunction iFunc = null;
             iFunc = rfcRepo.CreateFunction("ZRFC006");
-            IRfcTable itab = iFunc.GetTable("POITEM"); //POITEM
+            IRfcTable itab = iFunc.GetTable("POITEM"); 
             var dt = (DataTable)dgvPO.DataSource;
             IRfcTable fItab = fillItab(itab, dt);
 
@@ -62,7 +62,7 @@ namespace POR
             var rowCount = dt.Rows.Count;
             var dtCol = dt.Columns.GetEnumerator();
             var tempDt = sc.chgColName(dt, poForm.poItemColArray, "en");
-            poForm.setPoColOrder(tempDt,poForm.poItemColArray);
+            poForm.resetColOrder(tempDt,poForm.poItemColArray);
             
             string col, val;
 
@@ -70,14 +70,15 @@ namespace POR
             {
                 //for (int r=0; r < rowCount; r++)
                 int r = 0;
+                itab.Append();
                 do
                 {
                     for (int i = 0; i < colCount; i++)
                     {
                         col = poItemColArray[i, 0].ToString();
                         val = row[i].ToString();
-                        if (col == "ENTRY_QNT") val = "1";
-                        itab.Append();
+                        if (col == "ENTRY_QNT") val = "1";                        
+                        
                         if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
                     }
                     r++;

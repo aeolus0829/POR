@@ -245,7 +245,7 @@ namespace POR
             }
         }
 
-        public void setPoColOrder(DataTable table, string[,] columnNames)
+        public void resetColOrder(DataTable table, string[,] columnNames)
         {            
             var colCount = columnNames.Length / 3;
             for (int i = 0; i < colCount; i++)
