@@ -17,6 +17,7 @@ namespace POR
         public void btnReadDt_Click(object sender, EventArgs e)
         {
             dgvPO.DataSource = dtStack;
+            dgvPO.AllowUserToAddRows = false;
             autosizeCol(dgvPO);
         }
 

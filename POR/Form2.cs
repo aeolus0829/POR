@@ -15,6 +15,8 @@ namespace POR
             InitializeComponent();
 
             dtStack = new DataTable();
+            dgvPoItem.AllowUserToAddRows = false;
+            dgvStack.AllowUserToAddRows = false;
         }
         public string connClient { get; set; }
         public DataTable POACCOUNT { get; set; }
@@ -149,6 +151,7 @@ namespace POR
                 else
                 {
                     dgvPoItem.DataSource = twPoItem;
+                    dgvPoItem.ReadOnly = true;
 
                     autosizeCol(dgvPoItem);
                 }
