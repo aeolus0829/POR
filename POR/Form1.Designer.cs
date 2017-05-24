@@ -124,7 +124,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPO.RowTemplate.Height = 24;
-            this.dgvPO.Size = new System.Drawing.Size(897, 358);
+            this.dgvPO.Size = new System.Drawing.Size(897, 174);
             this.dgvPO.TabIndex = 5;
             // 
             // btnPickPO

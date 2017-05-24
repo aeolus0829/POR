@@ -404,7 +404,7 @@ namespace POR
             btnClear.PerformClick();
             dgvPoItem.DataSource = dgvStack.DataSource = null;
 
-            this.Close();
+            this.Hide();
 
             Application.OpenForms[0].Show();
         }

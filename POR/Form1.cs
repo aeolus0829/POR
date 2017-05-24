@@ -40,6 +40,7 @@ namespace POR
             iFunc = rfcRepo.CreateFunction("ZRFC006");
             IRfcTable itab = iFunc.GetTable("POITEM"); 
             var dt = (DataTable)dgvPO.DataSource;
+            dt.AcceptChanges();
             IRfcTable fItab = fillItab(itab, dt);
 
             var po = fItab[0].GetString(0);
@@ -69,7 +70,6 @@ namespace POR
 
             foreach (DataRow row in tempDt.Rows)
             {
-                //for (int r=0; r < rowCount; r++)
                 int r = 0;
                 itab.Append();
                 do
@@ -78,7 +78,6 @@ namespace POR
                     {
                         col = poItemColArray[i, 0].ToString();
                         val = row[i].ToString();
-                        if (col == "ENTRY_QNT") val = "1";                        
                         
                         if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
                     }
