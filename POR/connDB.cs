@@ -44,34 +44,35 @@ namespace connDB
 
         public DataTable GetDataTableFromRFCTable(IRfcTable rfcTable)
         {
-            DataTable loTable = new DataTable();
+            DataTable dt = new DataTable();
 
-            int liElement = 0;
-
-            for (liElement = 0; liElement <= rfcTable.ElementCount - 1; liElement++)
+            for (int i = 0; i <= rfcTable.ElementCount - 1; i++)
             {
 
-                RfcElementMetadata metadata = rfcTable.GetElementMetadata(liElement);
+                RfcElementMetadata metadata = rfcTable.GetElementMetadata(i);
 
-                loTable.Columns.Add(metadata.Name);
+                dt.Columns.Add(metadata.Name);
 
             }
 
-            foreach (IRfcStructure Row in rfcTable)
+            foreach (IRfcStructure rfcStructure in rfcTable)
             {
-                DataRow ldr = loTable.NewRow();
 
-                for (liElement = 0; liElement <= rfcTable.ElementCount - 1; liElement++)
+                DataRow dr = dt.NewRow();
+
+                for (int j = 0; j <= rfcTable.ElementCount - 1; j++)
                 {
-                    RfcElementMetadata metadata = rfcTable.GetElementMetadata(liElement);
+                    RfcElementMetadata metadata = rfcTable.GetElementMetadata(j);
 
-                    ldr[metadata.Name] = Row.GetString(metadata.Name);
+                    var rowData = rfcStructure.GetString(metadata.Name);
+
+                    dr[metadata.Name] = rowData ;
                 }
 
-                loTable.Rows.Add(ldr);
+                dt.Rows.Add(dr);
             }
 
-            return loTable;
+            return dt;
         }
 
         public DataTable GetDataTableFromRFCStructure(IRfcStructure rfcStructure)

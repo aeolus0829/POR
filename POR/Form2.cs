@@ -79,7 +79,9 @@ namespace POR
             {"MOVE_REAS","異動原因", "0" },
             {"ITEM_TEXT","項目內文", "0" },
             {"ORD_MATERIAL","工單料號", "1" },
-            {"FRGKE","採單核發", "0" }
+            {"FRGKE","採單核發", "0" },
+            {"GRQTY","已驗收", "6" },
+            {"BLQTY","已暫收", "6" }
         };
 
         string[,] POItemColOrder =
@@ -94,12 +96,13 @@ namespace POR
             {"STGE_LOC"},
             {"QUANTITY"},
             {"OVER_DLV_TOL"},
+            {"GRQTY"},
+            {"BLQTY"},
             {"ENTRY_QNT"},
             {"BATCH"},
             {"FREE_ITEM"},
             {"RET_ITEM"}
         };
-
 
         private void btnPoSubmit_Click(object sender, EventArgs e)
         {
@@ -123,23 +126,18 @@ namespace POR
                     var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
 
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
+                   
                     DataTable tempDt = new DataTable();
+                    
                     tempDt = changeDataFormat(POITEM, poItemColArray);
-                    //tempDt = POITEM;
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
 
                     setColOrder(tempDt, POItemColOrder);
                     
-
-                    //twPoHeader = sc.chgColName(POHEADER, poHeaderColArray);
                     twPoItem = sc.chgColName(tempDt, poItemColArray, "tw");
 
-                    bindPoHeader(POHEADER);
-                    
-
-                    zflag = iFunc.GetString("ZFLAG");
-                    zmsg = iFunc.GetString("ZMSG");
+                    bindPoHeader(POHEADER);                  
 
                     Cursor.Current = Cursors.Default;
                 }
@@ -231,7 +229,7 @@ namespace POR
                     }
                 }
                 mainLoopCounter++;
-            } while (mainLoopCounter < tempDt.Rows.Count);
+            } while (mainLoopCounter <= tempDt.Rows.Count);
             return finalDt;
         }
 
