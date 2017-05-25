@@ -305,7 +305,7 @@ namespace POR
         private void bindPoHeader(DataTable poHeader)
         {
             DataTable tempDt = new DataTable();
-            string poDocType, vendorID, vendorName, poGrpID, poGrpName, poDate;
+            string poDocType, poDocName, vendorID, vendorName, poGrpID, poGrpName, poDate;
 
             tempDt = changeDataFormat(poHeader, poHeaderColArray);
 
@@ -315,10 +315,12 @@ namespace POR
                 vendorID = row[2].ToString();
                 poGrpID = row[4].ToString();
                 poDate = row[8].ToString();
+
+                poDocName = getPoDocName(poDocType);
                 vendorName = getVendor(vendorID);
                 poGrpName = getPoGrp(poGrpID);
 
-                lblPoDocTypeVal.Text = poDocType;
+                lblPoDocTypeVal.Text = poDocName;
                 lblVendorNameVal.Text = vendorName;
                 lblPoGrpVal.Text = poGrpName;
                 lblPoDateVal.Text = poDate;
@@ -326,10 +328,18 @@ namespace POR
 
         }
 
+        private string getPoDocName(string poDocType)
+        {
+            sapInitDB = detectDBName(connClient);
+            string sql = "select BATXT from " + sapInitDB + ".T161T where MANDT='"+ connClient + "' and SPRAS='M' and BSTYP='F' and BSART = @sqlPara";
+            string poDocName = execSingleQuery(sql, poDocType);
+            return poDocName;
+        }
+
         private string getPoGrp(string poGrpID)
         {
             sapInitDB = detectDBName(connClient);
-            string sql = "select EKNAM from " + sapInitDB + ".T024 where EKGRP = @sqlPara";
+            string sql = "select EKNAM from " + sapInitDB + ".T024 where MANDT='" + connClient + "' and EKGRP = @sqlPara";
             string poGrpName = execSingleQuery(sql, poGrpID);
             return poGrpName;
         }
@@ -354,7 +364,7 @@ namespace POR
         private string getVendor(string vendorID)
         {
             sapInitDB = detectDBName(connClient);
-            string sql = "select NAME1 from " + sapInitDB + ".LFA1 where LIFNR = @sqlPara";
+            string sql = "select NAME1 from " + sapInitDB + ".LFA1 where MANDT='" + connClient + "' and LIFNR = @sqlPara";
             string vendorName = execSingleQuery(sql, vendorID);
             return vendorName;
         }
