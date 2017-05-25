@@ -408,7 +408,7 @@ namespace POR
         {
             txtPONum.Text = null;
             dgvPoItem.DataSource = null;
-            lblPoDateVal.Text = lblPoDocTypeVal.Text = lblPoGrpVal.Text = lblPoNumVal.Text = lblVendorNameVal.Text = null;
+            lblPoDateVal.Text = lblPoDocTypeVal.Text = lblPoGrpVal.Text = lblVendorNameVal.Text = null;
         }
 
         private void btnSelected_Click(object sender, EventArgs e)

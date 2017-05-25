@@ -42,11 +42,9 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.lblPoDocType = new System.Windows.Forms.Label();
-            this.lblPoNum = new System.Windows.Forms.Label();
             this.lblVendorName = new System.Windows.Forms.Label();
             this.lblPoDate = new System.Windows.Forms.Label();
             this.lblPoGrp = new System.Windows.Forms.Label();
-            this.lblPoNumVal = new System.Windows.Forms.Label();
             this.lblPoDocTypeVal = new System.Windows.Forms.Label();
             this.lblVendorNameVal = new System.Windows.Forms.Label();
             this.lblPoDateVal = new System.Windows.Forms.Label();
@@ -171,16 +169,6 @@
             this.lblPoDocType.TabIndex = 9;
             this.lblPoDocType.Text = "採單類型：";
             // 
-            // lblPoNum
-            // 
-            this.lblPoNum.AutoSize = true;
-            this.lblPoNum.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoNum.Location = new System.Drawing.Point(378, 17);
-            this.lblPoNum.Name = "lblPoNum";
-            this.lblPoNum.Size = new System.Drawing.Size(88, 16);
-            this.lblPoNum.TabIndex = 10;
-            this.lblPoNum.Text = "採單號碼：";
-            // 
             // lblVendorName
             // 
             this.lblVendorName.AutoSize = true;
@@ -195,7 +183,7 @@
             // 
             this.lblPoDate.AutoSize = true;
             this.lblPoDate.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoDate.Location = new System.Drawing.Point(378, 46);
+            this.lblPoDate.Location = new System.Drawing.Point(378, 18);
             this.lblPoDate.Name = "lblPoDate";
             this.lblPoDate.Size = new System.Drawing.Size(88, 16);
             this.lblPoDate.TabIndex = 12;
@@ -210,15 +198,6 @@
             this.lblPoGrp.Size = new System.Drawing.Size(88, 16);
             this.lblPoGrp.TabIndex = 13;
             this.lblPoGrp.Text = "採購群組：";
-            // 
-            // lblPoNumVal
-            // 
-            this.lblPoNumVal.AutoSize = true;
-            this.lblPoNumVal.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoNumVal.Location = new System.Drawing.Point(462, 18);
-            this.lblPoNumVal.Name = "lblPoNumVal";
-            this.lblPoNumVal.Size = new System.Drawing.Size(0, 16);
-            this.lblPoNumVal.TabIndex = 14;
             // 
             // lblPoDocTypeVal
             // 
@@ -242,7 +221,7 @@
             // 
             this.lblPoDateVal.AutoSize = true;
             this.lblPoDateVal.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoDateVal.Location = new System.Drawing.Point(462, 46);
+            this.lblPoDateVal.Location = new System.Drawing.Point(462, 18);
             this.lblPoDateVal.Name = "lblPoDateVal";
             this.lblPoDateVal.Size = new System.Drawing.Size(0, 16);
             this.lblPoDateVal.TabIndex = 17;
@@ -265,11 +244,9 @@
             this.Controls.Add(this.lblPoDateVal);
             this.Controls.Add(this.lblVendorNameVal);
             this.Controls.Add(this.lblPoDocTypeVal);
-            this.Controls.Add(this.lblPoNumVal);
             this.Controls.Add(this.lblPoGrp);
             this.Controls.Add(this.lblPoDate);
             this.Controls.Add(this.lblVendorName);
-            this.Controls.Add(this.lblPoNum);
             this.Controls.Add(this.lblPoDocType);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.btnClear);
@@ -300,11 +277,9 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.Label lblPoDocType;
-        private System.Windows.Forms.Label lblPoNum;
         private System.Windows.Forms.Label lblVendorName;
         private System.Windows.Forms.Label lblPoDate;
         private System.Windows.Forms.Label lblPoGrp;
-        private System.Windows.Forms.Label lblPoNumVal;
         private System.Windows.Forms.Label lblPoDocTypeVal;
         private System.Windows.Forms.Label lblVendorNameVal;
         private System.Windows.Forms.Label lblPoDateVal;
