@@ -64,7 +64,7 @@ namespace POR
             var rowCount = dt.Rows.Count;
             var dtCol = dt.Columns.GetEnumerator();
             var tempDt = sc.chgColName(dt, poForm.poItemColArray, "en");
-            poForm.resetColOrder(tempDt,poForm.poItemColArray);
+            poForm.resetColOrder(tempDt,poForm.poItemColArray, "en");
             
             string col, val;
 

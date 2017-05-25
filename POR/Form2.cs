@@ -88,27 +88,30 @@ namespace POR
             {"BLQTY","已暫收", "6" }
         };
 
-        string[,] prunePoItemArray =
+        string[,] keepPoItemArray =
         {
-            {"MOVE_TYPE"},
-            {"PO_NUMBER"},
-            {"PO_ITEM"},
-            {"MATERIAL"},
-            {"ORD_MATERIAL"},
-            {"SHORT_TEXT"},
-            {"STGE_LOC"},
-            {"QUANTITY"},
-            {"OVER_DLV_TOL"},
-            {"GRQTY"},
-            {"BLQTY"},
-            {"ENTRY_QNT"},
-            {"BATCH"},
-            {"FREE_ITEM"},
-            {"RET_ITEM"}
+            {"MOVE_TYPE","異動類型", "0" },
+            {"PO_NUMBER","採購單號", "1" },
+            {"PO_ITEM", "採單項次", "1" },
+            {"MATERIAL","物料號碼", "1" },
+            {"ORD_MATERIAL","工單料號", "1" },
+            {"SHORT_TEXT","短文", "0" },
+            {"STGE_LOC","儲存地點", "1" },
+            {"QUANTITY","採單數量", "6" },
+            {"OVER_DLV_TOL", "超量允差", "0" },
+            {"GRQTY","已驗收", "6" },
+            {"BLQTY","已暫收", "6" },
+            {"ENTRY_QNT","輸入數量", "6" },
+            {"BATCH","批次號碼", "1" },
+            {"FREE_ITEM","免費", "0" },
+            {"RET_ITEM","退貨", "0" }
         };
 
         private void btnPoSubmit_Click(object sender, EventArgs e)
         {
+            DataTable formatDt = new DataTable();
+            DataTable pruneDt = new DataTable();
+
             if (!string.IsNullOrEmpty(txtPONum.Text))
             {
                 try
@@ -130,17 +133,15 @@ namespace POR
 
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                    
-                    DataTable reformatDt = new DataTable();
-                    DataTable prunedDt = new DataTable();
-
-                    prunedDt = removeCol(POITEM, prunePoItemArray);
-                    reformatDt = changeDataFormat(prunedDt, poItemColArray);
+                    formatDt = changeDataFormat(POITEM, poItemColArray);
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
+                   
+                    twPoItem = sc.chgColName(formatDt, poItemColArray, "tw");
 
-                    setColOrder(reformatDt, prunePoItemArray);
-                    
-                    twPoItem = sc.chgColName(reformatDt, poItemColArray, "tw");
+                    pruneDt = removeCol(twPoItem, keepPoItemArray, "tw");
+
+                    resetColOrder(pruneDt, keepPoItemArray, "tw");
 
                     bindPoHeader(POHEADER);                  
 
@@ -153,7 +154,7 @@ namespace POR
                 if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
                 else
                 {
-                    dgvPoItem.DataSource = twPoItem;
+                    dgvPoItem.DataSource = pruneDt;
                     dgvPoItem.ReadOnly = true;
 
                     autosizeCol(dgvPoItem);
@@ -164,14 +165,17 @@ namespace POR
 
         }
 
-        private DataTable removeCol(DataTable dt, string[,] pOItemColOrder)
+        private DataTable removeCol(DataTable dt, string[,] colOrderArray, string lang)
         {
             List<string> keepColNames = new List<string>();
+            var arrayCount = colOrderArray.Length / 3;
+            int langCode = 0;
+            langCode = mapLangCode(lang);
 
-            foreach (string col in pOItemColOrder)
+            for (int i=0; i<arrayCount;i++)
             {
-                keepColNames.Add(col);
-            }                     
+                keepColNames.Add(colOrderArray[i, langCode]);
+            }              
 
             var allColumns = dt.Columns.Cast<DataColumn>();
             var allColNames = allColumns.Select(c => c.ColumnName);
@@ -185,7 +189,23 @@ namespace POR
             return dt;
         }
 
-    private DataTable changeDataFormat(DataTable tempDt, string[,] ColArray)
+        private int mapLangCode(string lang)
+        {
+            int langCode = 0;
+            switch (lang)
+            {
+                case "en":
+                    langCode = 0;
+                    break;
+                case "tw":
+                    langCode = 1;
+                    break;
+            }
+            return langCode;
+
+        }
+
+        private DataTable changeDataFormat(DataTable tempDt, string[,] ColArray)
         {
             string colName, colDesc, colType;
             int totHeaderCol = ColArray.Length / 3; // 資料類別共三種
@@ -270,15 +290,16 @@ namespace POR
             }
         }
 
-        public void resetColOrder(DataTable table, string[,] columnNames)
-        {            
+        public void resetColOrder(DataTable table, string[,] columnNames, string lang)
+        {
+            int langCode = mapLangCode(lang);
+
             var colCount = columnNames.Length / 3;
             for (int i = 0; i < colCount; i++)
             {
-                var columnName = columnNames[i, 0].ToString();
+                var columnName = columnNames[i, langCode].ToString();
                 table.Columns[columnName].SetOrdinal(i);                
             }
-
         }
 
         private void bindPoHeader(DataTable poHeader)
