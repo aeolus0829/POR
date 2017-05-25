@@ -2,8 +2,10 @@
 using POR;
 using SAP.Middleware.Connector;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace POR
@@ -86,7 +88,7 @@ namespace POR
             {"BLQTY","已暫收", "6" }
         };
 
-        string[,] POItemColOrder =
+        string[,] prunePoItemArray =
         {
             {"MOVE_TYPE"},
             {"PO_NUMBER"},
@@ -94,7 +96,6 @@ namespace POR
             {"MATERIAL"},
             {"ORD_MATERIAL"},
             {"SHORT_TEXT"},
-            {"PLANT"},
             {"STGE_LOC"},
             {"QUANTITY"},
             {"OVER_DLV_TOL"},
@@ -129,15 +130,17 @@ namespace POR
 
                     POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
                    
-                    DataTable tempDt = new DataTable();
-                    
-                    tempDt = changeDataFormat(POITEM, poItemColArray);
+                    DataTable reformatDt = new DataTable();
+                    DataTable prunedDt = new DataTable();
+
+                    prunedDt = removeCol(POITEM, prunePoItemArray);
+                    reformatDt = changeDataFormat(prunedDt, poItemColArray);
                     POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
                     POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
 
-                    setColOrder(tempDt, POItemColOrder);
+                    setColOrder(reformatDt, prunePoItemArray);
                     
-                    twPoItem = sc.chgColName(tempDt, poItemColArray, "tw");
+                    twPoItem = sc.chgColName(reformatDt, poItemColArray, "tw");
 
                     bindPoHeader(POHEADER);                  
 
@@ -161,7 +164,28 @@ namespace POR
 
         }
 
-        private DataTable changeDataFormat(DataTable tempDt, string[,] ColArray)
+        private DataTable removeCol(DataTable dt, string[,] pOItemColOrder)
+        {
+            List<string> keepColNames = new List<string>();
+
+            foreach (string col in pOItemColOrder)
+            {
+                keepColNames.Add(col);
+            }                     
+
+            var allColumns = dt.Columns.Cast<DataColumn>();
+            var allColNames = allColumns.Select(c => c.ColumnName);
+            var removeColNames = allColNames.Except(keepColNames);
+            var colsToRemove = from r in removeColNames
+                               join c in allColumns on r equals c.ColumnName
+                               select c;
+            while (colsToRemove.Any())
+                dt.Columns.Remove(colsToRemove.First());
+
+            return dt;
+        }
+
+    private DataTable changeDataFormat(DataTable tempDt, string[,] ColArray)
         {
             string colName, colDesc, colType;
             int totHeaderCol = ColArray.Length / 3; // 資料類別共三種
