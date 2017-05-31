@@ -59,20 +59,20 @@ namespace POR
 
         private string mapFlag(string v)
         {
-            string tFlag = "";
+            string twFlag = "";
             switch(v.ToUpper())
             {
                 case "S":
-                    tFlag = "成功";
+                    twFlag = "成功";
                     break;
                 case "E":
-                    tFlag = "錯誤";
+                    twFlag = "錯誤";
                     break;
                 case "W":
-                    tFlag = "警告";
+                    twFlag = "警告";
                     break;
             }
-            return tFlag;
+            return twFlag;
         }
 
         private IRfcTable fillItab(IRfcTable itab, DataTable dt)
