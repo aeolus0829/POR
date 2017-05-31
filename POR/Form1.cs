@@ -49,11 +49,12 @@ namespace POR
             iFunc.SetValue("MOVE_TYPE", txtMvt.Text);
             iFunc.SetValue("ZRFCTYPE", "M");
             iFunc.Invoke(rfcDest);
-            var zflag = mapFlag(iFunc.GetString("ZFLAG"));
+            var zflag = iFunc.GetString("ZFLAG");
+            var twZflag = mapFlag(zflag);
             var zmsg = iFunc.GetString("ZMSG");
-            toolStripStatusLabel1.Text = zflag + " : " + zmsg;
+            toolStripStatusLabel1.Text = twZflag + " : " + zmsg;
 
-            btnRestart.PerformClick();
+            if (zflag=="S" || zflag=="W") btnRestart.PerformClick();
         }
 
         private string mapFlag(string v)
