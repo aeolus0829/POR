@@ -85,13 +85,15 @@ namespace POR
             {"ORD_MATERIAL","工單料號", "1" },
             {"FRGKE","採單核發", "0" },
             {"GRQTY","已驗收", "6" },
-            {"BLQTY","已暫收", "6" }
+            {"BLQTY","已暫收", "6" },
+            {"ALLOWQTY", "可交貨", "6" }
         };
 
         public string[,] keepPoItemArray =
         {
             {"SHORT_TEXT","短文", "0" },
             {"STGE_LOC","儲存地點", "1" },
+            {"ALLOWQTY", "可交貨", "6" },
             {"ENTRY_QNT","輸入數量", "6" },
             {"BATCH","批次號碼", "1" },
             {"GRQTY","已驗收", "6" },
