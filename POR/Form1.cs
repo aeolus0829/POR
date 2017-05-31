@@ -86,22 +86,20 @@ namespace POR
             poForm.resetColOrder(tempDt, refArray, "en");
             
             string col, val;
+            int r = 0;
 
             foreach (DataRow row in tempDt.Rows)
             {
-                int r = 0;
                 itab.Append();
-                do
+
+                for (int i = 1; i < colCount; i++)
                 {
-                    for (int i = 1; i < colCount; i++)
-                    {
-                        col = refArray[i, 0].ToString();
-                        val = row[i].ToString();
+                    col = refArray[i, 0].ToString();
+                    val = row[i].ToString();
                         
-                        if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
-                    }
-                    r++;
-                } while (r < rowCount);
+                    if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
+                }
+                r++;
             }
             return itab;
         }
