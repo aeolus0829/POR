@@ -100,6 +100,7 @@ namespace POR
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
+            Form2.MvT = txtMvt.Text;
             poForm.Show();
             this.Hide();
         }
@@ -126,8 +127,6 @@ namespace POR
 
             if (isActive && isInGroup) InitializeComponent();
             else MessageBox.Show("目前程式停用中，可能是特定時間或缺乏使用權限，請連絡資訊組");
-
-            Form2.MvT = txtMvt.Text;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
