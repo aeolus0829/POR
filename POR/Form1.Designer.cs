@@ -46,6 +46,7 @@
             this.lblMdMemo = new System.Windows.Forms.Label();
             this.txtMdMemo = new System.Windows.Forms.TextBox();
             this.txtMvt = new System.Windows.Forms.TextBox();
+            this.btnRestart = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
@@ -220,11 +221,23 @@
             this.txtMvt.TabIndex = 1;
             this.txtMvt.Text = "103";
             // 
+            // btnRestart
+            // 
+            this.btnRestart.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnRestart.Location = new System.Drawing.Point(822, 251);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(87, 27);
+            this.btnRestart.TabIndex = 15;
+            this.btnRestart.Text = "重新開始";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 504);
+            this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.txtMdMemo);
             this.Controls.Add(this.lblMdMemo);
             this.Controls.Add(this.btnHelpMvt);
@@ -267,6 +280,7 @@
         private System.Windows.Forms.Label lblMdMemo;
         private System.Windows.Forms.TextBox txtMdMemo;
         private System.Windows.Forms.TextBox txtMvt;
+        private System.Windows.Forms.Button btnRestart;
     }
 }
 

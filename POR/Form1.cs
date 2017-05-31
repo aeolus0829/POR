@@ -49,12 +49,29 @@ namespace POR
             iFunc.SetValue("MOVE_TYPE", txtMvt.Text);
             iFunc.SetValue("ZRFCTYPE", "M");
             iFunc.Invoke(rfcDest);
-            var zflag = iFunc.GetString("ZFLAG");
+            var zflag = mapFlag(iFunc.GetString("ZFLAG"));
             var zmsg = iFunc.GetString("ZMSG");
             toolStripStatusLabel1.Text = zflag + " : " + zmsg;
 
-            MessageBox.Show(zmsg, zflag);
+            btnRestart.PerformClick();
+        }
 
+        private string mapFlag(string v)
+        {
+            string tFlag = "";
+            switch(v.ToUpper())
+            {
+                case "S":
+                    tFlag = "成功";
+                    break;
+                case "E":
+                    tFlag = "錯誤";
+                    break;
+                case "W":
+                    tFlag = "警告";
+                    break;
+            }
+            return tFlag;
         }
 
         private IRfcTable fillItab(IRfcTable itab, DataTable dt)
@@ -96,13 +113,30 @@ namespace POR
             }
         }
 
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            poForm.Close();
+            txtMvt.Text = "";
+            txtMdMemo.Text = "";
+            dgvPO.DataSource = null;
+            dgvPO.Refresh();
+        }
+
         public static DataTable dtStack { get; internal set; }
-        public string connClient { get; private set; }
+        public string connClient { get; set; }
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
             Form2.MvT = txtMvt.Text;
-            poForm.Show();
+            toolStripStatusLabel1.Text = "";
+            if (poForm.IsAccessible ) poForm.Show();
+            else
+            {
+                Form2 poForm = new Form2();
+                poForm.connClient = connClient;
+                poForm.Show();
+            }
+
             this.Hide();
         }
 

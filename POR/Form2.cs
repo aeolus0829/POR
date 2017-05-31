@@ -90,19 +90,19 @@ namespace POR
 
         public string[,] keepPoItemArray =
         {
-            {"MOVE_TYPE","異動類型", "0" },
-            {"PO_NUMBER","採購單號", "1" },
-            {"PO_ITEM", "採單項次", "1" },
-            {"MATERIAL","物料號碼", "1" },
-            {"ORD_MATERIAL","工單料號", "1" },
             {"SHORT_TEXT","短文", "0" },
             {"STGE_LOC","儲存地點", "1" },
-            {"QUANTITY","採單數量", "6" },
-            {"OVER_DLV_TOL", "超量允差", "0" },
-            {"GRQTY","已驗收", "6" },
-            {"BLQTY","已暫收", "6" },
             {"ENTRY_QNT","輸入數量", "6" },
             {"BATCH","批次號碼", "1" },
+            {"GRQTY","已驗收", "6" },
+            {"BLQTY","已暫收", "6" },
+            {"PO_NUMBER","採購單號", "1" },
+            {"PO_ITEM", "採單項次", "1" },
+            {"MOVE_TYPE","異動類型", "0" },
+            {"MATERIAL","物料號碼", "1" },
+            {"ORD_MATERIAL","工單料號", "1" },
+            {"QUANTITY","採單數量", "6" },
+            {"OVER_DLV_TOL", "超量允差", "0" },
             {"FREE_ITEM","免費", "0" },
             {"RET_ITEM","退貨", "0" }
         };
