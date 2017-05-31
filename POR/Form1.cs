@@ -46,6 +46,7 @@ namespace POR
             var po = fItab[0].GetString(0);
             iFunc.SetValue("PURCHASEORDER", po);
             iFunc.SetValue("POITEM", fItab);
+            iFunc.SetValue("MOVE_TYPE", txtMvt.Text);
             iFunc.SetValue("ZRFCTYPE", "M");
             iFunc.Invoke(rfcDest);
             var zflag = iFunc.GetString("ZFLAG");
@@ -58,13 +59,13 @@ namespace POR
 
         private IRfcTable fillItab(IRfcTable itab, DataTable dt)
         {
+            var refArray = poForm.keepPoItemArray;
             sapConnClass sc = new sapConnClass();
-            var poItemColArray = poForm.poItemColArray;
-            var colCount = poItemColArray.Length / 3;
+            var colCount = refArray.GetLength(0);
             var rowCount = dt.Rows.Count;
             var dtCol = dt.Columns.GetEnumerator();
-            var tempDt = sc.chgColName(dt, poForm.poItemColArray, "en");
-            poForm.resetColOrder(tempDt,poForm.poItemColArray, "en");
+            var tempDt = sc.chgColName(dt, refArray, "en");
+            poForm.resetColOrder(tempDt, refArray, "en");
             
             string col, val;
 
@@ -74,9 +75,9 @@ namespace POR
                 itab.Append();
                 do
                 {
-                    for (int i = 0; i < colCount; i++)
+                    for (int i = 1; i < colCount; i++)
                     {
-                        col = poItemColArray[i, 0].ToString();
+                        col = refArray[i, 0].ToString();
                         val = row[i].ToString();
                         
                         if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);

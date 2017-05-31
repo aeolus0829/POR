@@ -88,7 +88,7 @@ namespace POR
             {"BLQTY","已暫收", "6" }
         };
 
-        string[,] keepPoItemArray =
+        public string[,] keepPoItemArray =
         {
             {"MOVE_TYPE","異動類型", "0" },
             {"PO_NUMBER","採購單號", "1" },
