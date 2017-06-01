@@ -346,7 +346,7 @@ namespace POR
             return poGrpName;
         }
 
-        private string detectDBName(string connClient)
+        public string detectDBName(string connClient)
         {
             switch (connClient)
             {

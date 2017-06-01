@@ -4,6 +4,8 @@ using connDB;
 using ADAuth;
 using System.Data;
 using SAP.Middleware.Connector;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace POR
 {
@@ -41,7 +43,7 @@ namespace POR
             IRfcTable itab = iFunc.GetTable("POITEM"); 
             var dt = (DataTable)dgvPO.DataSource;
             dt.AcceptChanges();
-            IRfcTable fItab = fillItab(itab, dt);
+            IRfcTable fItab = fillItab(itab, dt);            
 
             var po = fItab[0].GetString(0);
             iFunc.SetValue("PURCHASEORDER", po);
@@ -56,6 +58,25 @@ namespace POR
             toolStripStatusLabel1.Text = twZflag + " : " + zmsg;
 
             if (zflag=="S" || zflag=="W") btnRestart.PerformClick();
+        }
+
+        private void validateUserInput()
+        {
+            var materilCategory = "";
+
+            needBatch = false;
+
+            materilCategory = matnr.Substring(0);
+
+            if (mvT == "101" || mvT == "102" || mvT == "105" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "122" || mvT == "123")
+                needBatch = true;
+
+            if (materilCategory == "1" || materilCategory == "2" || materilCategory == "3")
+            {
+                needBatch = true;
+            }
+            else needBatch = false;
+                
         }
 
         private string mapFlag(string v)
@@ -85,8 +106,9 @@ namespace POR
             var dtCol = dt.Columns.GetEnumerator();
             var tempDt = sc.chgColName(dt, refArray, "en");
             poForm.resetColOrder(tempDt, refArray, "en");
-            
-            string col, val;
+
+            string col = "";
+            string val = "";
             int r = 0;
 
             foreach (DataRow row in tempDt.Rows)
@@ -98,11 +120,91 @@ namespace POR
                     col = refArray[i, 0].ToString();
                     val = row[i].ToString();
                         
-                    if (!string.IsNullOrEmpty(val)) itab[r].SetValue(col, val);
+                    if (!string.IsNullOrEmpty(val))
+                    {
+                        itab[r].SetValue(col, val);
+                        detectCol(col, val);
+                    }
                 }
+                validateUserInput();
+
+                if (needBatch)
+                {
+                    var batchNumGroup = searchBatch(matnr, sLoc, entryQty);
+                    if (batchNumGroup.Count>1)
+                    {
+                        foreach (var item in batchNumGroup)
+                        {
+                            itab[r].SetValue("BATCH", item);
+                        }
+                    }
+                    else
+                    {
+                        itab[r].SetValue("BATCH", batchNumGroup);
+                    }
+                    
+                }
+                else
+                {
+                    continue;
+                }
+
                 r++;
             }
             return itab;
+        }
+
+        private List<string> searchBatch(string matnr, string sLoc, string entryQty)
+        {
+            sapInitDB = poForm.detectDBName(connClient);
+            var sql = "select CLABS, CHARG from " + sapInitDB + ".ZMMV002 where MANDT = '" + connClient + "' and MATNR = '" + matnr + "' and LGORT = '" + sLoc + "'";
+            List<string> batchNumGroup = execQuery(sql);
+
+            return batchNumGroup;
+        }
+
+        private List<string> execQuery(string sql)
+        {
+            mssqlConnClass msc = new mssqlConnClass();
+            string connString = msc.toSAPDB(connClient);
+            List<string> result = null;
+            var sqlConn = new SqlConnection(connString);
+            try
+            {
+                sqlConn.Open();
+                SqlCommand sCmd = new SqlCommand(sql, sqlConn);
+                var value = sCmd.ExecuteReader();
+                while (value.Read()) result.Add(value.ToString());
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "error when execQuery()");
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+            return result; ;
+        }
+
+        private void detectCol(string col, string val)
+        {
+            switch (col)
+            {
+                case "STGE_LOC":
+                    sLoc = val;
+                    break;
+                case "MOVE_TYPE":
+                    mvT = txtMvt.Text;
+                    break;
+                case "MATERIAL":
+                    matnr = val;
+                    break;
+                case "ENTRY_QNT":
+                    entryQty = val;
+                    break;
+            }
         }
 
         private void autosizeCol(DataGridView dgv)
@@ -124,6 +226,12 @@ namespace POR
 
         public static DataTable dtStack { get; internal set; }
         public string connClient { get; set; }
+        public string sLoc { get; set; }
+        public string mvT { get; set; }
+        public string matnr { get; set; }
+        public bool needBatch { get; set; }
+        public string entryQty { get; set; }
+        public object sapInitDB { get; private set; }
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
