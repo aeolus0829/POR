@@ -66,17 +66,27 @@ namespace POR
 
             needBatch = false;
 
-            materilCategory = matnr.Substring(0);
+            materilCategory = matnr.Substring(11, 1);
 
             if (mvT == "101" || mvT == "102" || mvT == "105" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "122" || mvT == "123")
                 needBatch = true;
 
             if (materilCategory == "1" || materilCategory == "2" || materilCategory == "3")
-            {
                 needBatch = true;
-            }
             else needBatch = false;
-                
+
+            if (needBatch)
+            {
+                if (string.IsNullOrEmpty(sLoc))
+                {
+                    MessageBox.Show("儲存地點沒有填，無法決定批次");
+                }
+
+                if (string.IsNullOrEmpty(entryQty))
+                {
+                    MessageBox.Show("未輸入收料數量，無法決定批次");
+                }                 
+            }
         }
 
         private string mapFlag(string v)
@@ -131,16 +141,25 @@ namespace POR
                 if (needBatch)
                 {
                     var batchNumGroup = searchBatch(matnr, sLoc, entryQty);
-                    if (batchNumGroup.Count>1)
+                    if (batchNumGroup!=null && batchNumGroup.Rows.Count>1)
                     {
-                        foreach (var item in batchNumGroup)
+                        foreach (DataRow bRow in batchNumGroup.Rows)
                         {
-                            itab[r].SetValue("BATCH", item);
+                            var qty = Convert.ToInt32(bRow[0]); //CLABS
+                            var iEntryQty = Convert.ToInt32(entryQty);
+                            var batch = bRow[1].ToString(); //CHARG 
+                            var modValue = qty - iEntryQty;
+
+                            if (modValue == 0)
+                            {
+                                itab[r].SetValue("BATCH", batch);
+                                break;
+                            }
                         }
                     }
                     else
                     {
-                        itab[r].SetValue("BATCH", batchNumGroup);
+                        continue;
                     }
                     
                 }
@@ -154,28 +173,29 @@ namespace POR
             return itab;
         }
 
-        private List<string> searchBatch(string matnr, string sLoc, string entryQty)
+        private DataTable searchBatch(string matnr, string sLoc, string entryQty)
         {
             sapInitDB = poForm.detectDBName(connClient);
             var sql = "select CLABS, CHARG from " + sapInitDB + ".ZMMV002 where MANDT = '" + connClient + "' and MATNR = '" + matnr + "' and LGORT = '" + sLoc + "'";
-            List<string> batchNumGroup = execQuery(sql);
+            DataTable batchNumGroup = new DataTable();
+
+            batchNumGroup = execQuery(sql);
 
             return batchNumGroup;
         }
 
-        private List<string> execQuery(string sql)
+        private DataTable execQuery(string sql)
         {
             mssqlConnClass msc = new mssqlConnClass();
             string connString = msc.toSAPDB(connClient);
-            List<string> result = null;
+            DataTable result = new DataTable();
             var sqlConn = new SqlConnection(connString);
             try
             {
                 sqlConn.Open();
                 SqlCommand sCmd = new SqlCommand(sql, sqlConn);
                 var value = sCmd.ExecuteReader();
-                while (value.Read()) result.Add(value.ToString());
-                
+                result.Load(value);
             }
             catch (Exception ex)
             {
@@ -199,7 +219,7 @@ namespace POR
                     mvT = txtMvt.Text;
                     break;
                 case "MATERIAL":
-                    matnr = val;
+                    matnr = "00000000000" + val;
                     break;
                 case "ENTRY_QNT":
                     entryQty = val;
