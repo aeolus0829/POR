@@ -89,7 +89,7 @@ namespace POR
             }
         }
 
-        private string mapFlag(string v)
+        public string mapFlag(string v)
         {
             string twFlag = "";
             switch(v.ToUpper())
@@ -141,33 +141,33 @@ namespace POR
                 if (needBatch)
                 {
                     var batchNumGroup = searchBatch(matnr, sLoc, entryQty);
-                    if (batchNumGroup!=null && batchNumGroup.Rows.Count>1)
+                    var iEntryQty = Convert.ToInt32(entryQty);
+                    int remainQty = iEntryQty;
+
+                    if (batchNumGroup != null)
                     {
-                        foreach (DataRow bRow in batchNumGroup.Rows)
+                        do
                         {
-                            var qty = Convert.ToInt32(bRow[0]); //CLABS
-                            var iEntryQty = Convert.ToInt32(entryQty);
-                            var batch = bRow[1].ToString(); //CHARG 
-                            var modValue = qty - iEntryQty;
-
-                            if (modValue == 0)
+                            foreach (DataRow bRow in batchNumGroup.Rows)
                             {
-                                itab[r].SetValue("BATCH", batch);
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                    
-                }
-                else
-                {
-                    continue;
-                }
+                                var batchQty = Convert.ToInt32(bRow[0]); //CLABS
+                                var batchNum = bRow[1].ToString(); //CHARG
 
+                                if (remainQty > batchQty) remainQty -= batchQty;                                
+
+                                itab[r].SetValue("BATCH", batchNum);
+                                itab[r].SetValue("ENTRY_QNT", batchQty);
+                                if (remainQty > 0)
+                                {
+                                    itab[r].Clone();
+                                    r++;
+                                }
+                            }
+                        } while (remainQty == 0);
+                        break;
+                        
+                    }
+                }
                 r++;
             }
             return itab;
@@ -176,7 +176,8 @@ namespace POR
         private DataTable searchBatch(string matnr, string sLoc, string entryQty)
         {
             sapInitDB = poForm.detectDBName(connClient);
-            var sql = "select CLABS, CHARG from " + sapInitDB + ".ZMMV002 where MANDT = '" + connClient + "' and MATNR = '" + matnr + "' and LGORT = '" + sLoc + "'";
+            var sql = "select CLABS, CHARG from " + sapInitDB + ".ZMMV002 where MANDT = '" 
+                + connClient + "' and MATNR = '" + matnr + "' and LGORT = '" + sLoc + "'";
             DataTable batchNumGroup = new DataTable();
 
             batchNumGroup = execQuery(sql);

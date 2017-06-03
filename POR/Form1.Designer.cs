@@ -47,6 +47,7 @@
             this.txtMdMemo = new System.Windows.Forms.TextBox();
             this.txtMvt = new System.Windows.Forms.TextBox();
             this.btnRestart = new System.Windows.Forms.Button();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPO)).BeginInit();
             this.SuspendLayout();
@@ -232,11 +233,20 @@
             this.btnRestart.UseVisualStyleBackColor = true;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Location = new System.Drawing.Point(0, 460);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(918, 22);
+            this.statusStrip2.TabIndex = 16;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(918, 504);
+            this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.txtMdMemo);
             this.Controls.Add(this.lblMdMemo);
@@ -281,6 +291,7 @@
         private System.Windows.Forms.TextBox txtMdMemo;
         private System.Windows.Forms.TextBox txtMvt;
         private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.StatusStrip statusStrip2;
     }
 }
 

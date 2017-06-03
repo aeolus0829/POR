@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPoItem = new System.Windows.Forms.DataGridView();
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
@@ -49,22 +49,25 @@
             this.lblVendorNameVal = new System.Windows.Forms.Label();
             this.lblPoDateVal = new System.Windows.Forms.Label();
             this.lblPoGrpVal = new System.Windows.Forms.Label();
+            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStack)).BeginInit();
+            this.statusStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvPoItem
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvPoItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPoItem.Location = new System.Drawing.Point(12, 68);
+            this.dgvPoItem.Location = new System.Drawing.Point(12, 101);
             this.dgvPoItem.Name = "dgvPoItem";
             this.dgvPoItem.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvPoItem.RowTemplate.Height = 24;
-            this.dgvPoItem.Size = new System.Drawing.Size(831, 292);
+            this.dgvPoItem.Size = new System.Drawing.Size(831, 254);
             this.dgvPoItem.TabIndex = 1;
             this.dgvPoItem.TabStop = false;
             // 
@@ -99,14 +102,14 @@
             // 
             // dgvStack
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStack.Location = new System.Drawing.Point(12, 399);
+            this.dgvStack.Location = new System.Drawing.Point(12, 372);
             this.dgvStack.Name = "dgvStack";
             this.dgvStack.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvStack.RowTemplate.Height = 24;
             this.dgvStack.Size = new System.Drawing.Size(831, 241);
             this.dgvStack.TabIndex = 4;
@@ -115,7 +118,7 @@
             // btnSelected
             // 
             this.btnSelected.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnSelected.Location = new System.Drawing.Point(12, 366);
+            this.btnSelected.Location = new System.Drawing.Point(12, 68);
             this.btnSelected.Name = "btnSelected";
             this.btnSelected.Size = new System.Drawing.Size(37, 27);
             this.btnSelected.TabIndex = 5;
@@ -127,7 +130,7 @@
             // btnComplete
             // 
             this.btnComplete.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnComplete.Location = new System.Drawing.Point(12, 646);
+            this.btnComplete.Location = new System.Drawing.Point(12, 619);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(86, 30);
             this.btnComplete.TabIndex = 6;
@@ -151,7 +154,7 @@
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnRestart.Location = new System.Drawing.Point(757, 646);
+            this.btnRestart.Location = new System.Drawing.Point(757, 619);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(86, 30);
             this.btnRestart.TabIndex = 8;
@@ -235,11 +238,29 @@
             this.lblPoGrpVal.Size = new System.Drawing.Size(0, 16);
             this.lblPoGrpVal.TabIndex = 18;
             // 
+            // statusStrip2
+            // 
+            this.statusStrip2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip2.Location = new System.Drawing.Point(0, 663);
+            this.statusStrip2.Name = "statusStrip2";
+            this.statusStrip2.Size = new System.Drawing.Size(855, 25);
+            this.statusStrip2.TabIndex = 19;
+            this.statusStrip2.Text = "statusStrip2";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(129, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 688);
+            this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.lblPoGrpVal);
             this.Controls.Add(this.lblPoDateVal);
             this.Controls.Add(this.lblVendorNameVal);
@@ -261,6 +282,8 @@
             this.Text = "選取採購單";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStack)).EndInit();
+            this.statusStrip2.ResumeLayout(false);
+            this.statusStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +307,7 @@
         private System.Windows.Forms.Label lblVendorNameVal;
         private System.Windows.Forms.Label lblPoDateVal;
         private System.Windows.Forms.Label lblPoGrpVal;
+        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

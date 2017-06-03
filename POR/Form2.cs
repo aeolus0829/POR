@@ -129,6 +129,11 @@ namespace POR
                     iFunc.SetValue("ZRFCTYPE", "G");
                     iFunc.Invoke(rfcDest);
 
+                    var zflag = iFunc.GetString("ZFLAG");
+                    var twZflag = mapFlag(zflag);
+                    var zmsg = iFunc.GetString("ZMSG");
+                    toolStripStatusLabel1.Text = twZflag + " : " + zmsg;
+
                     var rfcPOHEADER = iFunc.GetStructure("POHEADER");
                     var rfcPOITEM = iFunc.GetTable("POITEM");
                     var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
@@ -145,26 +150,46 @@ namespace POR
 
                     resetColOrder(pruneDt, keepPoItemArray, "tw");
 
-                    bindPoHeader(POHEADER);                  
+                    if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
+                    else
+                    {
+                        dgvPoItem.DataSource = pruneDt;
+                        dgvPoItem.ReadOnly = true;
+
+                        autosizeCol(dgvPoItem);
+
+                        bindPoHeader(POHEADER);
+                    }
 
                     Cursor.Current = Cursors.Default;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString(), "error");
-                }
-                if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
-                else
-                {
-                    dgvPoItem.DataSource = pruneDt;
-                    dgvPoItem.ReadOnly = true;
-
-                    autosizeCol(dgvPoItem);
+                    //MessageBox.Show(ex.ToString(), "error");
+                    toolStripStatusLabel1.Text = "無法取得採購單資料";
                 }
 
             }
             else MessageBox.Show("未輸入採購單號", "error");
 
+        }
+
+        private string mapFlag(string zflag)
+        {
+            string twFlag = "";
+            switch (zflag.ToUpper())
+            {
+                case "S":
+                    twFlag = "成功";
+                    break;
+                case "E":
+                    twFlag = "錯誤";
+                    break;
+                case "W":
+                    twFlag = "警告";
+                    break;
+            }
+            return twFlag;
         }
 
         private DataTable removeCol(DataTable dt, string[,] colOrderArray, string lang)
