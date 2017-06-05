@@ -303,7 +303,7 @@ namespace POR
                     }
                 }
                 mainLoopCounter++;
-            } while (mainLoopCounter <= tempDt.Rows.Count);
+            } while (mainLoopCounter < tempDt.Rows.Count);
             return finalDt;
         }
 

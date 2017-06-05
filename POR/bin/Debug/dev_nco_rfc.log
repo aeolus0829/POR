@@ -455,3 +455,21 @@ Default trace level: None
 
 >> Info entry 2017-05-17 16:46:42.930 [Thread 9]
 Invalid LZ-compressed data block received, ignored.
+**** Log file opened by process 7828 at 2017-06-03 22:39:29 (UTC+08:00 台北標準時間)
+
+SAP .NET Connector 3.0 with file version 3.0.11.0 running on 32-bit .NET Framework 4.0.30319.42000
+Program: N:\資訊\Code\winform\POR\POR\bin\Debug\POR.vshost.exe
+Working directory: N:\資訊\Code\winform\POR\POR\bin\Debug
+Operating system: Windows 7 Ultimate 64-bit Service Pack 1
+Processor: 4x AMD64 (or x64)
+SAP release: 720, Kernel release: 720, Kernel patch level: 426
+Hostname: VW7-ARCHER, IP address: 192.168.0.96, IP_v6 address: 
+
+Default trace level: None
+
+>> Error entry 2017-06-03 22:39:29.749 [Thread 9]
+SAP.Middleware.Connector.RfcTypeConversionException: FIELD ENTRY_QNT of STRUCTURE ZMMT005_I (SETTER): cannot convert String into BCD[7:3] ---> SAP.Middleware.Connector.RfcTypeConversionException: Cannot convert  40 into a BCD because of invalid character ' ' in integer part
+   於 SAP.Middleware.Connector.RfcScalarMetadataBcd.ConvertString(String value, Object& currentValue)
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 SAP.Middleware.Connector.RfcDataContainer`1.SetValue(Int32 index, String value)

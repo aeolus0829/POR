@@ -68,12 +68,11 @@ namespace POR
 
             materilCategory = matnr.Substring(11, 1);
 
-            if (mvT == "101" || mvT == "102" || mvT == "105" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "122" || mvT == "123")
-                needBatch = true;
-
-            if (materilCategory == "1" || materilCategory == "2" || materilCategory == "3")
-                needBatch = true;
-            else needBatch = false;
+            if (mvT == "102" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "123")
+            {
+                if (materilCategory == "1" || materilCategory == "2" || materilCategory == "3")
+                    needBatch = true;
+            }
 
             if (needBatch)
             {
@@ -110,29 +109,32 @@ namespace POR
         private IRfcTable fillItab(IRfcTable itab, DataTable dt)
         {
             var refArray = poForm.keepPoItemArray;
+            var lastItab = itab;
             sapConnClass sc = new sapConnClass();
             var colCount = refArray.GetLength(0);
             var rowCount = dt.Rows.Count;
             var dtCol = dt.Columns.GetEnumerator();
-            var tempDt = sc.chgColName(dt, refArray, "en");
-            poForm.resetColOrder(tempDt, refArray, "en");
+            var dtEnPo = sc.chgColName(dt, refArray, "en");
+            poForm.resetColOrder(dtEnPo, refArray, "en");
 
             string col = "";
             string val = "";
             int r = 0;
 
-            foreach (DataRow row in tempDt.Rows)
+            foreach (DataRow dtEnPORow in dtEnPo.Rows)
             {
                 itab.Append();
+                lastItab.Append();
 
                 for (int i = 1; i < colCount; i++)
                 {
                     col = refArray[i, 0].ToString();
-                    val = row[i].ToString();
+                    val = dtEnPORow[i].ToString().Trim();
                         
                     if (!string.IsNullOrEmpty(val))
                     {
                         itab[r].SetValue(col, val);
+                        lastItab[0].SetValue(col, val);
                         detectCol(col, val);
                     }
                 }
@@ -153,19 +155,20 @@ namespace POR
                                 var batchQty = Convert.ToInt32(bRow[0]); //CLABS
                                 var batchNum = bRow[1].ToString(); //CHARG
 
-                                if (remainQty > batchQty) remainQty -= batchQty;                                
+                                if (remainQty > batchQty)
+                                {
+                                    remainQty -= batchQty;
+                                    itab[r].SetValue("ENTRY_QNT", batchQty);
+                                }
+                                else
+                                {
+                                    itab[r].SetValue("ENTRY_QNT", remainQty);
+                                    remainQty -= remainQty;
+                                }
 
                                 itab[r].SetValue("BATCH", batchNum);
-                                itab[r].SetValue("ENTRY_QNT", batchQty);
-                                if (remainQty > 0)
-                                {
-                                    itab[r].Clone();
-                                    r++;
-                                }
                             }
-                        } while (remainQty == 0);
-                        break;
-                        
+                        } while (remainQty != 0);                       
                     }
                 }
                 r++;
