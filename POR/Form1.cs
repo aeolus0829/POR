@@ -109,7 +109,6 @@ namespace POR
         private IRfcTable fillItab(IRfcTable itab, DataTable dt)
         {
             var refArray = poForm.keepPoItemArray;
-            var lastItab = itab;
             sapConnClass sc = new sapConnClass();
             var colCount = refArray.GetLength(0);
             var rowCount = dt.Rows.Count;
@@ -124,7 +123,6 @@ namespace POR
             foreach (DataRow dtEnPORow in dtEnPo.Rows)
             {
                 itab.Append();
-                lastItab.Append();
 
                 for (int i = 1; i < colCount; i++)
                 {
@@ -134,10 +132,12 @@ namespace POR
                     if (!string.IsNullOrEmpty(val))
                     {
                         itab[r].SetValue(col, val);
-                        lastItab[0].SetValue(col, val);
                         detectCol(col, val);
                     }
                 }
+
+                var lastItab = itab;
+                
                 validateUserInput();
 
                 if (needBatch)

@@ -241,7 +241,7 @@ namespace POR
             int mainLoopCounter = 0;
             do
             {
-                if (mainLoopCounter == 0) //這一列是表頭欄位
+                if (finalDt.Columns.Count == 0) 
                 {
                     for (int colCount = 0; colCount < totHeaderCol; colCount++)
                     {
@@ -298,12 +298,12 @@ namespace POR
                                     break;
                             }
                             if (colName == "MOVE_TYPE") finalRow[colName] = MvT.ToString();
+                            mainLoopCounter++;
                         }
                         finalDt.Rows.Add(finalRow);
                     }
-                }
-                mainLoopCounter++;
-            } while (mainLoopCounter < tempDt.Rows.Count);
+                }                
+            } while (mainLoopCounter <= tempDt.Rows.Count);
             return finalDt;
         }
 
