@@ -64,9 +64,11 @@ namespace POR
         {
             var materilCategory = "";
 
+            mvT = txtMvt.Text;
+
             needBatch = false;
 
-            materilCategory = matnr.Substring(11, 1);
+            if (! string.IsNullOrEmpty(matnr)) materilCategory = matnr.Substring(11, 1);
 
             if (mvT == "102" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "123")
             {
@@ -124,7 +126,7 @@ namespace POR
             {
                 itab.Append();
 
-                for (int i = 1; i < colCount; i++)
+                for (int i = 0; i < colCount - 1; i++) 
                 {
                     col = refArray[i, 0].ToString();
                     val = dtEnPORow[i].ToString().Trim();
@@ -136,8 +138,6 @@ namespace POR
                     }
                 }
 
-                var lastItab = itab;
-                
                 validateUserInput();
 
                 if (needBatch)
@@ -164,6 +164,7 @@ namespace POR
                                 {
                                     itab[r].SetValue("ENTRY_QNT", remainQty);
                                     remainQty -= remainQty;
+                                    break; //剩餘數量=0，可以跳出迴圈了
                                 }
 
                                 itab[r].SetValue("BATCH", batchNum);
@@ -218,9 +219,6 @@ namespace POR
             {
                 case "STGE_LOC":
                     sLoc = val;
-                    break;
-                case "MOVE_TYPE":
-                    mvT = txtMvt.Text;
                     break;
                 case "MATERIAL":
                     matnr = "00000000000" + val;
