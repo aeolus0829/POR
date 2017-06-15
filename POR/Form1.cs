@@ -70,7 +70,7 @@ namespace POR
 
             if (! string.IsNullOrEmpty(matnr)) materilCategory = matnr.Substring(11, 1);
 
-            if (mvT == "102" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "123")
+            if (mvT == "102" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "122" || mvT == "123") 
             {
                 if (materilCategory == "1" || materilCategory == "2" || materilCategory == "3")
                     needBatch = true;
@@ -138,6 +138,8 @@ namespace POR
                     }
                 }
 
+                var lastItabDt = sc.GetDataTableFromRFCTable(itab);
+
                 validateUserInput();
 
                 if (needBatch)
@@ -155,6 +157,8 @@ namespace POR
                                 var batchQty = Convert.ToInt32(bRow[0]); //CLABS
                                 var batchNum = bRow[1].ToString(); //CHARG
 
+                                itab[r].SetValue("BATCH", batchNum);
+
                                 if (remainQty > batchQty)
                                 {
                                     remainQty -= batchQty;
@@ -166,13 +170,24 @@ namespace POR
                                     remainQty -= remainQty;
                                     break; //剩餘數量=0，可以跳出迴圈了
                                 }
+                                r++;
+                                itab.Append();
 
-                                itab[r].SetValue("BATCH", batchNum);
+                                for (int i = 0; i < colCount - 1; i++)
+                                {
+                                    col = refArray[i, 0].ToString();
+                                    val = dtEnPORow[i].ToString().Trim();
+
+                                    if (!string.IsNullOrEmpty(val))
+                                    {
+                                        itab[r].SetValue(col, val);
+                                        detectCol(col, val);
+                                    }
+                                }
                             }
                         } while (remainQty != 0);                       
-                    }
+                    }   
                 }
-                r++;
             }
             return itab;
         }
