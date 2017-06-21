@@ -49,7 +49,7 @@ namespace POR
             iFunc.SetValue("PURCHASEORDER", po);
             iFunc.SetValue("POITEM", fItab);
             iFunc.SetValue("MOVE_TYPE", txtMvt.Text);
-            iFunc.SetValue("MD_MEMO", txtMdMemo.Text);
+            iFunc.SetValue("MD_MEMO", domainUserName + ": " + txtMdMemo.Text);
             iFunc.SetValue("ZRFCTYPE", "M");
             iFunc.Invoke(rfcDest);
             var zflag = iFunc.GetString("ZFLAG");

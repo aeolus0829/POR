@@ -56,9 +56,9 @@
             this.statusStrip1.Font = new System.Drawing.Font("Microsoft JhengHei", 14F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 482);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 422);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(918, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1062, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -69,9 +69,10 @@
             // 
             // lblUserAccount
             // 
+            this.lblUserAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUserAccount.AutoSize = true;
             this.lblUserAccount.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUserAccount.Location = new System.Drawing.Point(668, 10);
+            this.lblUserAccount.Location = new System.Drawing.Point(809, 10);
             this.lblUserAccount.Name = "lblUserAccount";
             this.lblUserAccount.Size = new System.Drawing.Size(57, 20);
             this.lblUserAccount.TabIndex = 1;
@@ -79,9 +80,10 @@
             // 
             // lblUserAccountValue
             // 
+            this.lblUserAccountValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUserAccountValue.AutoSize = true;
             this.lblUserAccountValue.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblUserAccountValue.Location = new System.Drawing.Point(731, 10);
+            this.lblUserAccountValue.Location = new System.Drawing.Point(861, 10);
             this.lblUserAccountValue.Name = "lblUserAccountValue";
             this.lblUserAccountValue.Size = new System.Drawing.Size(54, 20);
             this.lblUserAccountValue.TabIndex = 2;
@@ -89,9 +91,10 @@
             // 
             // lblDisplayName
             // 
+            this.lblDisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDisplayName.AutoSize = true;
             this.lblDisplayName.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblDisplayName.Location = new System.Drawing.Point(791, 10);
+            this.lblDisplayName.Location = new System.Drawing.Point(932, 10);
             this.lblDisplayName.Name = "lblDisplayName";
             this.lblDisplayName.Size = new System.Drawing.Size(57, 20);
             this.lblDisplayName.TabIndex = 3;
@@ -99,9 +102,10 @@
             // 
             // lblDisplayNameValue
             // 
+            this.lblDisplayNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDisplayNameValue.AutoSize = true;
             this.lblDisplayNameValue.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblDisplayNameValue.Location = new System.Drawing.Point(850, 10);
+            this.lblDisplayNameValue.Location = new System.Drawing.Point(983, 10);
             this.lblDisplayNameValue.Name = "lblDisplayNameValue";
             this.lblDisplayNameValue.Size = new System.Drawing.Size(57, 20);
             this.lblDisplayNameValue.TabIndex = 4;
@@ -120,18 +124,19 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPO.Location = new System.Drawing.Point(12, 71);
+            this.dgvPO.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvPO.Location = new System.Drawing.Point(0, 77);
             this.dgvPO.Name = "dgvPO";
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvPO.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPO.RowTemplate.Height = 24;
-            this.dgvPO.Size = new System.Drawing.Size(897, 174);
+            this.dgvPO.Size = new System.Drawing.Size(1062, 345);
             this.dgvPO.TabIndex = 5;
             // 
             // btnPickPO
             // 
             this.btnPickPO.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnPickPO.Location = new System.Drawing.Point(712, 37);
+            this.btnPickPO.Location = new System.Drawing.Point(12, 45);
             this.btnPickPO.Name = "btnPickPO";
             this.btnPickPO.Size = new System.Drawing.Size(104, 26);
             this.btnPickPO.TabIndex = 3;
@@ -142,7 +147,7 @@
             // btnReadDt
             // 
             this.btnReadDt.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnReadDt.Location = new System.Drawing.Point(822, 37);
+            this.btnReadDt.Location = new System.Drawing.Point(146, 45);
             this.btnReadDt.Name = "btnReadDt";
             this.btnReadDt.Size = new System.Drawing.Size(87, 26);
             this.btnReadDt.TabIndex = 4;
@@ -152,8 +157,9 @@
             // 
             // btnToSap
             // 
+            this.btnToSap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnToSap.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnToSap.Location = new System.Drawing.Point(822, 435);
+            this.btnToSap.Location = new System.Drawing.Point(704, 7);
             this.btnToSap.Name = "btnToSap";
             this.btnToSap.Size = new System.Drawing.Size(87, 27);
             this.btnToSap.TabIndex = 6;
@@ -174,20 +180,22 @@
             // btnHelpMvt
             // 
             this.btnHelpMvt.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnHelpMvt.Location = new System.Drawing.Point(300, 8);
+            this.btnHelpMvt.Location = new System.Drawing.Point(146, 10);
             this.btnHelpMvt.Name = "btnHelpMvt";
             this.btnHelpMvt.Size = new System.Drawing.Size(104, 26);
             this.btnHelpMvt.TabIndex = 13;
             this.btnHelpMvt.TabStop = false;
             this.btnHelpMvt.Text = "異動類型？";
             this.btnHelpMvt.UseVisualStyleBackColor = true;
+            this.btnHelpMvt.Visible = false;
             this.btnHelpMvt.Click += new System.EventHandler(this.btnHelpMvt_Click);
             // 
             // lblMdMemo
             // 
+            this.lblMdMemo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMdMemo.AutoSize = true;
             this.lblMdMemo.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMdMemo.Location = new System.Drawing.Point(12, 43);
+            this.lblMdMemo.Location = new System.Drawing.Point(265, 10);
             this.lblMdMemo.Name = "lblMdMemo";
             this.lblMdMemo.Size = new System.Drawing.Size(89, 20);
             this.lblMdMemo.TabIndex = 14;
@@ -195,12 +203,14 @@
             // 
             // txtMdMemo
             // 
+            this.txtMdMemo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtMdMemo.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.txtMdMemo.Location = new System.Drawing.Point(106, 39);
+            this.txtMdMemo.Location = new System.Drawing.Point(375, 9);
             this.txtMdMemo.MaxLength = 30;
             this.txtMdMemo.Name = "txtMdMemo";
             this.txtMdMemo.Size = new System.Drawing.Size(298, 27);
             this.txtMdMemo.TabIndex = 2;
+            this.txtMdMemo.TabStop = false;
             // 
             // txtMvt
             // 
@@ -223,8 +233,9 @@
             // 
             // btnRestart
             // 
+            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestart.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnRestart.Location = new System.Drawing.Point(822, 251);
+            this.btnRestart.Location = new System.Drawing.Point(963, 45);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(87, 27);
             this.btnRestart.TabIndex = 15;
@@ -236,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(918, 504);
+            this.ClientSize = new System.Drawing.Size(1062, 444);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.txtMdMemo);
             this.Controls.Add(this.lblMdMemo);
