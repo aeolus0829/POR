@@ -12,7 +12,7 @@ namespace POR
 {
     public partial class Form1 : Form
     {
-        string formVersion, formName, domainUserName, currentUserID;
+        string formVersion, formName, domainUserID, domainUserName;
         bool isTesting, isFormActive, isInGroup;
     
         Form2 poForm = new Form2();
@@ -349,9 +349,9 @@ namespace POR
             //取得使用者資訊
             Auth auth = new Auth();
             auth.allowADGroups = allowADGroups;
-            domainUserName = auth.GetDomainUserName();
-            currentUserID = auth.GetUserID(domainUserName);
-            userGroups = auth.GetGroupLists(currentUserID);
+            domainUserID = auth.GetDomainUserName();
+            domainUserName = auth.GetUserID(domainUserID);
+            userGroups = auth.GetGroupLists(domainUserName);
 
             //判斷使用者群組
             isInGroup = auth.SearchInGroups(userGroups);
@@ -393,8 +393,8 @@ namespace POR
             if (isTesting) this.Text += formVersion + " 測試版 " + " / SAP資料環境: " + poForm.connClient;
             else this.Text += formVersion;
 
-            lblUserAccountValue.Text = domainUserName;
-            lblDisplayNameValue.Text = currentUserID;
+            lblUserAccountValue.Text = domainUserID;
+            lblDisplayNameValue.Text = domainUserName;
 
         }
     }
