@@ -136,7 +136,6 @@
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(86, 30);
             this.btnComplete.TabIndex = 6;
-            this.btnComplete.TabStop = false;
             this.btnComplete.Text = "選取完畢";
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);

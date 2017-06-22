@@ -26,11 +26,7 @@ namespace ADAuth
 {
     public class Auth
     {
-        string[] allowADGroups = {
-            "Domain Admins",
-            "17101人資課",
-            "19101總經理室"
-        };
+        public string[] allowADGroups { get; set; }
 
         string domainName = "Motorpro-sbs";
 
@@ -98,6 +94,22 @@ namespace ADAuth
             }
 
             return false;
+        }
+
+        internal bool checkInGroups(List<string> userGroups, string[] groupList)
+        {
+            bool inGroup = false;
+
+            foreach (string g in userGroups)
+            {
+                if (groupList.Contains(g))
+                {
+                    inGroup = true;
+                    break; // 只要其中一個群組符合條件即可
+                }
+            }
+            return inGroup;
+
         }
     }
 }

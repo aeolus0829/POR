@@ -6,20 +6,36 @@ using System.Data;
 using SAP.Middleware.Connector;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace POR
 {
     public partial class Form1 : Form
     {
         string formVersion, formName, domainUserName, currentUserID;
-        bool isTesting, isActive, isInGroup;
+        bool isTesting, isFormActive, isInGroup;
     
         Form2 poForm = new Form2();
+        private bool isAdmin;
 
         public void btnReadDt_Click(object sender, EventArgs e)
         {
             dgvPO.DataSource = dtStack;
             dgvPO.AllowUserToAddRows = false;
+
+            // 將欄位鎖上，不讓使用者修改
+            foreach (DataGridViewColumn column in dgvPO.Columns)
+            {
+                column.ReadOnly = true;
+            }
+
+            // 開放部份欄位供使用者修改，並以醒目顏色標示
+            dgvPO.Columns[2].ReadOnly = false; //儲存地點
+            dgvPO.Columns[2].DefaultCellStyle.BackColor = Color.LightYellow;
+
+            dgvPO.Columns[3].ReadOnly = false; //數量
+            dgvPO.Columns[3].DefaultCellStyle.BackColor = Color.LightYellow;
+
             autosizeCol(dgvPO);
         }
 
@@ -122,6 +138,7 @@ namespace POR
             string val = "";
             int r = 0;
 
+            // 將 datatable -> itab
             foreach (DataRow dtEnPORow in dtEnPo.Rows)
             {
                 itab.Append();
@@ -150,7 +167,7 @@ namespace POR
 
                     if (batchNumGroup != null)
                     {
-                        do
+                        do //處理批次，不同批次就新增一筆 itab, 直到批次數量用完或指派完為止
                         {
                             foreach (DataRow bRow in batchNumGroup.Rows)
                             {
@@ -219,7 +236,7 @@ namespace POR
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "error when execQuery()");
+                MessageBox.Show(ex.ToString(), "執行 execQuery() 出現問題");
             }
             finally
             {
@@ -269,12 +286,16 @@ namespace POR
         public bool needBatch { get; set; }
         public string entryQty { get; set; }
         public object sapInitDB { get; private set; }
+        public bool isQAperson { get; private set; }
+        public bool isIMperson { get; private set; }
+        public List<string> userGroups { get; private set; }
+        public List<string> allowMvT { get; private set; }
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
             Form2.MvT = txtMvt.Text;
             toolStripStatusLabel1.Text = "";
-            if (poForm.IsAccessible ) poForm.Show();
+            if (poForm.IsAccessible) poForm.Show();
             else
             {
                 Form2 poForm = new Form2();
@@ -294,20 +315,79 @@ namespace POR
             connClient = "620";
             poForm.connClient = connClient;
 
-            //檢查程式的啟用狀態
+            string[] qaList = 
+            {
+                "12300品保課",
+                "12301檢驗組"
+            };
+
+            string[] imList = 
+            {
+                "13200物管課",
+                "13202倉管組"
+            };
+
+            string[] adminList =
+            {
+                "Domain Admins"
+            };
+
+            string[] allowADGroups = {
+                "Domain Admins",
+                "13200物管課",
+                "13202倉管組",
+                "12300品保課",
+                "12301檢驗組"
+            };
+
+            allowMvT = new List<string>();
+
+            //檢查程式是否停用
             chkFormStatusClass chkForm = new chkFormStatusClass();
-            isActive = chkForm.isFormActive(formName);
+            isFormActive = chkForm.isFormActive(formName);
 
             //取得使用者資訊
             Auth auth = new Auth();
+            auth.allowADGroups = allowADGroups;
             domainUserName = auth.GetDomainUserName();
             currentUserID = auth.GetUserID(domainUserName);
-            var groupAllowedList = auth.GetGroupLists(currentUserID);
-            isInGroup = auth.SearchInGroups(groupAllowedList);
+            userGroups = auth.GetGroupLists(currentUserID);
 
-            if (isActive && isInGroup) InitializeComponent();
+            //判斷使用者群組
+            isInGroup = auth.SearchInGroups(userGroups);
+            isQAperson = auth.checkInGroups(userGroups, qaList);
+            isIMperson = auth.checkInGroups(userGroups, imList);
+            isAdmin = auth.checkInGroups(userGroups, adminList);
+
+            if (isQAperson) setPermission("qa");
+            if (isIMperson) setPermission("im");
+            if (isAdmin) setPermission("admin");
+
+            if (isFormActive && isInGroup) InitializeComponent();
             else MessageBox.Show("目前程式停用中，可能是特定時間或缺乏使用權限，請連絡資訊組");
         }
+
+        private void setPermission(string userRole)
+        {
+            switch (userRole)
+            {
+                case "qa":
+                    allowMvT.Add("105");
+                    allowMvT.Add("106");
+                    break;
+                case "im":
+                    allowMvT.Add("103");
+                    allowMvT.Add("104");
+                    break;
+                case "admin":
+                    allowMvT.Add("103");
+                    allowMvT.Add("104");
+                    allowMvT.Add("105");
+                    allowMvT.Add("106");
+                    break;
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             if (isTesting) this.Text += formVersion + " 測試版 " + " / SAP資料環境: " + poForm.connClient;
