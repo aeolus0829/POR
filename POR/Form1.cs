@@ -299,17 +299,37 @@ namespace POR
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
-            Form2.MvT = txtMvt.Text;
-            toolStripStatusLabel1.Text = "";
-            if (poForm.IsAccessible) poForm.Show();
+            var isMvTAllow = checkPermission(txtMvt.Text);
+
+            if (isMvTAllow)
+            {
+                Form2.MvT = txtMvt.Text;
+                toolStripStatusLabel1.Text = "";
+                if (poForm.IsAccessible) poForm.Show();
+                else
+                {
+                    Form2 poForm = new Form2();
+                    poForm.connClient = connClient;
+                    poForm.Show();
+                }
+                this.Hide();
+            }
             else
             {
-                Form2 poForm = new Form2();
-                poForm.connClient = connClient;
-                poForm.Show();
+                MessageBox.Show("你沒有這個異動類型的權限", "錯誤");
+            }
+        }
+
+        private bool checkPermission(string inputMvt)
+        {
+            bool isMvTAllow = false;    
+
+            foreach (string a in allowMvT)
+            {
+                if (inputMvt == a) isMvTAllow = true;
             }
 
-            this.Hide();
+            return isMvTAllow;            
         }
 
         public Form1()
