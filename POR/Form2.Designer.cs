@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPoItem = new System.Windows.Forms.DataGridView();
@@ -51,6 +53,7 @@
             this.lblPoGrpVal = new System.Windows.Forms.Label();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStack)).BeginInit();
             this.statusStrip2.SuspendLayout();
@@ -93,11 +96,12 @@
             // btnPoSubmit
             // 
             this.btnPoSubmit.Font = new System.Drawing.Font("PMingLiU", 12F);
+            this.btnPoSubmit.Image = ((System.Drawing.Image)(resources.GetObject("btnPoSubmit.Image")));
             this.btnPoSubmit.Location = new System.Drawing.Point(262, 14);
             this.btnPoSubmit.Name = "btnPoSubmit";
-            this.btnPoSubmit.Size = new System.Drawing.Size(52, 26);
+            this.btnPoSubmit.Size = new System.Drawing.Size(40, 28);
             this.btnPoSubmit.TabIndex = 2;
-            this.btnPoSubmit.Text = "送出";
+            this.toolTip1.SetToolTip(this.btnPoSubmit, "送出");
             this.btnPoSubmit.UseVisualStyleBackColor = true;
             this.btnPoSubmit.Click += new System.EventHandler(this.btnPoSubmit_Click);
             // 
@@ -120,47 +124,50 @@
             // btnSelected
             // 
             this.btnSelected.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnSelected.Location = new System.Drawing.Point(12, 71);
+            this.btnSelected.Image = ((System.Drawing.Image)(resources.GetObject("btnSelected.Image")));
+            this.btnSelected.Location = new System.Drawing.Point(12, 80);
             this.btnSelected.Name = "btnSelected";
-            this.btnSelected.Size = new System.Drawing.Size(37, 27);
+            this.btnSelected.Size = new System.Drawing.Size(37, 30);
             this.btnSelected.TabIndex = 5;
             this.btnSelected.TabStop = false;
-            this.btnSelected.Text = "︾";
             this.btnSelected.UseVisualStyleBackColor = true;
             this.btnSelected.Click += new System.EventHandler(this.btnSelected_Click);
             // 
             // btnComplete
             // 
             this.btnComplete.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnComplete.Location = new System.Drawing.Point(122, 68);
+            this.btnComplete.Image = ((System.Drawing.Image)(resources.GetObject("btnComplete.Image")));
+            this.btnComplete.Location = new System.Drawing.Point(55, 80);
             this.btnComplete.Name = "btnComplete";
-            this.btnComplete.Size = new System.Drawing.Size(86, 30);
+            this.btnComplete.Size = new System.Drawing.Size(33, 30);
             this.btnComplete.TabIndex = 6;
-            this.btnComplete.Text = "選取完畢";
+            this.toolTip1.SetToolTip(this.btnComplete, "選取完畢");
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnClear.Location = new System.Drawing.Point(320, 13);
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(308, 13);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(52, 26);
+            this.btnClear.Size = new System.Drawing.Size(42, 29);
             this.btnClear.TabIndex = 7;
             this.btnClear.TabStop = false;
-            this.btnClear.Text = "清除";
+            this.toolTip1.SetToolTip(this.btnClear, "清除");
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnRestart
             // 
             this.btnRestart.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.btnRestart.Location = new System.Drawing.Point(286, 68);
+            this.btnRestart.Image = ((System.Drawing.Image)(resources.GetObject("btnRestart.Image")));
+            this.btnRestart.Location = new System.Drawing.Point(131, 80);
             this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(86, 30);
+            this.btnRestart.Size = new System.Drawing.Size(41, 30);
             this.btnRestart.TabIndex = 8;
             this.btnRestart.TabStop = false;
-            this.btnRestart.Text = "重新開始";
+            this.toolTip1.SetToolTip(this.btnRestart, "重新開始");
             this.btnRestart.UseVisualStyleBackColor = true;
             // 
             // lblPoDocType
@@ -249,7 +256,7 @@
             this.statusStrip2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 653);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 577);
             this.statusStrip2.Name = "statusStrip2";
             this.statusStrip2.Size = new System.Drawing.Size(857, 22);
             this.statusStrip2.TabIndex = 19;
@@ -264,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 675);
+            this.ClientSize = new System.Drawing.Size(857, 599);
             this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.lblPoGrpVal);
             this.Controls.Add(this.lblPoDateVal);
@@ -314,5 +321,6 @@
         private System.Windows.Forms.Label lblPoGrpVal;
         private System.Windows.Forms.StatusStrip statusStrip2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

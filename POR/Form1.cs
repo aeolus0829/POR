@@ -367,6 +367,29 @@ namespace POR
             return isMvTAllow;            
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Shift | Keys.F5))
+            {
+                btnPickPO.PerformClick();
+                return true;
+            }
+
+            if (keyData == (Keys.Shift | Keys.F6))
+            {
+                btnReadDt.PerformClick();
+                return true;
+            }
+
+            if (keyData == (Keys.F8))
+            {
+                btnToSap.PerformClick();
+                return true;
+            }
+
+            return false;
+        }
+
         public Form1()
         {
             //開發資訊
@@ -375,6 +398,8 @@ namespace POR
             formVersion = "0.20";
             connClient = "620";
             poForm.connClient = connClient;
+
+            this.KeyPreview = true;
 
             string[] qaList = 
             {
