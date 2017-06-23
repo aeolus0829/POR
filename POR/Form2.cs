@@ -129,7 +129,7 @@ namespace POR
                     iFunc.Invoke(rfcDest);
 
                     var zflag = iFunc.GetString("ZFLAG");
-                    var twZflag = mapFlag(zflag);
+                    var twZflag = translateFlag(zflag);
                     var zmsg = iFunc.GetString("ZMSG");
                     toolStripStatusLabel1.Text = twZflag + " : " + zmsg;
 
@@ -160,7 +160,6 @@ namespace POR
                         bindPoHeader(POHEADER);
                     }
 
-
                     Cursor.Current = Cursors.Default;
                 }
                 catch (Exception ex)
@@ -174,7 +173,7 @@ namespace POR
 
         }
 
-        private string mapFlag(string zflag)
+        private string translateFlag(string zflag)
         {
             string twFlag = "";
             switch (zflag.ToUpper())

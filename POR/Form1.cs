@@ -84,6 +84,9 @@ namespace POR
 
         private void btnToSap_Click(object sender, EventArgs e)
         {
+            btnToSap.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
+
             sapConnClass sc = new sapConnClass();
             var rfcPara = sc.setParaToConn(connClient);
             var rfcDest = RfcDestinationManager.GetDestination(rfcPara);
@@ -108,6 +111,9 @@ namespace POR
             toolStripStatusLabel1.Text = twZflag + " : " + zmsg;
 
             if (zflag=="S" || zflag=="W") btnRestart.PerformClick();
+            btnToSap.Enabled = true;
+            Cursor.Current = Cursors.Default;
+
         }
 
         private void validateUserInput()
@@ -188,7 +194,7 @@ namespace POR
 
                 if (needBatch)
                 {
-                    var batchNumGroup = searchBatch(matnr, sLoc, entryQty);
+                    var batchNumGroup = listBatchQty(matnr, sLoc, entryQty);
                     var iEntryQty = Convert.ToInt32(entryQty);
                     int remainQty = iEntryQty;
 
@@ -237,7 +243,7 @@ namespace POR
             return itab;
         }
 
-        private DataTable searchBatch(string matnr, string sLoc, string entryQty)
+        private DataTable listBatchQty(string matnr, string sLoc, string entryQty)
         {
             sapInitDB = poForm.detectDBName(connClient);
             var sql = "select CLABS, CHARG from " + sapInitDB + ".ZMMV002 where MANDT = '" 
@@ -414,10 +420,12 @@ namespace POR
             isIMperson = auth.checkInGroups(userGroups, imList);
             isAdmin = auth.checkInGroups(userGroups, adminList);
 
+            //設定異動類型的權限
             if (isQAperson) setPermission("qa");
             if (isIMperson) setPermission("im");
             if (isAdmin) setPermission("admin");
 
+            //檢查程式是否可以啟動
             if (isFormActive && isInGroup) InitializeComponent();
             else MessageBox.Show("目前程式停用中，可能是特定時間或缺乏使用權限，請連絡資訊組");
         }
