@@ -29,20 +29,48 @@ namespace POR
                 column.ReadOnly = true;
             }
 
+            var materialNum = getMaterialNumFromDt(dgvPO);
+
+            checkSLoc(materialNum);
+
             // 開放部份欄位供使用者修改，並以醒目顏色標示
-            if (! needBatch)
+            if (needSLoc)
             {
-                dgvPO.Columns[2].DefaultCellStyle.BackColor = Color.DarkGray;
-            } else
+                dgvPO.Columns["儲存地點"].Visible = true;
+                dgvPO.Columns["儲存地點"].ReadOnly = false; //儲存地點, 2
+                dgvPO.Columns["儲存地點"].DefaultCellStyle.BackColor = Color.LightYellow;
+            }
+            else
             {
-                dgvPO.Columns[2].ReadOnly = false; //儲存地點
-                dgvPO.Columns[2].DefaultCellStyle.BackColor = Color.LightYellow;
+                dgvPO.Columns["儲存地點"].Visible = false;
             }
 
-            dgvPO.Columns[3].ReadOnly = false; //數量
-            dgvPO.Columns[3].DefaultCellStyle.BackColor = Color.LightYellow;
+            dgvPO.Columns["輸入數量"].ReadOnly = false; //輸入數量, 3
+            dgvPO.Columns["輸入數量"].DefaultCellStyle.BackColor = Color.LightYellow;
 
             autosizeCol(dgvPO);
+        }
+
+        private void checkSLoc(string materialNum)
+        {
+            if (mvT == "105" || mvT == "106" || mvT == "161" || mvT == "162")
+            {
+                if (!string.IsNullOrEmpty(materialNum)) needSLoc = true;
+                else needSLoc = false;
+            }
+        }
+
+        private string getMaterialNumFromDt(DataGridView dgv)
+        {
+            var materialNum = "";
+            var dt = (DataTable)dgv.DataSource;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (!string.IsNullOrEmpty(row[0].ToString())) materialNum = row[0].ToString();
+            }
+
+            return materialNum;
         }
 
         private void btnHelpMvt_Click(object sender, EventArgs e)
@@ -85,8 +113,6 @@ namespace POR
         private void validateUserInput()
         {
             var materilCategory = "";
-
-            mvT = txtMvt.Text;
 
             needBatch = false;
 
@@ -296,27 +322,34 @@ namespace POR
         public bool isIMperson { get; private set; }
         public List<string> userGroups { get; private set; }
         public List<string> allowMvT { get; private set; }
+        public bool needSLoc { get; private set; }
 
         private void btnPickPO_Click(object sender, EventArgs e)
         {
-            var isMvTAllow = checkPermission(txtMvt.Text);
-
-            if (isMvTAllow)
-            {
-                Form2.MvT = txtMvt.Text;
-                toolStripStatusLabel1.Text = "";
-                if (poForm.IsAccessible) poForm.Show();
-                else
-                {
-                    Form2 poForm = new Form2();
-                    poForm.connClient = connClient;
-                    poForm.Show();
-                }
-                this.Hide();
-            }
+            if (string.IsNullOrEmpty(txtMvt.Text)) MessageBox.Show("異動類型必須輸入");
             else
             {
-                MessageBox.Show("你沒有這個異動類型的權限", "錯誤");
+                mvT = txtMvt.Text;
+
+                var isMvTAllow = checkPermission(mvT);
+
+                if (isMvTAllow)
+                {
+                    Form2.MvT = mvT;
+                    toolStripStatusLabel1.Text = "";
+                    if (poForm.IsAccessible) poForm.Show();
+                    else
+                    {
+                        Form2 poForm = new Form2();
+                        poForm.connClient = connClient;
+                        poForm.Show();
+                    }
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("你沒有這個異動類型的權限", "錯誤");
+                }
             }
         }
 
