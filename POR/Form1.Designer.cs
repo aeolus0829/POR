@@ -56,12 +56,14 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip1.Font = new System.Drawing.Font("Microsoft JhengHei", 14F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 422);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1062, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(48, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -118,6 +120,7 @@
             // 
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPO.Anchor = System.Windows.Forms.AnchorStyles.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -127,7 +130,6 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPO.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPO.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPO.Location = new System.Drawing.Point(0, 77);
             this.dgvPO.Name = "dgvPO";
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -165,7 +167,7 @@
             this.btnToSap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnToSap.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.btnToSap.Image = ((System.Drawing.Image)(resources.GetObject("btnToSap.Image")));
-            this.btnToSap.Location = new System.Drawing.Point(947, 46);
+            this.btnToSap.Location = new System.Drawing.Point(489, 45);
             this.btnToSap.Name = "btnToSap";
             this.btnToSap.Size = new System.Drawing.Size(42, 27);
             this.btnToSap.TabIndex = 6;
