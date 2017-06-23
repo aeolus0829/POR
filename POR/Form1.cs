@@ -37,7 +37,7 @@ namespace POR
             if (needSLoc)
             {
                 dgvPO.Columns["儲存地點"].Visible = true;
-                dgvPO.Columns["儲存地點"].ReadOnly = false; //儲存地點, 2
+                dgvPO.Columns["儲存地點"].ReadOnly = false;
                 dgvPO.Columns["儲存地點"].DefaultCellStyle.BackColor = Color.LightYellow;
             }
             else
@@ -45,7 +45,7 @@ namespace POR
                 dgvPO.Columns["儲存地點"].Visible = false;
             }
 
-            dgvPO.Columns["輸入數量"].ReadOnly = false; //輸入數量, 3
+            dgvPO.Columns["輸入數量"].ReadOnly = false;
             dgvPO.Columns["輸入數量"].DefaultCellStyle.BackColor = Color.LightYellow;
 
             autosizeCol(dgvPO);
@@ -126,11 +126,6 @@ namespace POR
 
             if (needBatch)
             {
-                if (string.IsNullOrEmpty(sLoc))
-                {
-                    MessageBox.Show("儲存地點沒有填，無法決定批次");
-                }
-
                 if (string.IsNullOrEmpty(entryQty))
                 {
                     MessageBox.Show("未輸入收料數量，無法決定批次");
@@ -222,6 +217,7 @@ namespace POR
                                 r++;
                                 itab.Append();
 
+                                //產生一筆新的 itab，用來處理批次分割數量
                                 for (int i = 0; i < colCount - 1; i++)
                                 {
                                     col = refArray[i, 0].ToString();
@@ -370,7 +366,7 @@ namespace POR
             //開發資訊
             formName = "POR";
             isTesting = true;
-            formVersion = "0.10";
+            formVersion = "0.20";
             connClient = "620";
             poForm.connClient = connClient;
 
