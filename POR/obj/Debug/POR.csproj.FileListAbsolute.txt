@@ -4,9 +4,9 @@ N:\資訊\Code\winform\POR\POR\bin\Debug\POR.pdb
 N:\資訊\Code\winform\POR\POR\bin\Debug\sapnco.dll
 N:\資訊\Code\winform\POR\POR\bin\Debug\sapnco_utils.dll
 N:\資訊\Code\winform\POR\POR\obj\Debug\POR.Form1.resources
+N:\資訊\Code\winform\POR\POR\obj\Debug\POR.Form2.resources
 N:\資訊\Code\winform\POR\POR\obj\Debug\POR.Properties.Resources.resources
 N:\資訊\Code\winform\POR\POR\obj\Debug\POR.csproj.GenerateResource.Cache
 N:\資訊\Code\winform\POR\POR\obj\Debug\POR.exe
 N:\資訊\Code\winform\POR\POR\obj\Debug\POR.pdb
-N:\資訊\Code\winform\POR\POR\obj\Debug\POR.Form2.resources
 N:\資訊\Code\winform\POR\POR\obj\Debug\POR.csprojResolveAssemblyReference.cache

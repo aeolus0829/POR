@@ -30,8 +30,14 @@ namespace POR
             }
 
             // 開放部份欄位供使用者修改，並以醒目顏色標示
-            dgvPO.Columns[2].ReadOnly = false; //儲存地點
-            dgvPO.Columns[2].DefaultCellStyle.BackColor = Color.LightYellow;
+            if (! needBatch)
+            {
+                dgvPO.Columns[2].DefaultCellStyle.BackColor = Color.DarkGray;
+            } else
+            {
+                dgvPO.Columns[2].ReadOnly = false; //儲存地點
+                dgvPO.Columns[2].DefaultCellStyle.BackColor = Color.LightYellow;
+            }
 
             dgvPO.Columns[3].ReadOnly = false; //數量
             dgvPO.Columns[3].DefaultCellStyle.BackColor = Color.LightYellow;

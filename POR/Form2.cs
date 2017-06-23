@@ -133,25 +133,25 @@ namespace POR
                     var zmsg = iFunc.GetString("ZMSG");
                     toolStripStatusLabel1.Text = twZflag + " : " + zmsg;
 
-                    var rfcPOHEADER = iFunc.GetStructure("POHEADER");
-                    var rfcPOITEM = iFunc.GetTable("POITEM");
-                    var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
-
-                    POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
-                   
-                    formatDt = changeDataFormat(POITEM, poItemColArray);
-                    POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
-                    POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
-                   
-                    twPoItem = sc.chgColName(formatDt, poItemColArray, "tw");
-
-                    pruneDt = removeCol(twPoItem, keepPoItemArray, "tw");
-
-                    resetColOrder(pruneDt, keepPoItemArray, "tw");
-
                     if (zflag == "E") MessageBox.Show(zmsg, "錯誤");
                     else
                     {
+                        var rfcPOHEADER = iFunc.GetStructure("POHEADER");
+                        var rfcPOITEM = iFunc.GetTable("POITEM");
+                        var rfcPOACCOUNT = iFunc.GetTable("POACCOUNT");
+
+                        POITEM = sc.GetDataTableFromRFCTable(rfcPOITEM);
+
+                        formatDt = changeDataFormat(POITEM, poItemColArray);
+                        POHEADER = sc.GetDataTableFromRFCStructure(rfcPOHEADER);
+                        POACCOUNT = sc.GetDataTableFromRFCTable(rfcPOACCOUNT);
+
+                        twPoItem = sc.chgColName(formatDt, poItemColArray, "tw");
+
+                        pruneDt = removeCol(twPoItem, keepPoItemArray, "tw");
+
+                        resetColOrder(pruneDt, keepPoItemArray, "tw");
+
                         dgvPoItem.DataSource = pruneDt;
                         dgvPoItem.ReadOnly = true;
 
@@ -159,6 +159,7 @@ namespace POR
 
                         bindPoHeader(POHEADER);
                     }
+
 
                     Cursor.Current = Cursors.Default;
                 }
