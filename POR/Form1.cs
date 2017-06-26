@@ -343,6 +343,7 @@ namespace POR
                     else
                     {
                         Form2 poForm = new Form2();
+                        poForm.ReturnValueCallback += new Form2.ReturnValueDelegate(this.SetReturnValueCallbackFun);
                         poForm.connClient = connClient;
                         poForm.Show();
                     }
@@ -474,6 +475,41 @@ namespace POR
                     allowMvT.Add("106");
                     break;
             }
+        }
+
+        private void SetReturnValueCallbackFun(DataTable dt)
+        {
+            dgvPO.DataSource = dt;
+
+            dgvPO.AllowUserToAddRows = false;
+
+            // 將欄位鎖上，不讓使用者修改
+            foreach (DataGridViewColumn column in dgvPO.Columns)
+            {
+                column.ReadOnly = true;
+            }
+
+            var materialNum = getMaterialNumFromDt(dgvPO);
+
+            checkSLoc(materialNum);
+
+            // 開放部份欄位供使用者修改，並以醒目顏色標示
+            if (needSLoc)
+            {
+                dgvPO.Columns["儲存地點"].Visible = true;
+                dgvPO.Columns["儲存地點"].ReadOnly = false;
+                dgvPO.Columns["儲存地點"].DefaultCellStyle.BackColor = Color.LightYellow;
+            }
+            else
+            {
+                dgvPO.Columns["儲存地點"].Visible = false;
+            }
+
+            dgvPO.Columns["輸入數量"].ReadOnly = false;
+            dgvPO.Columns["輸入數量"].DefaultCellStyle.BackColor = Color.LightYellow;
+
+            autosizeCol(dgvPO);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

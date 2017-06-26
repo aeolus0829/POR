@@ -25,6 +25,9 @@ namespace POR
         public DataTable POHEADER { get; set; }
         public DataTable POITEM { get; set; }
 
+        public delegate void ReturnValueDelegate(DataTable dt);
+        public event ReturnValueDelegate ReturnValueCallback;
+
         public DataTable dtStack { get; set; }
         public string zflag { get; private set; }
         public string zmsg { get; private set; }
@@ -480,7 +483,9 @@ namespace POR
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            Form1.dtStack = dtStack;
+            //Form1.dtStack = dtStack;
+            ReturnValueCallback(dtStack);
+
             btnClear.PerformClick();
             dgvPoItem.DataSource = dgvStack.DataSource = null;
 
