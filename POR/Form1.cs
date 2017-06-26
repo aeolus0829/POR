@@ -388,6 +388,13 @@ namespace POR
                 return true;
             }
 
+            if (keyData == (Keys.F12))
+            {
+                btnRestart.PerformClick();
+                return true;
+            }
+
+
             return false;
         }
 
