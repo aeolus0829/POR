@@ -284,7 +284,6 @@ namespace POR
             dgvPO.Refresh();
         }
 
-        public static DataTable dtStack { get; internal set; }
         public string connClient { get; set; }
         public string sLoc { get; set; }
         public string mvT { get; set; }
