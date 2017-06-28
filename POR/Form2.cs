@@ -484,15 +484,21 @@ namespace POR
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            //Form1.dtStack = dtStack;
-            ReturnValueCallback(dtStack);
+            if (dgvStack.Rows.Count==0)
+            {
+                MessageBox.Show("未選取採購單項目，請檢查資料");
+            }
+            else
+            {
+                ReturnValueCallback(dtStack);
 
-            btnClear.PerformClick();
-            dgvPoItem.DataSource = dgvStack.DataSource = null;
+                btnClear.PerformClick();
+                dgvPoItem.DataSource = dgvStack.DataSource = null;
 
-            this.Hide();
+                this.Hide();
 
-            Application.OpenForms[0].Show();
+                Application.OpenForms[0].Show();
+            }
         }
     }
 }
