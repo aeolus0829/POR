@@ -98,8 +98,8 @@ namespace POR
             dt.AcceptChanges();
             IRfcTable fItab = fillItab(itab, dt);            
 
-            var po = fItab[0].GetString(0);
-            iFunc.SetValue("PURCHASEORDER", po);
+            //var po = fItab[0].GetString(0);
+            //iFunc.SetValue("PURCHASEORDER", po);
             iFunc.SetValue("POITEM", fItab);
             iFunc.SetValue("MOVE_TYPE", txtMvt.Text);
             iFunc.SetValue("MD_MEMO", domainUserName + ": " + txtMdMemo.Text);
@@ -169,7 +169,7 @@ namespace POR
 
             string col = "";
             string val = "";
-            int r = 0;
+            int dataRowCounter = 0;
 
             // 將 datatable -> itab
             foreach (DataRow dtEnPORow in dtEnPo.Rows)
@@ -183,7 +183,7 @@ namespace POR
                         
                     if (!string.IsNullOrEmpty(val))
                     {
-                        itab[r].SetValue(col, val);
+                        itab[dataRowCounter].SetValue(col, val);
                         detectCol(col, val);
                     }
                 }
@@ -207,23 +207,24 @@ namespace POR
                                 var batchQty = Convert.ToInt32(bRow[0]); //CLABS
                                 var batchNum = bRow[1].ToString(); //CHARG
 
-                                itab[r].SetValue("BATCH", batchNum);
+                                itab[dataRowCounter].SetValue("BATCH", batchNum);
 
                                 if (remainQty > batchQty)
                                 {
                                     remainQty -= batchQty;
-                                    itab[r].SetValue("ENTRY_QNT", batchQty);
+                                    itab[dataRowCounter].SetValue("ENTRY_QNT", batchQty);
                                 }
                                 else
                                 {
-                                    itab[r].SetValue("ENTRY_QNT", remainQty);
+                                    itab[dataRowCounter].SetValue("ENTRY_QNT", remainQty);
                                     remainQty -= remainQty;
                                     break; //剩餘數量=0，可以跳出迴圈了
                                 }
-                                r++;
-                                itab.Append();
-
+                                //剩餘數量不是 0 
                                 //產生一筆新的 itab，用來處理批次分割數量
+                                dataRowCounter++;
+                                itab.Append();
+                                
                                 for (int i = 0; i < colCount - 1; i++)
                                 {
                                     col = refArray[i, 0].ToString();
@@ -231,14 +232,16 @@ namespace POR
 
                                     if (!string.IsNullOrEmpty(val))
                                     {
-                                        itab[r].SetValue(col, val);
+                                        itab[dataRowCounter].SetValue(col, val);
                                         detectCol(col, val);
                                     }
                                 }
                             }
-                        } while (remainQty != 0);                       
+                        } while (remainQty != 0);
                     }   
                 }
+                // 使用者輸入多筆採購單時，row 的計數器必須增加
+                dataRowCounter++;
             }
             return itab;
         }
