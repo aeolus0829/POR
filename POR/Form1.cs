@@ -20,35 +20,6 @@ namespace POR
 
         public void btnReadDt_Click(object sender, EventArgs e)
         {
-            dgvPO.DataSource = dtStack;
-            dgvPO.AllowUserToAddRows = false;
-
-            // 將欄位鎖上，不讓使用者修改
-            foreach (DataGridViewColumn column in dgvPO.Columns)
-            {
-                column.ReadOnly = true;
-            }
-
-            var materialNum = getMaterialNumFromDt(dgvPO);
-
-            checkSLoc(materialNum);
-
-            // 開放部份欄位供使用者修改，並以醒目顏色標示
-            if (needSLoc)
-            {
-                dgvPO.Columns["儲存地點"].Visible = true;
-                dgvPO.Columns["儲存地點"].ReadOnly = false;
-                dgvPO.Columns["儲存地點"].DefaultCellStyle.BackColor = Color.LightYellow;
-            }
-            else
-            {
-                dgvPO.Columns["儲存地點"].Visible = false;
-            }
-
-            dgvPO.Columns["輸入數量"].ReadOnly = false;
-            dgvPO.Columns["輸入數量"].DefaultCellStyle.BackColor = Color.LightYellow;
-
-            autosizeCol(dgvPO);
         }
 
         private void checkSLoc(string materialNum)
@@ -98,8 +69,6 @@ namespace POR
             dt.AcceptChanges();
             IRfcTable fItab = fillItab(itab, dt);            
 
-            //var po = fItab[0].GetString(0);
-            //iFunc.SetValue("PURCHASEORDER", po);
             iFunc.SetValue("POITEM", fItab);
             iFunc.SetValue("MOVE_TYPE", txtMvt.Text);
             iFunc.SetValue("MD_MEMO", domainUserName + ": " + txtMdMemo.Text);
@@ -519,7 +488,6 @@ namespace POR
             dgvPO.Columns["輸入數量"].DefaultCellStyle.BackColor = Color.LightYellow;
 
             autosizeCol(dgvPO);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
