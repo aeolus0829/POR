@@ -48,8 +48,7 @@ namespace POR
         {            
             MessageBox.Show("101 直收" + Environment.NewLine + "102 取消直收" + Environment.NewLine +
                 "103 暫收" + Environment.NewLine + "104 取消暫收" + Environment.NewLine +
-                "105 驗收" + Environment.NewLine + "106 取消驗收" + Environment.NewLine +
-                "122 退貨" + Environment.NewLine + "123 取消退貨" + Environment.NewLine 
+                "105 驗收" + Environment.NewLine + "106 取消驗收" + Environment.NewLine 
                 ,"說明");
         }
 
@@ -93,7 +92,7 @@ namespace POR
 
             if (! string.IsNullOrEmpty(matnr)) materilCategory = matnr.Substring(11, 1);
 
-            if (mvT == "102" || mvT == "106" || mvT == "161" || mvT == "162" || mvT == "122" || mvT == "123") 
+            if (mvT == "102" || mvT == "106" || mvT == "161" || mvT == "162") 
             {
                 if (materilCategory == "1" || materilCategory == "2" || materilCategory == "3")
                     needBatch = true;
@@ -439,18 +438,20 @@ namespace POR
             switch (userRole)
             {
                 case "qa":
+                    allowMvT.Add("161");
                     allowMvT.Add("105");
-                    allowMvT.Add("106");
+                    allowMvT.Add("104");
                     break;
                 case "im":
+                    allowMvT.Add("161");
                     allowMvT.Add("103");
-                    allowMvT.Add("104");
                     break;
                 case "admin":
                     allowMvT.Add("103");
                     allowMvT.Add("104");
                     allowMvT.Add("105");
                     allowMvT.Add("106");
+                    allowMvT.Add("161");                    
                     break;
             }
         }
