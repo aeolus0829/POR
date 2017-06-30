@@ -65,13 +65,13 @@
             this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPoItem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvPoItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPoItem.Location = new System.Drawing.Point(13, 116);
+            this.dgvPoItem.Location = new System.Drawing.Point(12, 119);
             this.dgvPoItem.Name = "dgvPoItem";
             this.dgvPoItem.ReadOnly = true;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPoItem.RowTemplate.Height = 24;
-            this.dgvPoItem.Size = new System.Drawing.Size(831, 260);
+            this.dgvPoItem.Size = new System.Drawing.Size(858, 260);
             this.dgvPoItem.TabIndex = 1;
             this.dgvPoItem.TabStop = false;
             // 
@@ -111,13 +111,13 @@
             this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.dgvStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStack.Location = new System.Drawing.Point(13, 395);
+            this.dgvStack.Location = new System.Drawing.Point(12, 386);
             this.dgvStack.Name = "dgvStack";
             this.dgvStack.ReadOnly = true;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStack.RowTemplate.Height = 24;
-            this.dgvStack.Size = new System.Drawing.Size(831, 241);
+            this.dgvStack.Size = new System.Drawing.Size(858, 224);
             this.dgvStack.TabIndex = 4;
             this.dgvStack.TabStop = false;
             // 
@@ -169,13 +169,14 @@
             this.btnRestart.TabStop = false;
             this.toolTip1.SetToolTip(this.btnRestart, "重新開始");
             this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // lblPoDocType
             // 
             this.lblPoDocType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoDocType.AutoSize = true;
             this.lblPoDocType.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoDocType.Location = new System.Drawing.Point(617, 15);
+            this.lblPoDocType.Location = new System.Drawing.Point(642, 15);
             this.lblPoDocType.Name = "lblPoDocType";
             this.lblPoDocType.Size = new System.Drawing.Size(88, 16);
             this.lblPoDocType.TabIndex = 9;
@@ -196,7 +197,7 @@
             this.lblPoDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPoDate.AutoSize = true;
             this.lblPoDate.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoDate.Location = new System.Drawing.Point(379, 18);
+            this.lblPoDate.Location = new System.Drawing.Point(392, 18);
             this.lblPoDate.Name = "lblPoDate";
             this.lblPoDate.Size = new System.Drawing.Size(88, 16);
             this.lblPoDate.TabIndex = 12;
@@ -207,7 +208,7 @@
             this.lblPoGrp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoGrp.AutoSize = true;
             this.lblPoGrp.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoGrp.Location = new System.Drawing.Point(617, 46);
+            this.lblPoGrp.Location = new System.Drawing.Point(642, 46);
             this.lblPoGrp.Name = "lblPoGrp";
             this.lblPoGrp.Size = new System.Drawing.Size(88, 16);
             this.lblPoGrp.TabIndex = 13;
@@ -218,7 +219,7 @@
             this.lblPoDocTypeVal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoDocTypeVal.AutoSize = true;
             this.lblPoDocTypeVal.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoDocTypeVal.Location = new System.Drawing.Point(698, 15);
+            this.lblPoDocTypeVal.Location = new System.Drawing.Point(723, 15);
             this.lblPoDocTypeVal.Name = "lblPoDocTypeVal";
             this.lblPoDocTypeVal.Size = new System.Drawing.Size(0, 16);
             this.lblPoDocTypeVal.TabIndex = 15;
@@ -246,7 +247,7 @@
             this.lblPoGrpVal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoGrpVal.AutoSize = true;
             this.lblPoGrpVal.Font = new System.Drawing.Font("PMingLiU", 12F);
-            this.lblPoGrpVal.Location = new System.Drawing.Point(698, 46);
+            this.lblPoGrpVal.Location = new System.Drawing.Point(723, 46);
             this.lblPoGrpVal.Name = "lblPoGrpVal";
             this.lblPoGrpVal.Size = new System.Drawing.Size(0, 16);
             this.lblPoGrpVal.TabIndex = 18;
@@ -256,9 +257,9 @@
             this.statusStrip2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 577);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 613);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(857, 22);
+            this.statusStrip2.Size = new System.Drawing.Size(882, 22);
             this.statusStrip2.TabIndex = 19;
             this.statusStrip2.Text = "statusStrip2";
             // 
@@ -271,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 599);
+            this.ClientSize = new System.Drawing.Size(882, 635);
             this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.lblPoGrpVal);
             this.Controls.Add(this.lblPoDateVal);

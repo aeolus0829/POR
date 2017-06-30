@@ -451,7 +451,7 @@ namespace POR
 
             if (selectedRowCount > 0) //有在 PO item 選取資料
             {
-                if (dgvStack.Rows.Count == 0) // 第一次存放選取的資料前，需先產生欄位及名稱
+                if (dtStack.Columns.Count == 0) // 第一次存放選取的資料前，需先產生欄位及名稱
                 {
                     foreach (DataGridViewColumn dgvCol in dgvPoItem.Columns) dtStack.Columns.Add(dgvCol.Name, typeof(string));
                 } 
@@ -493,12 +493,18 @@ namespace POR
                 ReturnValueCallback(dtStack);
 
                 btnClear.PerformClick();
-                dgvPoItem.DataSource = dgvStack.DataSource = null;
 
                 this.Hide();
 
                 Application.OpenForms[0].Show();
             }
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            btnClear.PerformClick();
+            dgvStack.DataSource = null;
+            dtStack.Clear();
         }
     }
 }
