@@ -11,7 +11,7 @@ using System;
 /// 針對 windows form 設計
 /// 
 /// 使用順序：
-/// GetDomainUserName->GetUserID->GetGroupLists->SearchInGroups
+/// GetDomainUserID->GetDomainUserName->GetGroupLists->SearchInGroups
 /// 
 /// 註：
 /// 1 System.DirectoryServices.AccountManagement 必須用加入參考(Add reference)的方式
@@ -30,7 +30,7 @@ namespace ADAuth
 
         string domainName = "Motorpro-sbs";
 
-        public string GetDomainUserName()
+        public string GetDomainUserID()
         {
             string domainUserName = Environment.UserName;
             return domainUserName;
@@ -57,7 +57,7 @@ namespace ADAuth
             return domainName;
         }
 
-        public string GetUserID(string domainUsers)
+        public string GetDomainUserName(string domainUsers)
         {
             UserPrincipal user = UserPrincipal.Current;
             return user.ToString();

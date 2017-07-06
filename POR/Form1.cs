@@ -24,6 +24,7 @@ namespace POR
 
         private void checkSLoc(string materialNum)
         {
+            needSLoc = false;
             if (mvT == "105" || mvT == "106" || mvT == "161" || mvT == "162")
             {
                 if (!string.IsNullOrEmpty(materialNum)) needSLoc = true;
@@ -413,8 +414,8 @@ namespace POR
             //取得使用者資訊
             Auth auth = new Auth();
             auth.allowADGroups = allowADGroups;
-            domainUserID = auth.GetDomainUserName();
-            domainUserName = auth.GetUserID(domainUserID);
+            domainUserID = auth.GetDomainUserID();
+            domainUserName = auth.GetDomainUserName(domainUserID);
             userGroups = auth.GetGroupLists(domainUserName);
 
             //判斷使用者群組
