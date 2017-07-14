@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPoItem = new System.Windows.Forms.DataGridView();
             this.lblInputPO = new System.Windows.Forms.Label();
             this.txtPONum = new System.Windows.Forms.TextBox();
@@ -61,15 +61,17 @@
             // 
             // dgvPoItem
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPoItem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvPoItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvPoItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPoItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPoItem.Location = new System.Drawing.Point(12, 119);
             this.dgvPoItem.Name = "dgvPoItem";
             this.dgvPoItem.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvPoItem.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPoItem.RowTemplate.Height = 24;
             this.dgvPoItem.Size = new System.Drawing.Size(858, 260);
             this.dgvPoItem.TabIndex = 1;
@@ -107,15 +109,16 @@
             // 
             // dgvStack
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
-            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvStack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)), true);
+            this.dgvStack.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvStack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvStack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStack.Location = new System.Drawing.Point(12, 386);
             this.dgvStack.Name = "dgvStack";
             this.dgvStack.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStack.RowTemplate.Height = 24;
             this.dgvStack.Size = new System.Drawing.Size(858, 224);
             this.dgvStack.TabIndex = 4;
@@ -194,7 +197,7 @@
             // 
             // lblPoDate
             // 
-            this.lblPoDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblPoDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPoDate.AutoSize = true;
             this.lblPoDate.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.lblPoDate.Location = new System.Drawing.Point(392, 18);
@@ -254,12 +257,15 @@
             // 
             // statusStrip2
             // 
+            this.statusStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.statusStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip2.Location = new System.Drawing.Point(0, 613);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(882, 22);
+            this.statusStrip2.Size = new System.Drawing.Size(17, 22);
             this.statusStrip2.TabIndex = 19;
             this.statusStrip2.Text = "statusStrip2";
             // 

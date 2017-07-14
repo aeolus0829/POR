@@ -373,9 +373,9 @@ namespace POR
         {
             //開發資訊
             formName = "POR";
-            isTesting = true;
-            formVersion = "0.32";
-            connClient = "620";
+            isTesting = false;
+            formVersion = "1.0";
+            connClient = "800";
             poForm.connClient = connClient;
 
             this.KeyPreview = true;

@@ -56,14 +56,15 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.statusStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip1.Font = new System.Drawing.Font("Microsoft JhengHei", 14F);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(5, 448);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(48, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(17, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -120,7 +121,9 @@
             // 
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvPO.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvPO.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvPO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
@@ -166,7 +169,6 @@
             // 
             // btnToSap
             // 
-            this.btnToSap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnToSap.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.btnToSap.Image = ((System.Drawing.Image)(resources.GetObject("btnToSap.Image")));
             this.btnToSap.Location = new System.Drawing.Point(108, 45);
@@ -213,7 +215,6 @@
             // 
             // txtMdMemo
             // 
-            this.txtMdMemo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtMdMemo.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.txtMdMemo.Location = new System.Drawing.Point(238, 10);
             this.txtMdMemo.MaxLength = 20;
@@ -243,7 +244,7 @@
             // 
             // btnRestart
             // 
-            this.btnRestart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestart.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnRestart.Font = new System.Drawing.Font("PMingLiU", 12F);
             this.btnRestart.Image = ((System.Drawing.Image)(resources.GetObject("btnRestart.Image")));
             this.btnRestart.Location = new System.Drawing.Point(621, 45);

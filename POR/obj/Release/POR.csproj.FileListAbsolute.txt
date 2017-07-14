@@ -1,0 +1,11 @@
+N:\資訊\Code\winform\POR\POR\bin\Release\POR.exe.config
+N:\資訊\Code\winform\POR\POR\bin\Release\POR.exe
+N:\資訊\Code\winform\POR\POR\bin\Release\POR.pdb
+N:\資訊\Code\winform\POR\POR\bin\Release\sapnco.dll
+N:\資訊\Code\winform\POR\POR\bin\Release\sapnco_utils.dll
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.Form1.resources
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.Form2.resources
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.Properties.Resources.resources
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.csproj.GenerateResource.Cache
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.exe
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.pdb
