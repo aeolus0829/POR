@@ -9,3 +9,4 @@ N:\資訊\Code\winform\POR\POR\obj\Release\POR.Properties.Resources.resources
 N:\資訊\Code\winform\POR\POR\obj\Release\POR.csproj.GenerateResource.Cache
 N:\資訊\Code\winform\POR\POR\obj\Release\POR.exe
 N:\資訊\Code\winform\POR\POR\obj\Release\POR.pdb
+N:\資訊\Code\winform\POR\POR\obj\Release\POR.csprojResolveAssemblyReference.cache

@@ -120,7 +120,7 @@
             dataGridViewCellStyle8.Font = new System.Drawing.Font("PMingLiU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.dgvStack.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvStack.RowTemplate.Height = 24;
-            this.dgvStack.Size = new System.Drawing.Size(858, 224);
+            this.dgvStack.Size = new System.Drawing.Size(858, 210);
             this.dgvStack.TabIndex = 4;
             this.dgvStack.TabStop = false;
             // 
@@ -257,22 +257,20 @@
             // 
             // statusStrip2
             // 
-            this.statusStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.statusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip2.Location = new System.Drawing.Point(0, 613);
+            this.statusStrip2.Location = new System.Drawing.Point(0, 610);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(17, 22);
+            this.statusStrip2.Size = new System.Drawing.Size(882, 25);
             this.statusStrip2.TabIndex = 19;
             this.statusStrip2.Text = "statusStrip2";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(90, 20);
+            this.toolStripStatusLabel1.Text = "123456789";
             // 
             // Form2
             // 

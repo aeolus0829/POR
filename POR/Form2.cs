@@ -16,6 +16,8 @@ namespace POR
         {
             InitializeComponent();
 
+            toolStripStatusLabel1.Text = "";
+
             dtStack = new DataTable();
             dgvPoItem.AllowUserToAddRows = false;
             dgvStack.AllowUserToAddRows = false;

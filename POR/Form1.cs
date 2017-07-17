@@ -374,7 +374,7 @@ namespace POR
             //開發資訊
             formName = "POR";
             isTesting = false;
-            formVersion = "1.0";
+            formVersion = "1.01";
             connClient = "800";
             poForm.connClient = connClient;
 
@@ -498,6 +498,8 @@ namespace POR
 
             lblUserAccountValue.Text = domainUserID;
             lblDisplayNameValue.Text = domainUserName;
+
+            toolStripStatusLabel1.Text = "";
 
         }
     }
