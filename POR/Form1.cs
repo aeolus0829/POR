@@ -374,7 +374,7 @@ namespace POR
             //開發資訊
             formName = "POR";
             isTesting = false;
-            formVersion = "1.01";
+            formVersion = "1.02";
             connClient = "800";
             poForm.connClient = connClient;
 
